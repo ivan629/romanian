@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+/* ─── Tailwind Base ─────────────────────────────────────────── */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Design Tokens ─────────────────────────────────────────── */
+:root {
+  --bg: #fafaf8;
+  --surface: #ffffff;
+  --surface2: #f5f4f1;
+  --border: #e8e6e1;
+  --border2: #d4d1cb;
+  --ink: #1a1a1a;
+  --ink2: #4a4744;
+  --ink3: #8a8580;
+  --ink4: #b5b0a9;
+  --accent: #1e3a5f;
+  --accent2: #2d5f8a;
+  --accentL: #edf2f7;
+  --gold: #a67c37;
+  --goldL: #faf5eb;
+  --green: #2d6a4f;
+  --greenL: #edf7f0;
+  --red: #9b2c2c;
+  --redL: #fdf2f2;
+  --purple: #553c9a;
+  --purpleL: #f5f3ff;
+  --question: #2d5f8a;
+  --questionL: #edf2f7;
+  --questionB: #c5d8e8;
+  --affirm: #2d6a4f;
+  --affirmL: #edf7f0;
+  --affirmB: #bddbc9;
+  --neg: #9b2c2c;
+  --negL: #fdf2f2;
+  --negB: #e8c5c5;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  --shadow2: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+/* ─── Base Styles ───────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 15px;
+}
+
+body {
+  font-family: 'DM Sans', -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── Font Family Utilities ─────────────────────────────────── */
+.font-serif {
+  font-family: 'Crimson Pro', Georgia, serif;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* ─── Speakable Element ─────────────────────────────────────── */
+.speakable::after {
+  content: "🔊";
+  font-size: 0.55em;
+  opacity: 0.25;
+  transition: opacity 0.12s;
+}
+
+.speakable:hover::after {
+  opacity: 0.8;
+}
+
+.speakable.playing {
+  background: var(--goldL);
+}
+
+.speakable.playing::after {
+  opacity: 1;
+}
+
+/* ─── Scrollbar Hide ────────────────────────────────────────── */
+.scrollbar-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* ─── Animation ─────────────────────────────────────────────── */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
