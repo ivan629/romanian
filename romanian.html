@@ -1,0 +1,1936 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polyglot Romanian — 16 Lessons</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #fafaf8;
+            --surface: #ffffff;
+            --surface2: #f5f4f1;
+            --border: #e8e6e1;
+            --border2: #d4d1cb;
+            --ink: #1a1a1a;
+            --ink2: #4a4744;
+            --ink3: #8a8580;
+            --ink4: #b5b0a9;
+            --accent: #1e3a5f;
+            --accent2: #2d5f8a;
+            --accentL: #edf2f7;
+            --gold: #a67c37;
+            --goldL: #faf5eb;
+            --green: #2d6a4f;
+            --greenL: #edf7f0;
+            --red: #9b2c2c;
+            --redL: #fdf2f2;
+            --purple: #553c9a;
+            --purpleL: #f5f3ff;
+            --question: #2d5f8a;
+            --questionL: #edf2f7;
+            --questionB: #c5d8e8;
+            --affirm: #2d6a4f;
+            --affirmL: #edf7f0;
+            --affirmB: #bddbc9;
+            --neg: #9b2c2c;
+            --negL: #fdf2f2;
+            --negB: #e8c5c5;
+            --mono: 'JetBrains Mono', monospace;
+            --serif: 'Crimson Pro', Georgia, serif;
+            --sans: 'DM Sans', -apple-system, sans-serif;
+            --radius: 8px;
+            --shadow: 0 1px 3px rgba(0,0,0,0.04);
+            --shadow2: 0 4px 20px rgba(0,0,0,0.04);
+        }
+
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior: smooth; font-size: 15px; }
+        body { font-family: var(--sans); background: var(--bg); color: var(--ink); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+
+        nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            background: rgba(255,255,255,0.92); backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+            height: 50px; display: flex; align-items: center;
+            padding: 0 2rem; gap: 2rem;
+        }
+        .nav-brand {
+            font-family: var(--serif); font-weight: 700; font-size: 1.05rem;
+            color: var(--accent); white-space: nowrap; letter-spacing: -0.02em;
+        }
+        .nav-scroll {
+            display: flex; gap: 1px; overflow-x: auto; flex: 1;
+            scrollbar-width: none; -ms-overflow-style: none;
+        }
+        .nav-scroll::-webkit-scrollbar { display: none; }
+        .nav-scroll a {
+            color: var(--ink3); text-decoration: none; font-size: 0.7rem;
+            font-weight: 600; padding: 6px 10px; border-radius: 6px;
+            white-space: nowrap; transition: all 0.15s;
+            letter-spacing: 0.06em; text-transform: uppercase;
+        }
+        .nav-scroll a:hover { color: var(--accent); background: var(--accentL); }
+
+        .hero {
+            min-height: 100vh; display: flex; flex-direction: column;
+            align-items: center; justify-content: center; text-align: center;
+            padding: 6rem 2rem 5rem;
+            background: linear-gradient(180deg, #fff 0%, var(--bg) 100%);
+        }
+        .hero-tag {
+            display: inline-flex; align-items: center; gap: 8px;
+            font-size: 0.7rem; font-weight: 600; color: var(--gold);
+            text-transform: uppercase; letter-spacing: 0.15em;
+            margin-bottom: 2rem; padding: 8px 20px;
+            background: var(--goldL); border: 1px solid #ede0c4;
+            border-radius: 100px;
+        }
+        .hero h1 {
+            font-family: var(--serif); font-size: clamp(2.8rem, 5.5vw, 4.2rem);
+            font-weight: 300; color: var(--ink); line-height: 1.15;
+            letter-spacing: -0.03em; margin-bottom: 1rem;
+        }
+        .hero h1 em { font-style: italic; font-weight: 600; color: var(--accent); }
+        .hero-sub {
+            font-size: 1.05rem; color: var(--ink2); max-width: 560px;
+            margin-bottom: 2.5rem; font-weight: 400; line-height: 1.7;
+        }
+        .hero-quote {
+            max-width: 520px; text-align: left;
+            padding: 1.25rem 1.5rem; border-left: 3px solid var(--gold);
+            background: var(--surface); border-radius: 0 var(--radius) var(--radius) 0;
+            box-shadow: var(--shadow2);
+        }
+        .hero-quote p {
+            font-family: var(--serif); font-style: italic;
+            font-size: 1rem; color: var(--ink2); line-height: 1.6;
+        }
+        .hero-quote cite {
+            display: block; margin-top: 0.5rem; font-style: normal;
+            font-size: 0.75rem; color: var(--ink3); letter-spacing: 0.03em;
+        }
+        .audio-hint {
+            display: inline-flex; align-items: center; gap: 6px;
+            margin-top: 2rem; padding: 8px 18px; border-radius: 100px;
+            background: var(--greenL); border: 1px solid #bddbc9;
+            font-size: 0.72rem; font-weight: 600; color: var(--green);
+            cursor: pointer; transition: 0.15s;
+        }
+        .audio-hint:hover { background: #d8eddd; }
+
+        main { max-width: 960px; margin: 0 auto; padding: 0 2rem 6rem; }
+
+        section {
+            margin-bottom: 5rem; scroll-margin-top: 64px;
+            animation: fadeUp 0.4s ease both;
+        }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .lesson-label {
+            display: inline-flex; align-items: center; gap: 10px;
+            margin-bottom: 0.5rem;
+        }
+        .lesson-num {
+            width: 28px; height: 28px; border-radius: 8px;
+            background: var(--accent); color: #fff;
+            font-size: 0.72rem; font-weight: 700;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .lesson-tag {
+            font-size: 0.68rem; font-weight: 600; text-transform: uppercase;
+            letter-spacing: 0.12em; color: var(--accent2);
+        }
+        section > h2 {
+            font-family: var(--serif); font-size: 1.75rem; font-weight: 400;
+            color: var(--ink); letter-spacing: -0.02em; margin-bottom: 0.5rem;
+        }
+        section > h3 {
+            font-family: var(--serif); font-size: 1.2rem; font-weight: 500;
+            color: var(--ink); margin: 2.5rem 0 0.75rem;
+            padding-bottom: 0.5rem; border-bottom: 1px solid var(--border);
+        }
+        section > h4 {
+            font-size: 0.78rem; font-weight: 700; color: var(--accent2);
+            text-transform: uppercase; letter-spacing: 0.08em;
+            margin: 1.5rem 0 0.5rem;
+        }
+        section > p { color: var(--ink2); margin-bottom: 1rem; max-width: 720px; }
+
+        .s {
+            cursor: pointer; display: inline-flex; align-items: center; gap: 3px;
+            transition: 0.12s; border-radius: 3px; padding: 1px 4px; margin: -1px -4px;
+        }
+        .s:hover { background: var(--goldL); }
+        .s::after { content: "🔊"; font-size: 0.55em; opacity: 0.25; transition: 0.12s; }
+        .s:hover::after { opacity: 0.8; }
+        .s.playing { background: var(--goldL); }
+        .s.playing::after { opacity: 1; }
+
+        .matrix-wrap {
+            margin: 1.5rem 0; border-radius: var(--radius); overflow: hidden;
+            border: 1px solid var(--border2); box-shadow: var(--shadow2);
+            background: var(--surface); overflow-x: auto;
+        }
+        .matrix {
+            width: 100%; border-collapse: collapse; font-size: 0.86rem;
+        }
+        .matrix th, .matrix td {
+            padding: 14px 16px; border: 1px solid var(--border);
+            vertical-align: top; text-align: left;
+        }
+        .matrix thead th {
+            background: var(--surface2); font-size: 0.68rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink3);
+            text-align: center; padding: 12px 16px;
+        }
+        .matrix thead th:first-child { text-align: left; }
+        .matrix .col-q { background: var(--questionL); }
+        .matrix .col-a { background: var(--affirmL); }
+        .matrix .col-n { background: var(--negL); }
+        .matrix thead .hdr-q { color: var(--question); border-bottom: 2px solid var(--questionB); }
+        .matrix thead .hdr-a { color: var(--affirm); border-bottom: 2px solid var(--affirmB); }
+        .matrix thead .hdr-n { color: var(--neg); border-bottom: 2px solid var(--negB); }
+        .matrix .row-label {
+            font-weight: 700; font-size: 0.72rem; text-transform: uppercase;
+            letter-spacing: 0.08em; background: var(--surface2); color: var(--ink3);
+            width: 110px; vertical-align: middle;
+        }
+        .matrix .row-label .tense-name {
+            display: block; color: var(--accent); font-size: 0.85rem;
+            font-weight: 600; letter-spacing: 0; text-transform: none;
+        }
+        .matrix .row-label .tense-sub {
+            font-size: 0.65rem; font-weight: 500; color: var(--ink4);
+            letter-spacing: 0; text-transform: none;
+        }
+        .matrix td .ro {
+            font-family: var(--mono); font-weight: 500; font-size: 0.85rem;
+            color: var(--ink); display: block; margin-bottom: 2px;
+            line-height: 1.8;
+        }
+        .matrix td .en {
+            font-size: 0.75rem; color: var(--ink3); font-style: italic;
+        }
+        .matrix .col-q .ro { color: var(--question); }
+        .matrix .col-a .ro { color: var(--affirm); }
+        .matrix .col-n .ro { color: var(--neg); }
+
+        .table-wrap {
+            overflow-x: auto; margin: 1.25rem 0; border-radius: var(--radius);
+            border: 1px solid var(--border); box-shadow: var(--shadow);
+            background: var(--surface);
+        }
+        table.tbl {
+            width: 100%; border-collapse: collapse; font-size: 0.84rem;
+        }
+        table.tbl th, table.tbl td {
+            padding: 10px 14px; border-bottom: 1px solid var(--border); text-align: left;
+        }
+        table.tbl thead th {
+            background: var(--surface2); font-size: 0.68rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink3);
+        }
+        table.tbl .ro { font-family: var(--mono); font-weight: 500; color: var(--ink); }
+        table.tbl .en { color: var(--ink3); }
+        table.tbl .hi { color: var(--gold); font-weight: 600; font-family: var(--mono); }
+
+        .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 10px; margin: 1.5rem 0; }
+        .card {
+            background: var(--surface); border: 1px solid var(--border);
+            border-radius: var(--radius); padding: 1rem 1.15rem;
+            box-shadow: var(--shadow); transition: 0.15s;
+        }
+        .card:hover { border-color: var(--border2); box-shadow: var(--shadow2); }
+
+        .vcard .v-name { font-family: var(--serif); font-size: 1.05rem; color: var(--accent); font-weight: 600; }
+        .vcard .v-en { font-size: 0.75rem; color: var(--ink3); margin-bottom: 0.4rem; }
+        .vcard .v-row {
+            display: flex; justify-content: space-between; align-items: baseline;
+            padding: 3px 0; border-bottom: 1px solid var(--border); font-size: 0.82rem;
+        }
+        .vcard .v-row:last-of-type { border: none; }
+        .vcard .v-label { color: var(--ink3); font-weight: 500; width: 48px; font-size: 0.75rem; }
+        .vcard .v-form { font-family: var(--mono); font-weight: 500; color: var(--ink); }
+        .vcard .v-part {
+            display: inline-block; margin-top: 6px; padding: 2px 10px;
+            background: var(--goldL); color: var(--gold); border-radius: 4px;
+            font-size: 0.72rem; font-family: var(--mono); font-weight: 600;
+        }
+
+        .phrases { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 8px; margin: 1.25rem 0; }
+        .phrase {
+            background: var(--surface); border: 1px solid var(--border);
+            border-radius: var(--radius); padding: 0.75rem 1rem;
+            box-shadow: var(--shadow);
+        }
+        .phrase .ro { font-family: var(--mono); color: var(--ink); font-weight: 500; font-size: 0.86rem; margin-bottom: 2px; }
+        .phrase .en { color: var(--ink3); font-size: 0.78rem; }
+
+        .vocab-section { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent2); display: inline-block; background: var(--accentL); padding: 4px 14px; border-radius: 100px; margin: 1.5rem 0 0.5rem; }
+        .vocab-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(175px, 1fr)); gap: 4px; margin-bottom: 1.5rem; }
+        .vocab-item {
+            display: flex; justify-content: space-between; padding: 5px 10px;
+            background: var(--surface2); border-radius: 5px; font-size: 0.82rem;
+        }
+        .vocab-item .vw { font-family: var(--mono); color: var(--ink); font-weight: 500; }
+        .vocab-item .ve { color: var(--ink3); }
+
+        .num-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 4px; margin: 1rem 0; }
+        .num-item {
+            display: flex; justify-content: space-between; padding: 5px 10px;
+            background: var(--surface2); border-radius: 5px; font-size: 0.82rem;
+        }
+        .num-item .nn { font-family: var(--mono); color: var(--gold); font-weight: 700; min-width: 32px; }
+        .num-item .nw { font-family: var(--mono); color: var(--ink); font-weight: 500; }
+
+        .sound-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 8px; margin: 1rem 0; }
+        .sound-item {
+            background: var(--surface); border: 1px solid var(--border);
+            border-radius: var(--radius); padding: 0.6rem 0.85rem;
+            display: flex; align-items: center; gap: 10px; box-shadow: var(--shadow);
+        }
+        .sound-item .sl {
+            font-family: var(--mono); font-size: 1.3rem; font-weight: 700;
+            color: var(--accent); min-width: 36px; text-align: center;
+        }
+        .sound-item .sd { font-size: 0.82rem; }
+        .sound-item .sp { font-weight: 600; color: var(--ink); }
+        .sound-item .se { color: var(--ink3); font-size: 0.78rem; }
+
+        .box {
+            border-radius: var(--radius); padding: 1.2rem 1.5rem;
+            margin: 1.5rem 0;
+        }
+        .box h4 { margin: 0 0 0.4rem; font-size: 0.82rem; }
+        .box p, .box li { font-size: 0.86rem; color: var(--ink2); margin-bottom: 0.3rem; }
+        .box ul { margin-left: 1.2rem; margin-top: 0.3rem; }
+
+        .box-blue { background: var(--accentL); border: 1px solid #c5d8e8; }
+        .box-blue h4 { color: var(--accent); }
+        .box-gold { background: var(--goldL); border: 1px solid #ede0c4; }
+        .box-gold h4 { color: var(--gold); }
+        .box-orange { background: #fef7ee; border: 1px solid #f5d9b3; }
+        .box-orange h4 { color: #b45309; }
+        .box-teal { background: #edfaf7; border: 1px solid #a7e8d8; }
+        .box-teal h4 { color: #0d7d6c; }
+
+        .drill {
+            background: linear-gradient(135deg, #edfaf0, #edf4fa);
+            border: 1px solid #bddbc9; border-radius: var(--radius);
+            padding: 1.5rem 1.75rem; margin: 2rem 0;
+        }
+        .drill h4 { color: var(--green); margin: 0 0 0.6rem; font-size: 0.88rem; }
+        .drill p { color: var(--ink2); font-size: 0.86rem; margin-bottom: 0.4rem; }
+        .drill .examples {
+            font-family: var(--mono); font-size: 0.84rem;
+            background: rgba(255,255,255,0.7); padding: 12px 16px;
+            border-radius: 6px; margin: 0.75rem 0; line-height: 2;
+            border: 1px solid #d1fae5;
+        }
+
+        .test-box {
+            background: var(--purpleL); border: 1px solid #ddd6fe;
+            border-radius: var(--radius); padding: 1.5rem; margin: 2rem 0;
+        }
+        .test-box h4 { color: var(--purple); font-size: 0.88rem; margin-bottom: 1rem; }
+        .test-item {
+            background: rgba(255,255,255,0.85); border: 1px solid #ddd6fe;
+            border-radius: 6px; padding: 10px 14px; margin-bottom: 6px;
+            cursor: pointer; transition: 0.15s;
+        }
+        .test-item:hover { border-color: var(--purple); }
+        .test-item .tq { font-size: 0.86rem; font-weight: 600; color: var(--ink); }
+        .test-item .ta {
+            font-family: var(--mono); font-size: 0.84rem; color: var(--purple);
+            max-height: 0; overflow: hidden; transition: max-height 0.3s, opacity 0.3s; opacity: 0;
+        }
+        .test-item.open .ta { max-height: 100px; opacity: 1; margin-top: 6px; padding-top: 6px; border-top: 1px dashed #ddd6fe; }
+        .test-item .th { font-size: 0.68rem; color: var(--ink4); font-style: italic; margin-top: 2px; }
+        .test-item.open .th { display: none; }
+
+        .dialogue {
+            background: var(--surface); border: 1px solid var(--border);
+            border-radius: var(--radius); padding: 1.25rem 1.5rem;
+            margin: 1.5rem 0; box-shadow: var(--shadow2);
+        }
+        .dialogue .d-title {
+            font-weight: 700; color: var(--accent2); font-size: 0.72rem;
+            text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.75rem;
+        }
+        .d-line { display: flex; gap: 10px; margin-bottom: 0.5rem; font-size: 0.86rem; }
+        .d-line .d-sp { font-weight: 700; color: var(--gold); min-width: 20px; }
+        .d-line .d-sp.b { color: var(--accent2); }
+        .d-line .d-ro { font-family: var(--mono); color: var(--ink); font-weight: 500; }
+        .d-line .d-en { color: var(--ink3); font-size: 0.76rem; font-style: italic; display: block; }
+
+        .contrast { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 1.25rem 0; }
+        .c-col { border-radius: var(--radius); padding: 1rem 1.15rem; }
+        .c-col.c-yes { background: var(--affirmL); border: 1px solid var(--affirmB); }
+        .c-col.c-no { background: var(--negL); border: 1px solid var(--negB); }
+        .c-col h5 { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.5rem; font-weight: 700; }
+        .c-yes h5 { color: var(--affirm); }
+        .c-no h5 { color: var(--neg); }
+        .c-col .cx { font-family: var(--mono); font-size: 0.84rem; line-height: 1.9; }
+
+        .filler-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 8px; margin: 1rem 0; }
+        .filler-card {
+            background: var(--surface); border: 1px solid var(--border);
+            border-radius: var(--radius); padding: 0.7rem 0.9rem; box-shadow: var(--shadow);
+        }
+        .filler-card .fw { font-family: var(--mono); font-size: 0.95rem; font-weight: 700; color: var(--gold); margin-bottom: 1px; }
+        .filler-card .fm { font-size: 0.8rem; color: var(--ink2); margin-bottom: 3px; }
+        .filler-card .fe { font-family: var(--mono); font-size: 0.8rem; color: var(--ink3); }
+
+        .psych {
+            background: linear-gradient(135deg, var(--goldL), #fdf2f6);
+            border: 1px solid #ede0c4; border-radius: var(--radius);
+            padding: 1.75rem; margin: 1.5rem 0;
+        }
+        .psych h4 { color: var(--gold); font-size: 0.92rem; margin-bottom: 0.75rem; }
+        .psych .question {
+            background: rgba(255,255,255,0.65); padding: 10px 14px;
+            border-radius: 6px; margin: 0.4rem 0;
+            border-left: 3px solid var(--gold); font-style: italic;
+            color: var(--ink2); font-size: 0.88rem;
+        }
+        .psych p { color: var(--ink2); font-size: 0.86rem; margin-bottom: 0.4rem; }
+
+        .principles { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 10px; margin: 1.25rem 0; }
+        .principle {
+            background: var(--surface); border: 1px solid var(--border);
+            border-radius: var(--radius); padding: 1rem 1.15rem; box-shadow: var(--shadow);
+        }
+        .principle .p-num {
+            width: 28px; height: 28px; background: var(--accent); color: #fff;
+            font-weight: 800; border-radius: 7px; display: flex;
+            align-items: center; justify-content: center; font-size: 0.78rem;
+            margin-bottom: 0.5rem;
+        }
+        .principle .p-title { font-weight: 700; color: var(--ink); margin-bottom: 0.15rem; font-size: 0.92rem; }
+        .principle .p-desc { color: var(--ink2); font-size: 0.84rem; }
+
+        .schedule { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 8px; margin: 1rem 0; }
+        .sday {
+            background: var(--surface); border: 1px solid var(--border);
+            border-radius: var(--radius); padding: 0.75rem 1rem; box-shadow: var(--shadow);
+        }
+        .sday .sd-num { font-weight: 800; color: var(--accent); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.2rem; }
+        .sday .sd-task { font-size: 0.82rem; color: var(--ink2); }
+        .sday .sd-task b { color: var(--ink); }
+
+        .template {
+            background: linear-gradient(135deg, var(--goldL), var(--purpleL));
+            border: 1px solid #ede0c4; border-radius: var(--radius);
+            padding: 1.75rem; margin: 2rem 0;
+        }
+        .template .blank {
+            display: inline-block; border-bottom: 2px dashed var(--gold);
+            min-width: 90px; color: var(--gold); font-weight: 600; padding: 0 4px;
+        }
+
+        .example-filled {
+            background: var(--surface); border: 1px solid var(--border);
+            border-radius: var(--radius); padding: 1.5rem 1.75rem;
+            margin: 1.25rem 0; box-shadow: var(--shadow2);
+        }
+
+        footer {
+            text-align: center; padding: 3rem 2rem;
+            border-top: 1px solid var(--border); color: var(--ink3); font-size: 0.82rem;
+        }
+        footer .flag { font-size: 2rem; margin-bottom: 0.5rem; }
+
+        @media (max-width: 768px) {
+            nav .nav-scroll { display: none; }
+            main { padding: 0 1rem 4rem; }
+            .matrix th, .matrix td { padding: 8px 10px; font-size: 0.78rem; }
+            .sound-grid { grid-template-columns: 1fr 1fr; }
+            .contrast { grid-template-columns: 1fr; }
+            .cards { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-brand">🇷🇴 Polyglot Romanian</div>
+    <div class="nav-scroll">
+        <a href="#rules">7 Rules</a>
+        <a href="#L0">L0 Mindset</a>
+        <a href="#L1">L1 Sounds</a>
+        <a href="#L2">L2 Pronouns</a>
+        <a href="#L3">L3 Matrix</a>
+        <a href="#L4">L4 A Fi</a>
+        <a href="#L5">L5 A Avea</a>
+        <a href="#L6">L6 30 Verbs</a>
+        <a href="#L7">L7 Articles</a>
+        <a href="#L8">L8 Adjectives</a>
+        <a href="#L9">L9 Numbers</a>
+        <a href="#L10">L10 Prepositions</a>
+        <a href="#L11">L11 Modals</a>
+        <a href="#L12">L12 Imperfect</a>
+        <a href="#L13">L13 Commands</a>
+        <a href="#L14">L14 Să</a>
+        <a href="#L15">L15 Conditionals</a>
+        <a href="#L16">L16 Advanced</a>
+        <a href="#L17">L17 Review</a>
+        <a href="#vocab">Vocab</a>
+        <a href="#dialogues">Dialogues</a>
+        <a href="#schedule">Schedule</a>
+    </div>
+</nav>
+
+<div class="hero">
+    <div class="hero-tag">Dmitry Petrov's Polyglot 16 Framework</div>
+    <h1>Speak <em>Romanian</em><br>in 16 Lessons</h1>
+    <p class="hero-sub">Every lesson, every matrix, every verb, every phrase. From zero to confident conversation. 500+ words, 32 core verbs, 14 real-life dialogues, and a day-by-day study plan.</p>
+    <div class="hero-quote">
+        <p>"Freedom before correctness: first learn to speak a foreign language, then learn to speak it correctly."</p>
+        <cite>— Dmitry Petrov, polyglot (30+ languages)</cite>
+    </div>
+    <div class="audio-hint" onclick="say('Bună ziua! Bine ați venit la cursul de limba română!')">🔊 Click any Romanian word to hear it</div>
+</div>
+
+<main>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- 7 PRINCIPLES                               -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section id="rules">
+        <div class="lesson-label"><div class="lesson-num">★</div><span class="lesson-tag">Foundation</span></div>
+        <h2>The 7 Petrov Principles</h2>
+        <div class="principles">
+            <div class="principle"><div class="p-num">1</div><div class="p-title">Remove the Fear</div><div class="p-desc">Romanian is phonetic, Romance-based, full of cognates. The barrier is emotional, not intellectual.</div></div>
+            <div class="principle"><div class="p-num">2</div><div class="p-title">Freedom Before Correctness</div><div class="p-desc">Speak from minute one. Wrong endings don't matter yet. Communication first, perfection later.</div></div>
+            <div class="principle"><div class="p-num">3</div><div class="p-title">The Multiplication Table</div><div class="p-desc">Rows = 3 Tenses. Columns = 3 Forms. Master 9 cells → thousands of sentences.</div></div>
+            <div class="principle"><div class="p-num">4</div><div class="p-title">Automatism</div><div class="p-desc">Drill until structures fire without thinking. Like knowing 7×8 = 56 instantly.</div></div>
+            <div class="principle"><div class="p-num">5</div><div class="p-title">High-Frequency Focus</div><div class="p-desc">300 words = 90% of speech. 30 verbs = all daily actions. Focus only on these.</div></div>
+            <div class="principle"><div class="p-num">6</div><div class="p-title">Contextual Learning</div><div class="p-desc">Every word in real sentences. Never isolated flashcards. Always in context.</div></div>
+            <div class="principle"><div class="p-num">7</div><div class="p-title">Regularity Over Volume</div><div class="p-desc">5 min × 5/day beats 1 hour × 1/week. Short frequent bursts wire the brain.</div></div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- LESSON 0                                    -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section id="L0">
+        <div class="lesson-label"><div class="lesson-num">0</div><span class="lesson-tag">Lesson 0 — Breaking the Barrier</span></div>
+        <h2>The Psychological Warm-Up</h2>
+        <p>Before a single grammar rule — we address the <b>real</b> reason you haven't learned a language yet. It's not intelligence. It's fear.</p>
+
+        <div class="psych">
+            <h4>Ask Yourself Honestly</h4>
+            <div class="question">What specifically has stopped me from learning a language before?</div>
+            <div class="question">Am I afraid of sounding foolish? Of being judged?</div>
+            <div class="question">Do I believe I'm "bad at languages" or "too old to learn"?</div>
+            <div class="question">Have I been overwhelmed by grammar rules and textbooks?</div>
+            <p style="margin-top:1rem;font-weight:600;color:var(--gold);">If you answered yes — you are normal. By Lesson 4, Petrov's students were speaking. By Lesson 16, they were having real conversations.</p>
+        </div>
+
+        <h3>The 3 Liberating Truths</h3>
+        <div class="principles">
+            <div class="principle"><div class="p-num">1</div><div class="p-title">You Already Speak a Language</div><div class="p-desc">Your brain already has the machinery. We're just installing new software.</div></div>
+            <div class="principle"><div class="p-num">2</div><div class="p-title">Romanian Is Easy for English Speakers</div><div class="p-desc">It's Romance (like French, Spanish). Thousands of cognates: <span class="s" onclick="say('informație')">informație</span>, <span class="s" onclick="say('situație')">situație</span>, <span class="s" onclick="say('televiziune')">televiziune</span>. It's phonetic — no silent letters.</div></div>
+            <div class="principle"><div class="p-num">3</div><div class="p-title">Mistakes Are the Method</div><div class="p-desc"><b>Wrong Romanian is infinitely better than no Romanian.</b> Every mistake is a micro-lesson.</div></div>
+        </div>
+
+        <div class="box box-gold"><h4>Your Contract With Yourself</h4><p>"I will speak Romanian badly, bravely, and often — starting today." Write it down.</p></div>
+        <div class="box box-blue"><h4>Why 16 Lessons Work</h4><p>Petrov creates a <b>fireproof foundation</b> — a structural skeleton so strong that even if you stop for months, it never fully disappears.</p></div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- LESSON 1                                    -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section id="L1">
+        <div class="lesson-label"><div class="lesson-num">1</div><span class="lesson-tag">Lesson 1 — The Sound System</span></div>
+        <h2>Romanian Pronunciation — It's Phonetic!</h2>
+        <p>Romanian is almost perfectly phonetic. What you see is what you say. Only <b>5 special characters</b> to learn.</p>
+
+        <h3>The 5 Special Characters</h3>
+        <div class="sound-grid">
+            <div class="sound-item"><div class="sl">Ă ă</div><div class="sd"><div class="sp">"uh" — like 'a' in "about"</div><div class="se"><span class="s" onclick="say('băiat')">băiat</span> (boy)</div></div></div>
+            <div class="sound-item"><div class="sl">Â â</div><div class="sd"><div class="sp">"uh" deep — no English equiv.</div><div class="se"><span class="s" onclick="say('câine')">câine</span> (dog)</div></div></div>
+            <div class="sound-item"><div class="sl">Î î</div><div class="sd"><div class="sp">Same as Â — position differs</div><div class="se"><span class="s" onclick="say('în')">în</span> (in)</div></div></div>
+            <div class="sound-item"><div class="sl">Ș ș</div><div class="sd"><div class="sp">"sh" — like "show"</div><div class="se"><span class="s" onclick="say('școală')">școală</span> (school)</div></div></div>
+            <div class="sound-item"><div class="sl">Ț ț</div><div class="sd"><div class="sp">"ts" — like "cats"</div><div class="se"><span class="s" onclick="say('țară')">țară</span> (country)</div></div></div>
+        </div>
+
+        <div class="box box-blue"><h4>Â vs Î</h4><p><b>Â</b> = inside a word (<span class="s" onclick="say('România')">România</span>). <b>Î</b> = start/end of a word (<span class="s" onclick="say('în')">în</span>). They sound <b>exactly the same</b>.</p></div>
+
+        <h3>Consonant Combinations</h3>
+        <div class="sound-grid">
+            <div class="sound-item"><div class="sl">CE</div><div class="sd"><div class="sp">"che" — like "check"</div><div class="se"><span class="s" onclick="say('ce')">ce</span> (what)</div></div></div>
+            <div class="sound-item"><div class="sl">CI</div><div class="sd"><div class="sp">"chi" — like "cheese"</div><div class="se"><span class="s" onclick="say('cinci')">cinci</span> (five)</div></div></div>
+            <div class="sound-item"><div class="sl">CHE</div><div class="sd"><div class="sp">"ke" — like "kept"</div><div class="se"><span class="s" onclick="say('chelner')">chelner</span> (waiter)</div></div></div>
+            <div class="sound-item"><div class="sl">CHI</div><div class="sd"><div class="sp">"ki" — like "kid"</div><div class="se"><span class="s" onclick="say('chiar')">chiar</span> (really)</div></div></div>
+            <div class="sound-item"><div class="sl">GE</div><div class="sd"><div class="sp">"je" — like "jet"</div><div class="se"><span class="s" onclick="say('ger')">ger</span> (frost)</div></div></div>
+            <div class="sound-item"><div class="sl">GI</div><div class="sd"><div class="sp">"ji" — like "jingle"</div><div class="se"><span class="s" onclick="say('girafă')">girafă</span> (giraffe)</div></div></div>
+            <div class="sound-item"><div class="sl">GHE</div><div class="sd"><div class="sp">"ghe" — like "get"</div><div class="se"><span class="s" onclick="say('ghete')">ghete</span> (boots)</div></div></div>
+            <div class="sound-item"><div class="sl">GHI</div><div class="sd"><div class="sp">"gi" — like "give"</div><div class="se"><span class="s" onclick="say('ghid')">ghid</span> (guide)</div></div></div>
+        </div>
+
+        <h3>Vowel Sounds</h3>
+        <div class="table-wrap"><table class="tbl">
+            <thead><tr><th>Letter</th><th>Sound</th><th>Like English</th><th>Example</th></tr></thead>
+            <tbody>
+            <tr><td class="ro">A</td><td>ah</td><td>"father"</td><td class="hi"><span class="s" onclick="say('apă')">apă</span> (water)</td></tr>
+            <tr><td class="ro">E</td><td>eh</td><td>"bed"</td><td class="hi"><span class="s" onclick="say('este')">este</span> (is)</td></tr>
+            <tr><td class="ro">I</td><td>ee</td><td>"see"</td><td class="hi"><span class="s" onclick="say('iubi')">iubi</span> (to love)</td></tr>
+            <tr><td class="ro">O</td><td>oh</td><td>"more"</td><td class="hi"><span class="s" onclick="say('om')">om</span> (man)</td></tr>
+            <tr><td class="ro">U</td><td>oo</td><td>"food"</td><td class="hi"><span class="s" onclick="say('unu')">unu</span> (one)</td></tr>
+            </tbody></table></div>
+
+        <div class="box box-gold"><h4>Stress Rule</h4><p>Generally on the <b>second-to-last syllable</b> (~80% of words). Unlike French, <b>every letter is pronounced</b>.</p></div>
+
+        <div class="box box-orange"><h4>Common Stress Exceptions</h4>
+            <p style="font-family:var(--mono);font-size:.85rem;line-height:2;margin-top:.4rem;">
+                <span class="s" onclick="say('copíl')">co<b>PÍL</b></span> (child) · <span class="s" onclick="say('băiát')">bă<b>IÁT</b></span> (boy) · <span class="s" onclick="say('cafea')">ca<b>FEA</b></span> (coffee)<br>
+                <span class="s" onclick="say('cásă')"><b>CÁ</b>să</span> (house) · <span class="s" onclick="say('fátă')"><b>FÁ</b>tă</span> (girl) · <span class="s" onclick="say('másă')"><b>MÁ</b>să</span> (table)
+            </p></div>
+
+        <div class="drill"><h4>Drill — Read These Aloud</h4>
+            <div class="examples">
+                <span class="s" onclick="say('mulțumesc')">mulțumesc</span> = thank you · <span class="s" onclick="say('bună ziua')">bună ziua</span> = good day · <span class="s" onclick="say('vă rog')">vă rog</span> = please<br>
+                <span class="s" onclick="say('da')">da</span> / <span class="s" onclick="say('nu')">nu</span> = yes / no · <span class="s" onclick="say('România')">România</span> = Romania · <span class="s" onclick="say('București')">București</span> = Bucharest
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- LESSON 2                                    -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section id="L2">
+        <div class="lesson-label"><div class="lesson-num">2</div><span class="lesson-tag">Lesson 2 — Pronouns & Question Words</span></div>
+        <h2>The Building Blocks of Every Sentence</h2>
+
+        <h3>Subject Pronouns</h3>
+        <div class="table-wrap"><table class="tbl">
+            <thead><tr><th>Romanian</th><th>English</th><th>Tip</th></tr></thead>
+            <tbody>
+            <tr><td class="ro"><span class="s" onclick="say('eu')">eu</span></td><td>I</td><td class="en">sounds like "yeh-oo"</td></tr>
+            <tr><td class="ro"><span class="s" onclick="say('tu')">tu</span></td><td>you (informal)</td><td class="en">like French "tu"</td></tr>
+            <tr><td class="ro"><span class="s" onclick="say('el')">el</span> / <span class="s" onclick="say('ea')">ea</span></td><td>he / she</td><td class="en"></td></tr>
+            <tr><td class="ro"><span class="s" onclick="say('noi')">noi</span></td><td>we</td><td class="en">like French "nous"</td></tr>
+            <tr><td class="ro"><span class="s" onclick="say('voi')">voi</span></td><td>you (plural)</td><td class="en">like French "vous"</td></tr>
+            <tr><td class="ro"><span class="s" onclick="say('ei')">ei</span> / <span class="s" onclick="say('ele')">ele</span></td><td>they (m / f)</td><td class="en"></td></tr>
+            </tbody></table></div>
+
+        <div class="box box-blue"><h4>Formal "You" — Dumneavoastră</h4>
+            <p>Use <b><span class="s" onclick="say('dumneavoastră')">dumneavoastră</span></b> with strangers, older people, officials. Takes <b>voi</b> verb forms. Romanian formality is <b>strict</b>.</p>
+            <p style="margin-top:.4rem;font-family:var(--mono);font-size:.85rem;"><span class="s" onclick="say('Dumneavoastră vorbiți românește?')">Dumneavoastră vorbiți românește?</span> — Do you (formal) speak Romanian?</p>
+        </div>
+
+        <h3>Object Pronouns</h3>
+        <div class="table-wrap"><table class="tbl">
+            <thead><tr><th>Subject</th><th>Direct Object</th><th>Indirect Object</th><th>After Prep.</th></tr></thead>
+            <tbody>
+            <tr><td class="ro">eu</td><td class="hi"><span class="s" onclick="say('mă')">mă</span></td><td class="hi"><span class="s" onclick="say('îmi')">îmi</span></td><td class="hi">mine</td></tr>
+            <tr><td class="ro">tu</td><td class="hi"><span class="s" onclick="say('te')">te</span></td><td class="hi"><span class="s" onclick="say('îți')">îți</span></td><td class="hi">tine</td></tr>
+            <tr><td class="ro">el</td><td class="hi"><span class="s" onclick="say('îl')">îl</span></td><td class="hi"><span class="s" onclick="say('îi')">îi</span></td><td class="hi">el</td></tr>
+            <tr><td class="ro">ea</td><td class="hi"><span class="s" onclick="say('o')">o</span></td><td class="hi">îi</td><td class="hi">ea</td></tr>
+            <tr><td class="ro">noi</td><td class="hi"><span class="s" onclick="say('ne')">ne</span></td><td class="hi">ne</td><td class="hi">noi</td></tr>
+            <tr><td class="ro">voi</td><td class="hi"><span class="s" onclick="say('vă')">vă</span></td><td class="hi">vă</td><td class="hi">voi</td></tr>
+            <tr><td class="ro">ei/ele</td><td class="hi">îi/le</td><td class="hi">le</td><td class="hi">ei/ele</td></tr>
+            </tbody></table></div>
+
+        <h3>"Pe" — The Personal Accusative</h3>
+        <div class="box box-orange"><h4>Use "PE" Before People</h4>
+            <p style="font-family:var(--mono);font-size:.85rem;line-height:2;margin-top:.4rem;">
+                <span class="s" onclick="say('Îl văd pe Mihai.')">Îl văd <b>pe</b> Mihai.</span> — I see Mihai. ✅<br>
+                <span class="s" onclick="say('Văd mașina.')">Văd mașina.</span> — I see the car. ✅ (no "pe" — thing)<br>
+                <span class="s" onclick="say('Pe cine cauți?')"><b>Pe cine</b> cauți?</span> — Who are you looking for?
+            </p>
+            <p style="margin-top:.4rem;">Person = use "pe." Thing = no "pe."</p>
+        </div>
+
+        <h3>Demonstratives — This / That</h3>
+        <div class="table-wrap"><table class="tbl">
+            <thead><tr><th>English</th><th>Formal</th><th>Colloquial</th><th>Example</th></tr></thead>
+            <tbody>
+            <tr><td>this (m)</td><td class="hi">acest</td><td class="hi"><span class="s" onclick="say('ăsta')">ăsta</span></td><td class="en"><span class="s" onclick="say('Ăsta e bun.')">Ăsta e bun.</span></td></tr>
+            <tr><td>this (f)</td><td class="hi">această</td><td class="hi"><span class="s" onclick="say('asta')">asta</span></td><td class="en"><span class="s" onclick="say('Vreau asta.')">Vreau asta.</span></td></tr>
+            <tr><td>that (m)</td><td class="hi">acel</td><td class="hi"><span class="s" onclick="say('ăla')">ăla</span></td><td class="en"><span class="s" onclick="say('Ăla e scump.')">Ăla e scump.</span></td></tr>
+            <tr><td>that (f)</td><td class="hi">acea</td><td class="hi"><span class="s" onclick="say('aia')">aia</span></td><td class="en"><span class="s" onclick="say('Nu vreau aia.')">Nu vreau aia.</span></td></tr>
+            <tr><td>these (m)</td><td class="hi">acești</td><td class="hi"><span class="s" onclick="say('ăștia')">ăștia</span></td><td class="en"><span class="s" onclick="say('Ăștia sunt buni.')">Ăștia sunt buni.</span></td></tr>
+            <tr><td>these (f)</td><td class="hi">aceste</td><td class="hi"><span class="s" onclick="say('astea')">astea</span></td><td class="en"><span class="s" onclick="say('Astea sunt ieftine.')">Astea sunt ieftine.</span></td></tr>
+            <tr><td>those (m)</td><td class="hi">acei</td><td class="hi"><span class="s" onclick="say('ăia')">ăia</span></td><td class="en"></td></tr>
+            <tr><td>those (f)</td><td class="hi">acele</td><td class="hi"><span class="s" onclick="say('alea')">alea</span></td><td class="en"><span class="s" onclick="say('Alea costă mult.')">Alea costă mult.</span></td></tr>
+            </tbody></table></div>
+        <div class="box box-gold"><h4>In Real Life</h4><p>Nobody says "această" in conversation. Use <b>ăsta/asta/ăla/aia</b>.</p></div>
+
+        <h3>Question Words — The 10 Essentials</h3>
+        <div class="sound-grid">
+            <div class="sound-item"><div class="sl"><span class="s" onclick="say('ce')">ce?</span></div><div class="sd"><div class="sp">what?</div><div class="se"><span class="s" onclick="say('Ce faci?')">Ce faci?</span></div></div></div>
+            <div class="sound-item"><div class="sl"><span class="s" onclick="say('cine')">cine?</span></div><div class="sd"><div class="sp">who?</div><div class="se"><span class="s" onclick="say('Cine este?')">Cine este?</span></div></div></div>
+            <div class="sound-item"><div class="sl"><span class="s" onclick="say('unde')">unde?</span></div><div class="sd"><div class="sp">where?</div><div class="se"><span class="s" onclick="say('Unde mergi?')">Unde mergi?</span></div></div></div>
+            <div class="sound-item"><div class="sl"><span class="s" onclick="say('când')">când?</span></div><div class="sd"><div class="sp">when?</div><div class="se"><span class="s" onclick="say('Când pleci?')">Când pleci?</span></div></div></div>
+            <div class="sound-item"><div class="sl"><span class="s" onclick="say('cum')">cum?</span></div><div class="sd"><div class="sp">how?</div><div class="se"><span class="s" onclick="say('Cum te cheamă?')">Cum te cheamă?</span></div></div></div>
+            <div class="sound-item"><div class="sl"><span class="s" onclick="say('de ce')">de ce?</span></div><div class="sd"><div class="sp">why?</div><div class="se"><span class="s" onclick="say('De ce plângi?')">De ce plângi?</span></div></div></div>
+            <div class="sound-item"><div class="sl"><span class="s" onclick="say('cât')">cât?</span></div><div class="sd"><div class="sp">how much?</div><div class="se"><span class="s" onclick="say('Cât costă?')">Cât costă?</span></div></div></div>
+            <div class="sound-item"><div class="sl"><span class="s" onclick="say('câți')">câți?</span></div><div class="sd"><div class="sp">how many?</div><div class="se"><span class="s" onclick="say('Câți ani ai?')">Câți ani ai?</span></div></div></div>
+            <div class="sound-item"><div class="sl"><span class="s" onclick="say('care')">care?</span></div><div class="sd"><div class="sp">which?</div><div class="se"><span class="s" onclick="say('Care este?')">Care este?</span></div></div></div>
+            <div class="sound-item"><div class="sl"><span class="s" onclick="say('al cui')">al cui?</span></div><div class="sd"><div class="sp">whose?</div><div class="se"><span class="s" onclick="say('Al cui este?')">Al cui este?</span></div></div></div>
+        </div>
+
+        <h3>Survival Communication</h3>
+        <div class="box box-teal"><h4>When You Don't Understand</h4>
+            <p style="font-family:var(--mono);font-size:.85rem;line-height:2.2;">
+                <span class="s" onclick="say('Nu înțeleg.')">Nu înțeleg.</span> — I don't understand.<br>
+                <span class="s" onclick="say('Puteți repeta, vă rog?')">Puteți repeta, vă rog?</span> — Can you repeat, please?<br>
+                <span class="s" onclick="say('Mai încet, vă rog.')">Mai încet, vă rog.</span> — Slower, please.<br>
+                <span class="s" onclick="say('Ce înseamnă asta?')">Ce înseamnă asta?</span> — What does that mean?<br>
+                <span class="s" onclick="say('Vorbiți engleză?')">Vorbiți engleză?</span> — Do you speak English?
+            </p></div>
+
+        <div class="test-box"><h4>Self-Test</h4>
+            <div class="test-item" onclick="this.classList.toggle('open')"><div class="tq">"What is your name?" (informal)</div><div class="ta"><span class="s" onclick="event.stopPropagation();say('Cum te cheamă?')">Cum te cheamă?</span></div><div class="th">Click to reveal</div></div>
+            <div class="test-item" onclick="this.classList.toggle('open')"><div class="tq">"I see Maria" (don't forget pe!)</div><div class="ta"><span class="s" onclick="event.stopPropagation();say('O văd pe Maria.')">O văd pe Maria.</span></div><div class="th">Click to reveal</div></div>
+            <div class="test-item" onclick="this.classList.toggle('open')"><div class="tq">"Can you repeat, please?"</div><div class="ta"><span class="s" onclick="event.stopPropagation();say('Puteți repeta, vă rog?')">Puteți repeta, vă rog?</span></div><div class="th">Click to reveal</div></div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- LESSON 3 — THE MATRIX                      -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section id="L3">
+        <div class="lesson-label"><div class="lesson-num">3</div><span class="lesson-tag">The Most Important Lesson</span></div>
+        <h2>The Verb Matrix — Petrov's "Multiplication Table"</h2>
+        <p>3 Tenses × 3 Forms = <b>9 sentence types</b>. Master this and you can say almost anything.</p>
+
+        <div class="box box-teal"><h4>Don't Panic</h4><p>Start with just the <b>"eu" (I)</b> row. Once natural, add "tu" and "el/ea." Focus on <b>speed</b>, not perfection.</p></div>
+
+        <h3>The 3 Key Patterns</h3>
+        <div class="principles">
+            <div class="principle"><div class="p-num">?</div><div class="p-title">Question</div><div class="p-desc">Invert or use rising intonation. <b><span class="s" onclick="say('Vorbesc eu?')">Vorbesc eu?</span></b></div></div>
+            <div class="principle"><div class="p-num">+</div><div class="p-title">Affirmative</div><div class="p-desc">Subject + verb. <b><span class="s" onclick="say('Eu vorbesc.')">Eu vorbesc.</span></b></div></div>
+            <div class="principle"><div class="p-num">−</div><div class="p-title">Negative</div><div class="p-desc">Add <b>NU</b> before the verb. <b><span class="s" onclick="say('Eu nu vorbesc.')">Eu nu vorbesc.</span></b></div></div>
+        </div>
+
+        <div class="box box-blue"><h4>The 3 Tenses You Need</h4>
+            <p><b>Future (colloquial)</b> = o să + subjunctive. <b>Present</b> = conjugated verb. <b>Past</b> = am + participle. That's 90% of daily speech.</p>
+            <p style="margin-top:.4rem;">Formal future uses <b>voi + infinitive</b>: <span class="s" onclick="say('Voi vorbi.')">Voi vorbi.</span> — for news, books, formal settings.</p>
+        </div>
+
+        <h3>Matrix 1: A VORBI (to speak) — "eu" form</h3>
+        <div class="matrix-wrap"><table class="matrix">
+            <thead><tr><th></th><th class="hdr-q">❓ Question (?)</th><th class="hdr-a">✅ Affirmative (+)</th><th class="hdr-n">❌ Negative (−)</th></tr></thead>
+            <tbody>
+            <tr>
+                <td class="row-label"><span class="tense-name">Future</span><span class="tense-sub">Colloquial</span></td>
+                <td class="col-q"><span class="ro"><span class="s" onclick="say('O să vorbesc?')">O să vorbesc?</span></span><span class="en">Will I speak?</span></td>
+                <td class="col-a"><span class="ro"><span class="s" onclick="say('Eu o să vorbesc.')">Eu o să vorbesc.</span></span><span class="en">I will speak.</span></td>
+                <td class="col-n"><span class="ro"><span class="s" onclick="say('N-o să vorbesc.')">N-o să vorbesc.</span></span><span class="en">I won't speak.</span></td>
+            </tr>
+            <tr>
+                <td class="row-label"><span class="tense-name">Present</span><span class="tense-sub">Indicative</span></td>
+                <td class="col-q"><span class="ro"><span class="s" onclick="say('Vorbesc eu?')">Vorbesc eu?</span></span><span class="en">Do I speak?</span></td>
+                <td class="col-a"><span class="ro"><span class="s" onclick="say('Eu vorbesc.')">Eu vorbesc.</span></span><span class="en">I speak.</span></td>
+                <td class="col-n"><span class="ro"><span class="s" onclick="say('Eu nu vorbesc.')">Eu nu vorbesc.</span></span><span class="en">I don't speak.</span></td>
+            </tr>
+            <tr>
+                <td class="row-label"><span class="tense-name">Past</span><span class="tense-sub">Perfect Compus</span></td>
+                <td class="col-q"><span class="ro"><span class="s" onclick="say('Am vorbit eu?')">Am vorbit eu?</span></span><span class="en">Did I speak?</span></td>
+                <td class="col-a"><span class="ro"><span class="s" onclick="say('Eu am vorbit.')">Eu am vorbit.</span></span><span class="en">I spoke.</span></td>
+                <td class="col-n"><span class="ro"><span class="s" onclick="say('Eu nu am vorbit.')">Eu nu am vorbit.</span></span><span class="en">I didn't speak.</span></td>
+            </tr>
+            </tbody></table></div>
+
+        <h3>Matrix 2: A LUCRA (to work) — ALL 6 Persons</h3>
+        <div class="matrix-wrap"><table class="matrix">
+            <thead><tr><th></th><th class="hdr-q">❓ Question</th><th class="hdr-a">✅ Affirmative</th><th class="hdr-n">❌ Negative</th></tr></thead>
+            <tbody>
+            <tr>
+                <td class="row-label"><span class="tense-name">Future</span></td>
+                <td class="col-q"><span class="ro">O să lucrez?<br>O să lucrezi?<br>O să lucreze?<br>O să lucrăm?<br>O să lucrați?<br>O să lucreze?</span></td>
+                <td class="col-a"><span class="ro"><span class="s" onclick="say('Eu o să lucrez.')">Eu o să lucrez.</span><br><span class="s" onclick="say('Tu o să lucrezi.')">Tu o să lucrezi.</span><br><span class="s" onclick="say('El o să lucreze.')">El o să lucreze.</span><br><span class="s" onclick="say('Noi o să lucrăm.')">Noi o să lucrăm.</span><br><span class="s" onclick="say('Voi o să lucrați.')">Voi o să lucrați.</span><br><span class="s" onclick="say('Ei o să lucreze.')">Ei o să lucreze.</span></span></td>
+                <td class="col-n"><span class="ro">N-o să lucrez.<br>N-o să lucrezi.<br>N-o să lucreze.<br>N-o să lucrăm.<br>N-o să lucrați.<br>N-o să lucreze.</span></td>
+            </tr>
+            <tr>
+                <td class="row-label"><span class="tense-name">Present</span></td>
+                <td class="col-q"><span class="ro">Lucrez eu?<br>Lucrezi tu?<br>Lucrează el?<br>Lucrăm noi?<br>Lucrați voi?<br>Lucrează ei?</span></td>
+                <td class="col-a"><span class="ro"><span class="s" onclick="say('Eu lucrez.')">Eu lucrez.</span><br><span class="s" onclick="say('Tu lucrezi.')">Tu lucrezi.</span><br><span class="s" onclick="say('El lucrează.')">El lucrează.</span><br><span class="s" onclick="say('Noi lucrăm.')">Noi lucrăm.</span><br><span class="s" onclick="say('Voi lucrați.')">Voi lucrați.</span><br><span class="s" onclick="say('Ei lucrează.')">Ei lucrează.</span></span></td>
+                <td class="col-n"><span class="ro">Eu nu lucrez.<br>Tu nu lucrezi.<br>El nu lucrează.<br>Noi nu lucrăm.<br>Voi nu lucrați.<br>Ei nu lucrează.</span></td>
+            </tr>
+            <tr>
+                <td class="row-label"><span class="tense-name">Past</span></td>
+                <td class="col-q"><span class="ro">Am lucrat eu?<br>Ai lucrat tu?<br>A lucrat el?<br>Am lucrat noi?<br>Ați lucrat voi?<br>Au lucrat ei?</span></td>
+                <td class="col-a"><span class="ro"><span class="s" onclick="say('Eu am lucrat.')">Eu am lucrat.</span><br><span class="s" onclick="say('Tu ai lucrat.')">Tu ai lucrat.</span><br><span class="s" onclick="say('El a lucrat.')">El a lucrat.</span><br><span class="s" onclick="say('Noi am lucrat.')">Noi am lucrat.</span><br><span class="s" onclick="say('Voi ați lucrat.')">Voi ați lucrat.</span><br><span class="s" onclick="say('Ei au lucrat.')">Ei au lucrat.</span></span></td>
+                <td class="col-n"><span class="ro">Eu nu am lucrat.<br>Tu nu ai lucrat.<br>El nu a lucrat.<br>Noi nu am lucrat.<br>Voi nu ați lucrat.<br>Ei nu au lucrat.</span></td>
+            </tr>
+            </tbody></table></div>
+
+        <h3>Matrix 3: A FACE (to do/make) — ALL 6 Persons</h3>
+        <div class="matrix-wrap"><table class="matrix">
+            <thead><tr><th></th><th class="hdr-q">❓ Question</th><th class="hdr-a">✅ Affirmative</th><th class="hdr-n">❌ Negative</th></tr></thead>
+            <tbody>
+            <tr>
+                <td class="row-label"><span class="tense-name">Future</span></td>
+                <td class="col-q"><span class="ro">O să fac?<br>O să faci?<br>O să facă?<br>O să facem?<br>O să faceți?<br>O să facă?</span></td>
+                <td class="col-a"><span class="ro">Eu o să fac.<br>Tu o să faci.<br>El o să facă.<br>Noi o să facem.<br>Voi o să faceți.<br>Ei o să facă.</span></td>
+                <td class="col-n"><span class="ro">N-o să fac.<br>N-o să faci.<br>N-o să facă.<br>N-o să facem.<br>N-o să faceți.<br>N-o să facă.</span></td>
+            </tr>
+            <tr>
+                <td class="row-label"><span class="tense-name">Present</span></td>
+                <td class="col-q"><span class="ro">Fac eu?<br>Faci tu?<br>Face el?<br>Facem noi?<br>Faceți voi?<br>Fac ei?</span></td>
+                <td class="col-a"><span class="ro"><span class="s" onclick="say('Eu fac.')">Eu fac.</span><br><span class="s" onclick="say('Tu faci.')">Tu faci.</span><br><span class="s" onclick="say('El face.')">El face.</span><br><span class="s" onclick="say('Noi facem.')">Noi facem.</span><br><span class="s" onclick="say('Voi faceți.')">Voi faceți.</span><br><span class="s" onclick="say('Ei fac.')">Ei fac.</span></span></td>
+                <td class="col-n"><span class="ro">Eu nu fac.<br>Tu nu faci.<br>El nu face.<br>Noi nu facem.<br>Voi nu faceți.<br>Ei nu fac.</span></td>
+            </tr>
+            <tr>
+                <td class="row-label"><span class="tense-name">Past</span></td>
+                <td class="col-q"><span class="ro">Am făcut eu?<br>Ai făcut tu?<br>A făcut el?<br>Am făcut noi?<br>Ați făcut voi?<br>Au făcut ei?</span></td>
+                <td class="col-a"><span class="ro"><span class="s" onclick="say('Eu am făcut.')">Eu am făcut.</span><br>Tu ai făcut.<br>El a făcut.<br>Noi am făcut.<br>Voi ați făcut.<br>Ei au făcut.</span></td>
+                <td class="col-n"><span class="ro">Eu nu am făcut.<br>Tu nu ai făcut.<br>El nu a făcut.<br>Noi nu am făcut.<br>Voi nu ați făcut.<br>Ei nu au făcut.</span></td>
+            </tr>
+            </tbody></table></div>
+
+        <h3>Formal Future — "Voi + Infinitive"</h3>
+        <div class="table-wrap"><table class="tbl">
+            <thead><tr><th>Pronoun</th><th>Marker</th><th>a face</th><th>a merge</th><th>a vorbi</th></tr></thead>
+            <tbody>
+            <tr><td class="ro">eu</td><td class="hi">voi</td><td>voi face</td><td>voi merge</td><td>voi vorbi</td></tr>
+            <tr><td class="ro">tu</td><td class="hi">vei</td><td>vei face</td><td>vei merge</td><td>vei vorbi</td></tr>
+            <tr><td class="ro">el/ea</td><td class="hi">va</td><td><span class="s" onclick="say('Va face.')">va face</span></td><td>va merge</td><td>va vorbi</td></tr>
+            <tr><td class="ro">noi</td><td class="hi">vom</td><td>vom face</td><td>vom merge</td><td>vom vorbi</td></tr>
+            <tr><td class="ro">voi</td><td class="hi">veți</td><td>veți face</td><td>veți merge</td><td>veți vorbi</td></tr>
+            <tr><td class="ro">ei/ele</td><td class="hi">vor</td><td>vor face</td><td>vor merge</td><td>vor vorbi</td></tr>
+            </tbody></table></div>
+
+        <h3>Word Order — Flexible!</h3>
+        <div class="box box-orange"><h4>Word Order Changes Emphasis</h4>
+            <p style="font-family:var(--mono);font-size:.86rem;margin-top:.4rem;">
+                <span class="s" onclick="say('Eu merg la școală.')">Eu merg la școală.</span> — I go to school. (neutral)<br>
+                <span class="s" onclick="say('La școală merg eu.')">La școală merg eu.</span> — It's <b>me</b> who goes. (emphasis)<br>
+                <span class="s" onclick="say('Merg la școală.')">Merg la școală.</span> — (I) go to school. (subject dropped)
+            </p>
+            <p style="margin-top:.4rem;">Romanian often <b>drops the subject pronoun</b> because the verb ending tells you who's speaking.</p>
+        </div>
+
+        <h3>Contracted Forms — Real Speech</h3>
+        <div class="box box-orange"><h4>How Romanians Really Talk</h4>
+            <p style="font-family:var(--mono);font-size:.85rem;line-height:2;">
+                nu am → <span class="s" onclick="say('n-am')"><b>n-am</b></span> · nu ai → <b>n-ai</b> · nu are → <b>n-are</b><br>
+                este → <b>e</b> · nu o să → <span class="s" onclick="say('n-o să')"><b>n-o să</b></span><br>
+                <span class="s" onclick="say('N-am timp.')">N-am timp.</span> — I don't have time.<br>
+                <span class="s" onclick="say('S-a terminat.')">S-a terminat.</span> — It's over.
+            </p></div>
+
+        <div class="drill"><h4>Drill — Build Sentences From the Matrix</h4>
+            <p>Pick any verb. Run it through all 9 cells. 20–30 seconds per verb. Do this 5× daily.</p>
+            <div class="examples"><b>A VORBI:</b> <span class="s" onclick="say('O să vorbesc.')">O să vorbesc.</span> → <span class="s" onclick="say('Vorbesc.')">Vorbesc.</span> → <span class="s" onclick="say('Am vorbit.')">Am vorbit.</span><br>
+                <span class="s" onclick="say('O să vorbesc?')">O să vorbesc?</span> → <span class="s" onclick="say('Vorbesc?')">Vorbesc?</span> → <span class="s" onclick="say('Am vorbit?')">Am vorbit?</span><br>
+                <span class="s" onclick="say('N-o să vorbesc.')">N-o să vorbesc.</span> → <span class="s" onclick="say('Nu vorbesc.')">Nu vorbesc.</span> → <span class="s" onclick="say('Nu am vorbit.')">Nu am vorbit.</span></div>
+            <p><b>20–30 sec/verb · 5× daily · Automatic in 2–3 days</b></p>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- LESSON 4 — A FI                            -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section id="L4">
+        <div class="lesson-label"><div class="lesson-num">4</div><span class="lesson-tag">Lesson 4 — The Verb "To Be"</span></div>
+        <h2>A FI — The Most Important Verb</h2>
+        <p>"A fi" is irregular. Used for identity, descriptions, professions, locations, and states.</p>
+
+        <h3>Full Matrix: A FI</h3>
+        <div class="matrix-wrap"><table class="matrix">
+            <thead><tr><th></th><th class="hdr-q">❓ Question</th><th class="hdr-a">✅ Affirmative</th><th class="hdr-n">❌ Negative</th></tr></thead>
+            <tbody>
+            <tr>
+                <td class="row-label"><span class="tense-name">Future</span><span class="tense-sub">o să fiu</span></td>
+                <td class="col-q"><span class="ro">O să fiu?<br>O să fii?<br>O să fie?<br>O să fim?<br>O să fiți?<br>O să fie?</span></td>
+                <td class="col-a"><span class="ro"><span class="s" onclick="say('O să fiu.')">O să fiu.</span><br><span class="s" onclick="say('O să fii.')">O să fii.</span><br><span class="s" onclick="say('O să fie.')">O să fie.</span><br><span class="s" onclick="say('O să fim.')">O să fim.</span><br><span class="s" onclick="say('O să fiți.')">O să fiți.</span><br>O să fie.</span></td>
+                <td class="col-n"><span class="ro">N-o să fiu.<br>N-o să fii.<br>N-o să fie.<br>N-o să fim.<br>N-o să fiți.<br>N-o să fie.</span></td>
+            </tr>
+            <tr>
+                <td class="row-label"><span class="tense-name">Present</span><span class="tense-sub">sunt/ești/e</span></td>
+                <td class="col-q"><span class="ro">Sunt eu?<br>Ești tu?<br>Este el?<br>Suntem noi?<br>Sunteți voi?<br>Sunt ei?</span></td>
+                <td class="col-a"><span class="ro"><span class="s" onclick="say('Eu sunt.')">Eu sunt.</span><br><span class="s" onclick="say('Tu ești.')">Tu ești.</span><br><span class="s" onclick="say('El este.')">El/Ea este (e).</span><br><span class="s" onclick="say('Noi suntem.')">Noi suntem.</span><br><span class="s" onclick="say('Voi sunteți.')">Voi sunteți.</span><br><span class="s" onclick="say('Ei sunt.')">Ei/Ele sunt.</span></span></td>
+                <td class="col-n"><span class="ro">Nu sunt.<br>Nu ești.<br>Nu este.<br>Nu suntem.<br>Nu sunteți.<br>Nu sunt.</span></td>
+            </tr>
+            <tr>
+                <td class="row-label"><span class="tense-name">Past</span><span class="tense-sub">am fost</span></td>
+                <td class="col-q"><span class="ro">Am fost eu?<br>Ai fost tu?<br>A fost el?<br>Am fost noi?<br>Ați fost voi?<br>Au fost ei?</span></td>
+                <td class="col-a"><span class="ro"><span class="s" onclick="say('Eu am fost.')">Eu am fost.</span><br><span class="s" onclick="say('Tu ai fost.')">Tu ai fost.</span><br><span class="s" onclick="say('El a fost.')">El/Ea a fost.</span><br><span class="s" onclick="say('Noi am fost.')">Noi am fost.</span><br><span class="s" onclick="say('Voi ați fost.')">Voi ați fost.</span><br><span class="s" onclick="say('Ei au fost.')">Ei/Ele au fost.</span></span></td>
+                <td class="col-n"><span class="ro">Nu am fost.<br>Nu ai fost.<br>Nu a fost.<br>Nu am fost.<br>Nu ați fost.<br>Nu au fost.</span></td>
+            </tr>
+            </tbody></table></div>
+
+        <h3>Using A FI</h3>
+        <div class="phrases">
+            <div class="phrase"><div class="ro"><span class="s" onclick="say('Eu sunt student.')">Eu sunt student.</span></div><div class="en">I am a student.</div></div>
+            <div class="phrase"><div class="ro"><span class="s" onclick="say('Ea este frumoasă.')">Ea este frumoasă.</span></div><div class="en">She is beautiful.</div></div>
+            <div class="phrase"><div class="ro"><span class="s" onclick="say('Noi suntem din România.')">Noi suntem din România.</span></div><div class="en">We are from Romania.</div></div>
+            <div class="phrase"><div class="ro"><span class="s" onclick="say('El a fost la București.')">El a fost la București.</span></div><div class="en">He was in Bucharest.</div></div>
+            <div class="phrase"><div class="ro"><span class="s" onclick="say('O să fie bine.')">O să fie bine.</span></div><div class="en">It will be fine.</div></div>
+            <div class="phrase"><div class="ro"><span class="s" onclick="say('Cine este el?')">Cine este el?</span></div><div class="en">Who is he?</div></div>
+        </div>
+        <div class="box box-gold"><h4>Shortcut: "e" = "este"</h4><p>In speech, <b>este</b> → <b>e</b>. "<span class="s" onclick="say('El e student.')">El e student</span>" = "El este student."</p></div>
+
+        <div class="test-box"><h4>Self-Test</h4>
+            <div class="test-item" onclick="this.classList.toggle('open')"><div class="tq">I am from England.</div><div class="ta"><span class="s" onclick="event.stopPropagation();say('Eu sunt din Anglia.')">Eu sunt din Anglia.</span></div><div class="th">Click to reveal</div></div>
+            <div class="test-item" onclick="this.classList.toggle('open')"><div class="tq">She was not happy.</div><div class="ta"><span class="s" onclick="event.stopPropagation();say('Ea nu a fost fericită.')">Ea nu a fost fericită.</span></div><div class="th">Click to reveal</div></div>
+            <div class="test-item" onclick="this.classList.toggle('open')"><div class="tq">It will be fine.</div><div class="ta"><span class="s" onclick="event.stopPropagation();say('O să fie bine.')">O să fie bine.</span></div><div class="th">Click to reveal</div></div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- LESSON 5 — A AVEA                          -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section id="L5">
+        <div class="lesson-label"><div class="lesson-num">5</div><span class="lesson-tag">Lesson 5 — The Verb "To Have"</span></div>
+        <h2>A AVEA — Possession, Age & Past Tense Helper</h2>
+        <p>"A avea" expresses possession AND is the helper verb for ALL past tenses.</p>
+
+        <h3>Full Matrix: A AVEA</h3>
+        <div class="matrix-wrap"><table class="matrix">
+            <thead><tr><th></th><th class="hdr-q">❓ Question</th><th class="hdr-a">✅ Affirmative</th><th class="hdr-n">❌ Negative</th></tr></thead>
+            <tbody>
+            <tr>
+                <td class="row-label"><span class="tense-name">Future</span><span class="tense-sub">o să am</span></td>
+                <td class="col-q"><span class="ro">O să am?<br>O să ai?<br>O să aibă?<br>O să avem?<br>O să aveți?<br>O să aibă?</span></td>
+                <td class="col-a"><span class="ro">O să am.<br>O să ai.<br>O să aibă.<br>O să avem.<br>O să aveți.<br>O să aibă.</span></td>
+                <td class="col-n"><span class="ro">N-o să am.<br>N-o să ai.<br>N-o să aibă.<br>N-o să avem.<br>N-o să aveți.<br>N-o să aibă.</span></td>
+            </tr>
+            <tr>
+                <td class="row-label"><span class="tense-name">Present</span><span class="tense-sub">am/ai/are</span></td>
+                <td class="col-q"><span class="ro">Am eu?<br>Ai tu?<br>Are el?<br>Avem noi?<br>Aveți voi?<br>Au ei?</span></td>
+                <td class="col-a"><span class="ro"><span class="s" onclick="say('Eu am.')">Eu am.</span><br><span class="s" onclick="say('Tu ai.')">Tu ai.</span><br><span class="s" onclick="say('El are.')">El/Ea are.</span><br><span class="s" onclick="say('Noi avem.')">Noi avem.</span><br><span class="s" onclick="say('Voi aveți.')">Voi aveți.</span><br><span class="s" onclick="say('Ei au.')">Ei/Ele au.</span></span></td>
+                <td class="col-n"><span class="ro">Nu am.<br>Nu ai.<br>Nu are.<br>Nu avem.<br>Nu aveți.<br>Nu au.</span></td>
+            </tr>
+            <tr>
+                <td class="row-label"><span class="tense-name">Past</span><span class="tense-sub">am avut</span></td>
+                <td class="col-q"><span class="ro">Am avut eu?<br>Ai avut tu?<br>A avut el?<br>Am avut noi?<br>Ați avut voi?<br>Au avut ei?</span></td>
+                <td class="col-a"><span class="ro"><span class="s" onclick="say('Eu am avut.')">Eu am avut.</span><br>Tu ai avut.<br>El/Ea a avut.<br>Noi am avut.<br>Voi ați avut.<br>Ei/Ele au avut.</span></td>
+                <td class="col-n"><span class="ro">Nu am avut.<br>Nu ai avut.<br>Nu a avut.<br>Nu am avut.<br>Nu ați avut.<br>Nu au avut.</span></td>
+            </tr>
+            </tbody></table></div>
+
+        <h3>Using A AVEA</h3>
+        <div class="phrases">
+            <div class="phrase"><div class="ro"><span class="s" onclick="say('Am o mașină nouă.')">Am o mașină nouă.</span></div><div class="en">I have a new car.</div></div>
+            <div class="phrase"><div class="ro"><span class="s" onclick="say('Câți ani ai?')">Câți ani ai?</span></div><div class="en">How old are you?</div></div>
+            <div class="phrase"><div class="ro"><span class="s" onclick="say('Am douăzeci și opt de ani.')">Am 28 de ani.</span></div><div class="en">I am 28 years old.</div></div>
+            <div class="phrase"><div class="ro"><span class="s" onclick="say('Ea nu are timp.')">Ea nu are timp.</span></div><div class="en">She doesn't have time.</div></div>
+            <div class="phrase"><div class="ro"><span class="s" onclick="say('Aveți copii?')">Aveți copii?</span></div><div class="en">Do you have children?</div></div>
+            <div class="phrase"><div class="ro"><span class="s" onclick="say('Am avut noroc.')">Am avut noroc.</span></div><div class="en">I was lucky.</div></div>
+        </div>
+
+        <h3>"Îmi place" — How "To Like" Works</h3>
+        <div class="box box-orange"><h4>It's Backwards — Like Spanish "gustar"</h4>
+            <p style="font-family:var(--mono);font-size:.85rem;line-height:2;margin-top:.4rem;">
+                <span class="s" onclick="say('Îmi place cafeaua.')"><b>Îmi place</b> cafeaua.</span> — I like coffee.<br>
+                <span class="s" onclick="say('Îți place România?')"><b>Îți place</b> România?</span> — Do you like Romania?<br>
+                <span class="s" onclick="say('Ne plac sarmalele.')"><b>Ne plac</b> sarmalele.</span> — We like sarmale. (plural = <b>plac</b>!)<br>
+                <span class="s" onclick="say('Mi-a plăcut filmul.')"><b>Mi-a plăcut</b> filmul.</span> — I liked the movie. (past)
+            </p>
+            <p style="margin-top:.4rem;">Singular → <b>place</b>. Plural → <b>plac</b>. Past → <b>a plăcut</b>.</p>
+        </div>
+
+        <h3>Past Participle Formation</h3>
+        <div class="table-wrap"><table class="tbl">
+            <thead><tr><th>Group</th><th>Infinitive</th><th>Participle</th><th>Example</th></tr></thead>
+            <tbody>
+            <tr><td>I</td><td class="ro">-a</td><td class="hi">-at</td><td>a lucra → lucrat</td></tr>
+            <tr><td>II</td><td class="ro">-ea</td><td class="hi">-ut</td><td>a avea → avut</td></tr>
+            <tr><td>III</td><td class="ro">-e</td><td class="hi">-ut</td><td>a face → făcut</td></tr>
+            <tr><td>IV</td><td class="ro">-i / -î</td><td class="hi">-it / -ât</td><td>a vorbi → vorbit</td></tr>
+            </tbody></table></div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- LESSON 6 — 32 VERBS                        -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section id="L6">
+        <div class="lesson-label"><div class="lesson-num">6</div><span class="lesson-tag">Lesson 6 — The 32 Magic Verbs</span></div>
+        <h2>32 Verbs = All Daily Actions</h2>
+        <p>Infinitive, "eu" present, "el/ea" form, and past participle for each.</p>
+        <div class="cards">
+            <div class="card vcard"><div class="v-name"><span class="s" onclick="say('a fi')">a fi</span></div><div class="v-en">to be</div><div class="v-row"><span class="v-label">eu</span><span class="v-form"><span class="s" onclick="say('sunt')">sunt</span></span></div><div class="v-row"><span class="v-label">el/ea</span><span class="v-form"><span class="s" onclick="say('este')">este (e)</span></span></div><div class="v-part">fost</div></div>
+            <div class="card vcard"><div class="v-name"><span class="s" onclick="say('a avea')">a avea</span></div><div class="v-en">to have</div><div class="v-row"><span class="v-label">eu</span><span class="v-form"><span class="s" onclick="say('am')">am</span></span></div><div class="v-row"><span class="v-label">el/ea</span><span class="v-form"><span class="s" onclick="say('are')">are</span></span></div><div class="v-part">avut</div></div>
+            <div class="card vcard"><div class="v-name"><span class="s" onclick="say('a face')">a face</span></div><div class="v-en">to do / make</div><div class="v-row"><span class="v-label">eu</span><span class="v-form"><span class="s" onclick="say('fac')">fac</span></span></div><div class="v-row"><span class="v-label">el/ea</span><span class="v-form"><span class="s" onclick="say('face')">face</span></span></div><div class="v-part">făcut</div></div>
+            <div class="card vcard"><div class="v-name"><span class="s" onclick="say('a merge')">a merge</span></div><div class="v-en">to go</div><div class="v-row"><span class="v-label">eu</span><span class="v-form"><span class="s" onclick="say('merg')">merg</span></span></div><div class="v-row"><span class="v-label">el/ea</span><span class="v-form"><span class="s" onclick="say('merge')">merge</span></span></div><div class="v-part">mers</div></div>
+            <div class="card vcard"><div class="v-name"><span class="s" onclick="say('a veni')">a veni</span></div><div class="v-en">to come</div><div class="v-row"><span class="v-label">eu</span><span class="v-form"><span class="s" onclick="say('vin')">vin</span></span></div><div class="v-row"><span class="v-label">el/ea</span><span class="v-form"><span class="s" onclick="say('vine')">vine</span></span></div><div class="v-part">venit</div></div>
+            <div class="card vcard"><div class="v-name"><span class="s" onclick="say('a vorbi')">a vorbi</span></div><div class="v-en">to speak</div><div class="v-row"><span class="v-label">eu</span><span class="v-form"><span class="s" onclick="say('vorbesc')">vorbesc</span></span></div><div class="v-row"><span class="v-label">el/ea</span><span class="v-form"><span class="s" onclick="say('vorbește')">vorbește</span></span></div><div class="v-part">vorbit</div></div>
+            <div class="card vcard"><div class="v-name"><span class="s" onclick="say('a lucra')">a lucra</span></div><div class="v-en">to work</div><div class="v-row"><span class="v-label">eu</span><span class="v-form"><span class="s" onclick="say('lucrez')">lucrez</span></span></div><div class="v-row"><span class="v-label">el/ea</span><span class="v-form"><span class="s" onclick="say('lucrează')">lucrează</span></span></div><div class="v-part">lucrat</div></div>
+            <div class="card vcard"><div class="v-name"><span class="s" onclick="say('a locui')">a locui</span></div><div class="v-en">to live (reside)</div><div class="v-row"><span class="v-label">eu</span><span class="v-form"><span class="s" onclick="say('locuiesc')">locuiesc</span></span></div><div class="v-row"><span class="v-label">el/ea</span><span class="v-form"><span class="s" onclick="say('locuiește')">locuiește</span></span></div><div class="v-part">locuit</div></div>
+            <div class="card vcard"><div class="v-name"><span class="s" onclick="say('a vrea')">a vrea</span></div><div class="v-en">to want</div><div class="v-row"><span class="v-label">eu</span><span class="v-form"><span class="s" onclick="say('vreau')">vreau</span></span></div><div class="v-row"><span class="v-label">el/ea</span><span class="v-form"><span class="s" onclick="say('vrea')">vrea</span></span></div><div class="v-part">vrut</div></div>
+            <div class="card vcard"><div class="v-name"><span class="s" onclick="say('a putea')">a putea</span></div><div class="v-en">can / to be able</div><div class="v-row"><span class="v-label">eu</span><span class="v-form"><span class="s" onclick="say('pot')">pot</span></span></div><div class="v-row"><span class="v-label">el/ea</span><span class="v-form"><span class="s" onclick="say('poate')">poate</span></span></div><div class="v-part">putut</div></div>
+            <div class="card vcard"><div class="v-name"><span class="s" onclick="say('a ști')">a ști</span></div><div class="v-en">to know (a fact)</div><div class="v-row"><span class="v-label">eu</span><span class="v-form"><span class="s" onclick="say('știu')">știu</span></span></div><div class="v-row"><span class="v-label">el/ea</span><span class="v-form"><span class="s" onclick="say('știe')">știe</span></span></div><div class="v-part">știut</div></div>
+            <div class="card vcard"><div class="v-name"><span class="s" onclick="say('a vedea')">a vedea</span></div><div class="v-en">to see</div><div class="v-row"><span class="v-label">eu</span><span class="v-form"><span class="s" onclick="say('văd')">văd</span></span></div><div class="v-row"><span class="v-label">el/ea</span><span class="v-form"><span class="s" onclick="say('vede')">vede</span></span></div><div class="v-part">văzut</div></div>
+            <div class="card vcard"><div class="v-name"><span class="s" onclick="say('a da')">a da</span></div><div class="v-en">to give</div><div class="v-row"><span class="v-label">eu</span><span class="v-form"><span class="s" onclick="say('dau')">dau</span></span></div><div class="v-row"><span class="v-label">el/ea</span><span class="v-form"><span class="s" onclick="say('dă')">dă</span></span></div><div class="v-part">dat</div></div>
+            <div class="card vcard"><div class="v-name"><span class="s" onclick="say('a lua')">a lua</span></div><div class="v-en">to take</div><div class="v-row"><span class="v-label">eu</span><span class="v-form"><span class="s" onclick="say('iau')">iau</span></span></div><div class="v-row"><span class="v-label">el/ea</span><span class="v-form"><span class="s" onclick="say('ia')">ia</span></span></div><div class="v-part">luat</div></div>
+            <div class="card vcard"><div class="v-name"><span class="s" onclick="say('a mânca')">a mânca</span></div><div class="v-en">to eat</div><div class="v-row"><span class="v-label">eu</span><span class="v-form"><span class="s" onclick="say('mănânc')">mănânc</span></span></div><div class="v-row"><span class="v-label">el/ea</span><span class="v-form"><span class="s" onclick="say('mănâncă')">mănâncă</span></span></div><div class="v-part">mâncat</div></div>
+            <div class="card vcard"><div class="v-name"><span class="s" onclick="say('a bea')">a bea</span></div><div class="v-en">to drink</div><div class="v-row"><span class="v-label">eu</span><span class="v-form"><span class="s" onclick="say('beau')">beau</span></span></div><div class="v-row"><span class="v-label">el/ea</span><span class="v-form"><span class="s" onclick="say('bea')">bea</span></span></div><div class="v-part">băut</div></div>
+            <div class="card vcard"><div class="v-name"><span class="s" onclick="say('a dormi')">a dormi</span></div><div class="v-en">to sleep</div><div class="v-row"><span class="v-label">eu</span><span class="v-form"><span class="s" onclick="say('dorm')">dorm</span></span></div><div class="v-row"><span class="v-label">el/ea</span><span class="v-form"><span class="s" onclick="say('doarme')">doarme</span></span></div><div class="v-part">dormit</div></div>
+            <div class="card vcard"><div class="v-name"><span class="s" onclick="say('a citi')">a citi</span></div><div class="v-en">to read</div><div class="v-row"><span class="v-label">eu</span><span class="v-form"><span class="s" onclick="say('citesc')">citesc</span></span></div><div class="v-row"><span class="v-label">el/ea</span><span class="v-form"><span class="s" onclick="say('citește')">citește</span></span></div><div class="v-part">citit</div></div>
+            <div class="card vcard"><div class="v-name"><span class="s" onclick="say('a scrie')">a scrie</span></div><div class="v-en">to write</div><div class="v-row"><span class="v-label">eu</span><span class="v-form"><span class="s" onclick="say('scriu')">scriu</span></span></div><div class="v-row"><span class="v-label">el/ea</span><span class="v-form"><span class="s" onclick="say('scrie')">scrie</span></span></div><div class="v-part">scris</div></div>
+            <div class="card vcard"><div class="v-name"><span class="s" onclick="say('a înțelege')">a înțelege</span></div><div class="v-en">to understand</div><div class="v-row"><span class="v-label">eu</span><span class="v-form"><span class="s" onclick="say('înțeleg')">înțeleg</span></span></div><div class="v-row"><span class="v-label">el/ea</span><span class="v-form"><span class="s" onclick="say('înțelege')">înțelege</span></span></div><div class="v-part">înțeles</div></div>
+            <div class="card vcard"><div class="v-name"><span class="s" onclick="say('a plăcea')">a plăcea</span></div><div class="v-en">to like / please</div><div class="v-row"><span class="v-label">eu</span><span class="v-form"><span class="s" onclick="say('îmi place')">îmi place</span></span></div><div class="v-row"><span class="v-label">el/ea</span><span class="v-form"><span class="s" onclick="say('îi place')">îi place</span></span></div><div class="v-part">plăcut</div></div>
+            <div class="card vcard"><div class="v-name"><span class="s" onclick="say('a cumpăra')">a cumpăra</span></div><div class="v-en">to buy</div><div class="v-row"><span class="v-label">eu</span><span class="v-form"><span class="s" onclick="say('cumpăr')">cumpăr</span></span></div><div class="v-row"><span class="v-label">el/ea</span><span class="v-form"><span class="s" onclick="say('cumpără')">cumpără</span></span></div><div class="v-part">cumpărat</div></div>
+            <div class="card vcard"><div class="v-name"><span class="s" onclick="say('a pleca')">a pleca</span></div><div class="v-en">to leave</div><div class="v-row"><span class="v-label">eu</span><span class="v-form"><span class="s" onclick="say('plec')">plec</span></span></div><div class="v-row"><span class="v-label">el/ea</span><span class="v-form"><span class="s" onclick="say('pleacă')">pleacă</span></span></div><div class="v-part">plecat</div></div>
+            <div class="card vcard"><div class="v-name"><span class="s" onclick="say('a sta')">a sta</span></div><div class="v-en">to stay / sit</div><div class="v-row"><span class="v-label">eu</span><span class="v-form"><span class="s" onclick="say('stau')">stau</span></span></div><div class="v-row"><span class="v-label">el/ea</span><span class="v-form"><span class="s" onclick="say('stă')">stă</span></span></div><div class="v-part">stat</div></div>
+            <div class="card vcard"><div class="v-name"><span class="s" onclick="say('a învăța')">a învăța</span></div><div class="v-en">to learn / teach</div><div class="v-row"><span class="v-label">eu</span><span class="v-form"><span class="s" onclick="say('învăț')">învăț</span></span></div><div class="v-row"><span class="v-label">el/ea</span><span class="v-form"><span class="s" onclick="say('învață')">învață</span></span></div><div class="v-part">învățat</div></div>
+            <div class="card vcard"><div class="v-name"><span class="s" onclick="say('a plăti')">a plăti</span></div><div class="v-en">to pay</div><div class="v-row"><span class="v-label">eu</span><span class="v-form"><span class="s" onclick="say('plătesc')">plătesc</span></span></div><div class="v-row"><span class="v-label">el/ea</span><span class="v-form"><span class="s" onclick="say('plătește')">plătește</span></span></div><div class="v-part">plătit</div></div>
+            <div class="card vcard"><div class="v-name"><span class="s" onclick="say('a deschide')">a deschide</span></div><div class="v-en">to open</div><div class="v-row"><span class="v-label">eu</span><span class="v-form"><span class="s" onclick="say('deschid')">deschid</span></span></div><div class="v-row"><span class="v-label">el/ea</span><span class="v-form"><span class="s" onclick="say('deschide')">deschide</span></span></div><div class="v-part">deschis</div></div>
+            <div class="card vcard"><div class="v-name"><span class="s" onclick="say('a închide')">a închide</span></div><div class="v-en">to close</div><div class="v-row"><span class="v-label">eu</span><span class="v-form"><span class="s" onclick="say('închid')">închid</span></span></div><div class="v-row"><span class="v-label">el/ea</span><span class="v-form"><span class="s" onclick="say('închide')">închide</span></span></div><div class="v-part">închis</div></div>
+            <div class="card vcard"><div class="v-name"><span class="s" onclick="say('a spune')">a spune</span></div><div class="v-en">to say / tell</div><div class="v-row"><span class="v-label">eu</span><span class="v-form"><span class="s" onclick="say('spun')">spun</span></span></div><div class="v-row"><span class="v-label">el/ea</span><span class="v-form"><span class="s" onclick="say('spune')">spune</span></span></div><div class="v-part">spus</div></div>
+            <div class="card vcard"><div class="v-name"><span class="s" onclick="say('a ajunge')">a ajunge</span></div><div class="v-en">to arrive</div><div class="v-row"><span class="v-label">eu</span><span class="v-form"><span class="s" onclick="say('ajung')">ajung</span></span></div><div class="v-row"><span class="v-label">el/ea</span><span class="v-form"><span class="s" onclick="say('ajunge')">ajunge</span></span></div><div class="v-part">ajuns</div></div>
+            <div class="card vcard"><div class="v-name"><span class="s" onclick="say('a chema')">a chema</span></div><div class="v-en">to call / be named</div><div class="v-row"><span class="v-label">eu</span><span class="v-form"><span class="s" onclick="say('chem')">chem</span></span></div><div class="v-row"><span class="v-label">el/ea</span><span class="v-form"><span class="s" onclick="say('cheamă')">cheamă</span></span></div><div class="v-part">chemat</div></div>
+            <div class="card vcard"><div class="v-name"><span class="s" onclick="say('a suna')">a suna</span></div><div class="v-en">to call (phone)</div><div class="v-row"><span class="v-label">eu</span><span class="v-form"><span class="s" onclick="say('sun')">sun</span></span></div><div class="v-row"><span class="v-label">el/ea</span><span class="v-form"><span class="s" onclick="say('sună')">sună</span></span></div><div class="v-part">sunat</div></div>
+            <div class="card vcard"><div class="v-name"><span class="s" onclick="say('a asculta')">a asculta</span></div><div class="v-en">to listen</div><div class="v-row"><span class="v-label">eu</span><span class="v-form"><span class="s" onclick="say('ascult')">ascult</span></span></div><div class="v-row"><span class="v-label">el/ea</span><span class="v-form"><span class="s" onclick="say('ascultă')">ascultă</span></span></div><div class="v-part">ascultat</div></div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- LESSON 7 — ARTICLES                        -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section id="L7">
+        <div class="lesson-label"><div class="lesson-num">7</div><span class="lesson-tag">Lesson 7 — Articles, Gender & Plurals</span></div>
+        <h2>How Romanian Nouns Work</h2>
+        <p>3 genders (masculine, feminine, neuter). The definite article attaches to the <b>end</b> of the word — unique among Romance languages.</p>
+
+        <h3>Indefinite Articles (a, an)</h3>
+        <div class="table-wrap"><table class="tbl">
+            <thead><tr><th>Gender</th><th>Singular</th><th>Plural</th><th>Example</th></tr></thead>
+            <tbody>
+            <tr><td class="ro">Masculine</td><td class="hi"><span class="s" onclick="say('un')">un</span></td><td class="hi"><span class="s" onclick="say('niște')">niște</span></td><td><span class="s" onclick="say('un băiat')">un băiat</span> → <span class="s" onclick="say('niște băieți')">niște băieți</span></td></tr>
+            <tr><td class="ro">Feminine</td><td class="hi"><span class="s" onclick="say('o')">o</span></td><td class="hi">niște</td><td><span class="s" onclick="say('o fată')">o fată</span> → <span class="s" onclick="say('niște fete')">niște fete</span></td></tr>
+            <tr><td class="ro">Neuter</td><td class="hi">un</td><td class="hi">niște</td><td><span class="s" onclick="say('un lucru')">un lucru</span> → <span class="s" onclick="say('niște lucruri')">niște lucruri</span></td></tr>
+            </tbody></table></div>
+
+        <h3>Definite Articles (the) — Attached to the End!</h3>
+        <div class="table-wrap"><table class="tbl">
+            <thead><tr><th>Gender</th><th>Ending</th><th>Without "the"</th><th>With "the"</th></tr></thead>
+            <tbody>
+            <tr><td class="ro">Masc.</td><td class="hi">-(u)l</td><td><span class="s" onclick="say('băiat')">băiat</span></td><td class="hi"><span class="s" onclick="say('băiatul')">băiatul</span></td></tr>
+            <tr><td class="ro">Fem.</td><td class="hi">-(u)a</td><td><span class="s" onclick="say('fată')">fată</span></td><td class="hi"><span class="s" onclick="say('fata')">fata</span></td></tr>
+            <tr><td class="ro">Neuter</td><td class="hi">-(u)l</td><td>lucru</td><td class="hi"><span class="s" onclick="say('lucrul')">lucrul</span></td></tr>
+            <tr><td class="ro">M. Pl.</td><td class="hi">-ii</td><td>băieți</td><td class="hi"><span class="s" onclick="say('băieții')">băieții</span></td></tr>
+            <tr><td class="ro">F. Pl.</td><td class="hi">-ele</td><td>fete</td><td class="hi"><span class="s" onclick="say('fetele')">fetele</span></td></tr>
+            </tbody></table></div>
+
+        <div class="box box-blue"><h4>Gender Quick Guide</h4><p>Consonant ending = masculine. <b>-ă</b> or <b>-e</b> ending = feminine. Neuter = masculine singular, feminine plural.</p></div>
+
+        <h3>Genitive/Dative — "of" / "to"</h3>
+        <div class="table-wrap"><table class="tbl">
+            <thead><tr><th>Gender</th><th>Nominative</th><th>Gen./Dat. Sg.</th><th>Gen./Dat. Pl.</th></tr></thead>
+            <tbody>
+            <tr><td class="ro">Masc.</td><td class="hi">băiatul</td><td class="hi"><span class="s" onclick="say('băiatului')">băiatului</span></td><td class="hi"><span class="s" onclick="say('băieților')">băieților</span></td></tr>
+            <tr><td class="ro">Fem.</td><td class="hi">fata</td><td class="hi"><span class="s" onclick="say('fetei')">fetei</span></td><td class="hi"><span class="s" onclick="say('fetelor')">fetelor</span></td></tr>
+            <tr><td class="ro">Fem.</td><td class="hi">mama</td><td class="hi"><span class="s" onclick="say('mamei')">mamei</span></td><td class="hi">mamelor</td></tr>
+            </tbody></table></div>
+        <div class="phrases">
+            <div class="phrase"><div class="ro"><span class="s" onclick="say('Casa mamei.')">Casa <b>mamei</b>.</span></div><div class="en">Mother's house.</div></div>
+            <div class="phrase"><div class="ro"><span class="s" onclick="say('Cartea profesorului.')">Cartea <b>profesorului</b>.</span></div><div class="en">The teacher's book.</div></div>
+        </div>
+
+        <h3>The Vocative</h3>
+        <div class="box box-teal"><h4>How Romanians Call People</h4>
+            <p style="font-family:var(--mono);font-size:.85rem;line-height:2;">
+                mamă → <span class="s" onclick="say('Mamo!')"><b>mamo!</b></span> · Maria → <span class="s" onclick="say('Mario!')"><b>Mario!</b></span> · domn → <span class="s" onclick="say('Domnule!')"><b>Domnule!</b></span> · frate → <span class="s" onclick="say('Frate!')"><b>Frate!</b></span>
+            </p></div>
+
+        <h3>Common Nouns With Articles</h3>
+        <div class="vocab-grid">
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('omul')">om → omul</span></span><span class="ve">man</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('femeia')">femeie → femeia</span></span><span class="ve">woman</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('casa')">casă → casa</span></span><span class="ve">house</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('cartea')">carte → cartea</span></span><span class="ve">book</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('copilul')">copil → copilul</span></span><span class="ve">child</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('apa')">apă → apa</span></span><span class="ve">water</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('mașina')">mașină → mașina</span></span><span class="ve">car</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('orașul')">oraș → orașul</span></span><span class="ve">city</span></div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- LESSON 8 — ADJECTIVES                      -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section id="L8">
+        <div class="lesson-label"><div class="lesson-num">8</div><span class="lesson-tag">Lesson 8 — Adjectives, Adverbs & Possessives</span></div>
+        <h2>Describing Things, Actions & Ownership</h2>
+
+        <h3>Adjective Agreement</h3>
+        <div class="table-wrap"><table class="tbl">
+            <thead><tr><th>English</th><th>M. Sg.</th><th>F. Sg.</th><th>M. Pl.</th><th>F. Pl.</th></tr></thead>
+            <tbody>
+            <tr><td>good</td><td class="hi"><span class="s" onclick="say('bun')">bun</span></td><td class="hi"><span class="s" onclick="say('bună')">bună</span></td><td class="hi">buni</td><td class="hi">bune</td></tr>
+            <tr><td>big</td><td class="hi"><span class="s" onclick="say('mare')">mare</span></td><td class="hi">mare</td><td class="hi">mari</td><td class="hi">mari</td></tr>
+            <tr><td>small</td><td class="hi"><span class="s" onclick="say('mic')">mic</span></td><td class="hi"><span class="s" onclick="say('mică')">mică</span></td><td class="hi">mici</td><td class="hi">mici</td></tr>
+            <tr><td>beautiful</td><td class="hi"><span class="s" onclick="say('frumos')">frumos</span></td><td class="hi"><span class="s" onclick="say('frumoasă')">frumoasă</span></td><td class="hi">frumoși</td><td class="hi">frumoase</td></tr>
+            <tr><td>new</td><td class="hi"><span class="s" onclick="say('nou')">nou</span></td><td class="hi"><span class="s" onclick="say('nouă')">nouă</span></td><td class="hi">noi</td><td class="hi">noi</td></tr>
+            <tr><td>old</td><td class="hi"><span class="s" onclick="say('vechi')">vechi</span></td><td class="hi">veche</td><td class="hi">vechi</td><td class="hi">vechi</td></tr>
+            <tr><td>cheap</td><td class="hi"><span class="s" onclick="say('ieftin')">ieftin</span></td><td class="hi">ieftină</td><td class="hi">ieftini</td><td class="hi">ieftine</td></tr>
+            <tr><td>expensive</td><td class="hi"><span class="s" onclick="say('scump')">scump</span></td><td class="hi">scumpă</td><td class="hi">scumpi</td><td class="hi">scumpe</td></tr>
+            <tr><td>happy</td><td class="hi"><span class="s" onclick="say('fericit')">fericit</span></td><td class="hi">fericită</td><td class="hi">fericiți</td><td class="hi">fericite</td></tr>
+            <tr><td>tired</td><td class="hi"><span class="s" onclick="say('obosit')">obosit</span></td><td class="hi">obosită</td><td class="hi">obosiți</td><td class="hi">obosite</td></tr>
+            </tbody></table></div>
+
+        <h3>Key Adverbs</h3>
+        <div class="vocab-grid">
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('bine')">bine</span></span><span class="ve">well</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('rău')">rău</span></span><span class="ve">badly</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('repede')">repede</span></span><span class="ve">fast</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('încet')">încet</span></span><span class="ve">slowly</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('mult')">mult</span></span><span class="ve">much</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('puțin')">puțin</span></span><span class="ve">a little</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('foarte')">foarte</span></span><span class="ve">very</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('deja')">deja</span></span><span class="ve">already</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('încă')">încă</span></span><span class="ve">still/yet</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('aproape')">aproape</span></span><span class="ve">almost</span></div>
+        </div>
+
+        <h3>Colors</h3>
+        <div class="vocab-grid">
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('alb')">alb/albă</span></span><span class="ve">white</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('negru')">negru/neagră</span></span><span class="ve">black</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('roșu')">roșu/roșie</span></span><span class="ve">red</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('albastru')">albastru</span></span><span class="ve">blue</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('verde')">verde</span></span><span class="ve">green</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('galben')">galben</span></span><span class="ve">yellow</span></div>
+        </div>
+
+        <h3>Possessives</h3>
+        <div class="table-wrap"><table class="tbl">
+            <thead><tr><th>English</th><th>Before M. Noun</th><th>Before F. Noun</th></tr></thead>
+            <tbody>
+            <tr><td>my</td><td class="hi"><span class="s" onclick="say('meu')">meu</span></td><td class="hi"><span class="s" onclick="say('mea')">mea</span></td></tr>
+            <tr><td>your (sg.)</td><td class="hi"><span class="s" onclick="say('tău')">tău</span></td><td class="hi"><span class="s" onclick="say('ta')">ta</span></td></tr>
+            <tr><td>his</td><td class="hi"><span class="s" onclick="say('lui')">lui</span></td><td class="hi">lui</td></tr>
+            <tr><td>her</td><td class="hi"><span class="s" onclick="say('ei')">ei</span></td><td class="hi">ei</td></tr>
+            <tr><td>our</td><td class="hi"><span class="s" onclick="say('nostru')">nostru</span></td><td class="hi"><span class="s" onclick="say('noastră')">noastră</span></td></tr>
+            <tr><td>their</td><td class="hi"><span class="s" onclick="say('lor')">lor</span></td><td class="hi">lor</td></tr>
+            </tbody></table></div>
+        <div class="box box-blue"><h4>Word Order</h4><p>Noun (with article) + possessive: <b><span class="s" onclick="say('casa mea')">casa mea</span></b> (my house), <b><span class="s" onclick="say('fratele meu')">fratele meu</span></b> (my brother).</p></div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- LESSON 9 — NUMBERS (EXPANDED)              -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section id="L9">
+        <div class="lesson-label"><div class="lesson-num">9</div><span class="lesson-tag">Lesson 9 — Numbers, Time & Calendar</span></div>
+        <h2>Counting, Telling Time & Dates</h2>
+
+        <h3>Numbers 0–10</h3>
+        <div class="num-grid">
+            <div class="num-item"><span class="nn">0</span><span class="nw"><span class="s" onclick="say('zero')">zero</span></span></div>
+            <div class="num-item"><span class="nn">1</span><span class="nw"><span class="s" onclick="say('unu')">unu/una</span></span></div>
+            <div class="num-item"><span class="nn">2</span><span class="nw"><span class="s" onclick="say('doi')">doi/două</span></span></div>
+            <div class="num-item"><span class="nn">3</span><span class="nw"><span class="s" onclick="say('trei')">trei</span></span></div>
+            <div class="num-item"><span class="nn">4</span><span class="nw"><span class="s" onclick="say('patru')">patru</span></span></div>
+            <div class="num-item"><span class="nn">5</span><span class="nw"><span class="s" onclick="say('cinci')">cinci</span></span></div>
+            <div class="num-item"><span class="nn">6</span><span class="nw"><span class="s" onclick="say('șase')">șase</span></span></div>
+            <div class="num-item"><span class="nn">7</span><span class="nw"><span class="s" onclick="say('șapte')">șapte</span></span></div>
+            <div class="num-item"><span class="nn">8</span><span class="nw"><span class="s" onclick="say('opt')">opt</span></span></div>
+            <div class="num-item"><span class="nn">9</span><span class="nw"><span class="s" onclick="say('nouă')">nouă</span></span></div>
+            <div class="num-item"><span class="nn">10</span><span class="nw"><span class="s" onclick="say('zece')">zece</span></span></div>
+        </div>
+
+        <h3>Numbers 11–19 — The "spre zece" Pattern</h3>
+        <div class="box box-orange"><h4>How It Works</h4><p>11–19 literally mean "X toward ten" → number + <b>spre</b> + <b>zece</b>. Some forms contract. This is the trickiest part of Romanian numbers — memorize them!</p></div>
+        <div class="num-grid">
+            <div class="num-item"><span class="nn">11</span><span class="nw"><span class="s" onclick="say('unsprezece')">unsprezece</span></span></div>
+            <div class="num-item"><span class="nn">12</span><span class="nw"><span class="s" onclick="say('doisprezece')">doisprezece</span></span></div>
+            <div class="num-item"><span class="nn">13</span><span class="nw"><span class="s" onclick="say('treisprezece')">treisprezece</span></span></div>
+            <div class="num-item"><span class="nn">14</span><span class="nw"><span class="s" onclick="say('paisprezece')">paisprezece</span></span></div>
+            <div class="num-item"><span class="nn">15</span><span class="nw"><span class="s" onclick="say('cincisprezece')">cincisprezece</span></span></div>
+            <div class="num-item"><span class="nn">16</span><span class="nw"><span class="s" onclick="say('șaisprezece')">șaisprezece</span></span></div>
+            <div class="num-item"><span class="nn">17</span><span class="nw"><span class="s" onclick="say('șaptesprezece')">șaptesprezece</span></span></div>
+            <div class="num-item"><span class="nn">18</span><span class="nw"><span class="s" onclick="say('optsprezece')">optsprezece</span></span></div>
+            <div class="num-item"><span class="nn">19</span><span class="nw"><span class="s" onclick="say('nouăsprezece')">nouăsprezece</span></span></div>
+        </div>
+
+        <h3>Tens (20–100)</h3>
+        <div class="num-grid">
+            <div class="num-item"><span class="nn">20</span><span class="nw"><span class="s" onclick="say('douăzeci')">douăzeci</span></span></div>
+            <div class="num-item"><span class="nn">30</span><span class="nw"><span class="s" onclick="say('treizeci')">treizeci</span></span></div>
+            <div class="num-item"><span class="nn">40</span><span class="nw"><span class="s" onclick="say('patruzeci')">patruzeci</span></span></div>
+            <div class="num-item"><span class="nn">50</span><span class="nw"><span class="s" onclick="say('cincizeci')">cincizeci</span></span></div>
+            <div class="num-item"><span class="nn">60</span><span class="nw"><span class="s" onclick="say('șaizeci')">șaizeci</span></span></div>
+            <div class="num-item"><span class="nn">70</span><span class="nw"><span class="s" onclick="say('șaptezeci')">șaptezeci</span></span></div>
+            <div class="num-item"><span class="nn">80</span><span class="nw"><span class="s" onclick="say('optzeci')">optzeci</span></span></div>
+            <div class="num-item"><span class="nn">90</span><span class="nw"><span class="s" onclick="say('nouăzeci')">nouăzeci</span></span></div>
+            <div class="num-item"><span class="nn">100</span><span class="nw"><span class="s" onclick="say('o sută')">o sută</span></span></div>
+            <div class="num-item"><span class="nn">1000</span><span class="nw"><span class="s" onclick="say('o mie')">o mie</span></span></div>
+        </div>
+
+        <div class="box box-blue"><h4>Combining Numbers</h4>
+            <p style="font-family:var(--mono);font-size:.85rem;line-height:2;margin-top:.4rem;">
+                21 = <span class="s" onclick="say('douăzeci și unu')">douăzeci și unu</span> · 35 = <span class="s" onclick="say('treizeci și cinci')">treizeci și cinci</span><br>
+                47 = <span class="s" onclick="say('patruzeci și șapte')">patruzeci și șapte</span> · 99 = <span class="s" onclick="say('nouăzeci și nouă')">nouăzeci și nouă</span><br>
+                200 = <span class="s" onclick="say('două sute')">două sute</span> · 500 = <span class="s" onclick="say('cinci sute')">cinci sute</span> · 2000 = <span class="s" onclick="say('două mii')">două mii</span>
+            </p></div>
+
+        <div class="box box-orange"><h4>The "DE" Rule — Numbers 20+</h4>
+            <p>After numbers <b>20 and above</b>, add <b>de</b> before the noun:</p>
+            <p style="font-family:var(--mono);font-size:.85rem;line-height:2;margin-top:.4rem;">
+                <span class="s" onclick="say('doi lei')">doi lei</span> — 2 lei ✅ (no "de")<br>
+                <span class="s" onclick="say('douăzeci de lei')">douăzeci <b>de</b> lei</span> — 20 lei ✅ (with "de"!)<br>
+                <span class="s" onclick="say('o sută de oameni')">o sută <b>de</b> oameni</span> — 100 people ✅
+            </p>
+            <p style="margin-top:.4rem;">1–19 = no "de." 20+ = always "de."</p>
+        </div>
+
+        <h3>Ordinal Numbers</h3>
+        <div class="table-wrap"><table class="tbl">
+            <thead><tr><th>Number</th><th>Masculine</th><th>Feminine</th><th>Example</th></tr></thead>
+            <tbody>
+            <tr><td>1st</td><td class="hi"><span class="s" onclick="say('primul')">primul</span></td><td class="hi"><span class="s" onclick="say('prima')">prima</span></td><td class="en"><span class="s" onclick="say('primul etaj')">primul etaj</span> — first floor</td></tr>
+            <tr><td>2nd</td><td class="hi"><span class="s" onclick="say('al doilea')">al doilea</span></td><td class="hi"><span class="s" onclick="say('a doua')">a doua</span></td><td class="en"><span class="s" onclick="say('a doua zi')">a doua zi</span> — the second day</td></tr>
+            <tr><td>3rd</td><td class="hi"><span class="s" onclick="say('al treilea')">al treilea</span></td><td class="hi"><span class="s" onclick="say('a treia')">a treia</span></td><td class="en"><span class="s" onclick="say('al treilea rând')">al treilea rând</span> — third row</td></tr>
+            <tr><td>4th</td><td class="hi">al patrulea</td><td class="hi">a patra</td><td class="en"></td></tr>
+            <tr><td>5th</td><td class="hi">al cincilea</td><td class="hi">a cincea</td><td class="en"></td></tr>
+            <tr><td>last</td><td class="hi"><span class="s" onclick="say('ultimul')">ultimul</span></td><td class="hi"><span class="s" onclick="say('ultima')">ultima</span></td><td class="en"><span class="s" onclick="say('ultima dată')">ultima dată</span> — last time</td></tr>
+            </tbody></table></div>
+
+        <h3>Telling Time</h3>
+        <div class="box box-teal"><h4>E ora… (It's … o'clock)</h4>
+            <p style="font-family:var(--mono);font-size:.85rem;line-height:2.2;margin-top:.4rem;">
+                <span class="s" onclick="say('Cât e ceasul?')"><b>Cât e ceasul?</b></span> — What time is it?<br>
+                <span class="s" onclick="say('E ora trei.')">E ora trei.</span> — It's 3 o'clock.<br>
+                <span class="s" onclick="say('E ora trei și jumătate.')">E ora trei și <b>jumătate</b>.</span> — It's 3:30 (half).<br>
+                <span class="s" onclick="say('E ora trei și un sfert.')">E ora trei și un <b>sfert</b>.</span> — It's 3:15 (quarter).<br>
+                <span class="s" onclick="say('E ora patru fără un sfert.')">E ora patru <b>fără</b> un sfert.</span> — It's 3:45 (4 minus quarter).<br>
+                <span class="s" onclick="say('E ora zece și douăzeci de minute.')">E ora zece și douăzeci de minute.</span> — It's 10:20.<br>
+                <span class="s" onclick="say('La ce oră?')"><b>La ce oră?</b></span> — At what time?<br>
+                <span class="s" onclick="say('La ora opt.')">La ora opt.</span> — At 8 o'clock.
+            </p></div>
+
+        <h3>Days of the Week</h3>
+        <div class="vocab-grid">
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('luni')">luni</span></span><span class="ve">Monday</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('marți')">marți</span></span><span class="ve">Tuesday</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('miercuri')">miercuri</span></span><span class="ve">Wednesday</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('joi')">joi</span></span><span class="ve">Thursday</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('vineri')">vineri</span></span><span class="ve">Friday</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('sâmbătă')">sâmbătă</span></span><span class="ve">Saturday</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('duminică')">duminică</span></span><span class="ve">Sunday</span></div>
+        </div>
+
+        <h3>Months of the Year</h3>
+        <div class="vocab-grid">
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('ianuarie')">ianuarie</span></span><span class="ve">January</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('februarie')">februarie</span></span><span class="ve">February</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('martie')">martie</span></span><span class="ve">March</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('aprilie')">aprilie</span></span><span class="ve">April</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('mai')">mai</span></span><span class="ve">May</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('iunie')">iunie</span></span><span class="ve">June</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('iulie')">iulie</span></span><span class="ve">July</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('august')">august</span></span><span class="ve">August</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('septembrie')">septembrie</span></span><span class="ve">September</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('octombrie')">octombrie</span></span><span class="ve">October</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('noiembrie')">noiembrie</span></span><span class="ve">November</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('decembrie')">decembrie</span></span><span class="ve">December</span></div>
+        </div>
+
+        <h3>Seasons</h3>
+        <div class="sound-grid">
+            <div class="sound-item"><div class="sl">🌸</div><div class="sd"><div class="sp"><span class="s" onclick="say('primăvară')">primăvară</span></div><div class="se">spring</div></div></div>
+            <div class="sound-item"><div class="sl">☀️</div><div class="sd"><div class="sp"><span class="s" onclick="say('vară')">vară</span></div><div class="se">summer</div></div></div>
+            <div class="sound-item"><div class="sl">🍂</div><div class="sd"><div class="sp"><span class="s" onclick="say('toamnă')">toamnă</span></div><div class="se">autumn</div></div></div>
+            <div class="sound-item"><div class="sl">❄️</div><div class="sd"><div class="sp"><span class="s" onclick="say('iarnă')">iarnă</span></div><div class="se">winter</div></div></div>
+        </div>
+        <div class="box box-gold"><h4>Using Seasons & Months</h4>
+            <p style="font-family:var(--mono);font-size:.85rem;line-height:2;">
+                <span class="s" onclick="say('în primăvară')">în primăvară</span> — in spring · <span class="s" onclick="say('vara trecută')">vara trecută</span> — last summer<br>
+                <span class="s" onclick="say('în ianuarie')">în ianuarie</span> — in January · <span class="s" onclick="say('pe 15 martie')">pe 15 martie</span> — on March 15th
+            </p></div>
+
+        <h3>Time Expressions</h3>
+        <div class="vocab-grid">
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('azi')">azi</span></span><span class="ve">today</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('ieri')">ieri</span></span><span class="ve">yesterday</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('mâine')">mâine</span></span><span class="ve">tomorrow</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('acum')">acum</span></span><span class="ve">now</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('întotdeauna')">întotdeauna</span></span><span class="ve">always</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('niciodată')">niciodată</span></span><span class="ve">never</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('dimineață')">dimineață</span></span><span class="ve">morning</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('după-amiază')">după-amiază</span></span><span class="ve">afternoon</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('seară')">seară</span></span><span class="ve">evening</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('noapte')">noapte</span></span><span class="ve">night</span></div>
+        </div>
+
+        <h3>Weather</h3>
+        <div class="phrases">
+            <div class="phrase"><div class="ro"><span class="s" onclick="say('E cald.')">E cald.</span></div><div class="en">It's hot.</div></div>
+            <div class="phrase"><div class="ro"><span class="s" onclick="say('E frig.')">E frig.</span></div><div class="en">It's cold.</div></div>
+            <div class="phrase"><div class="ro"><span class="s" onclick="say('Plouă.')">Plouă.</span></div><div class="en">It's raining.</div></div>
+            <div class="phrase"><div class="ro"><span class="s" onclick="say('Ninge.')">Ninge.</span></div><div class="en">It's snowing.</div></div>
+            <div class="phrase"><div class="ro"><span class="s" onclick="say('E soare.')">E soare.</span></div><div class="en">It's sunny.</div></div>
+            <div class="phrase"><div class="ro"><span class="s" onclick="say('E vânt.')">E vânt.</span></div><div class="en">It's windy.</div></div>
+        </div>
+
+        <div class="test-box"><h4>Self-Test — Numbers & Time</h4>
+            <div class="test-item" onclick="this.classList.toggle('open')"><div class="tq">Say "17" in Romanian</div><div class="ta"><span class="s" onclick="event.stopPropagation();say('șaptesprezece')">șaptesprezece</span></div><div class="th">Click to reveal</div></div>
+            <div class="test-item" onclick="this.classList.toggle('open')"><div class="tq">"It's 3:30" in Romanian</div><div class="ta"><span class="s" onclick="event.stopPropagation();say('E ora trei și jumătate.')">E ora trei și jumătate.</span></div><div class="th">Click to reveal</div></div>
+            <div class="test-item" onclick="this.classList.toggle('open')"><div class="tq">"25 lei" (remember the "de" rule!)</div><div class="ta"><span class="s" onclick="event.stopPropagation();say('douăzeci și cinci de lei')">douăzeci și cinci de lei</span></div><div class="th">Click to reveal</div></div>
+            <div class="test-item" onclick="this.classList.toggle('open')"><div class="tq">"In January" in Romanian</div><div class="ta"><span class="s" onclick="event.stopPropagation();say('în ianuarie')">în ianuarie</span></div><div class="th">Click to reveal</div></div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- LESSON 10 — PREPOSITIONS                   -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section id="L10">
+        <div class="lesson-label"><div class="lesson-num">10</div><span class="lesson-tag">Lesson 10 — Prepositions & Connectors</span></div>
+        <h2>Linking Words, Places & Directions</h2>
+
+        <h3>Essential Prepositions</h3>
+        <div class="table-wrap"><table class="tbl">
+            <thead><tr><th>Romanian</th><th>English</th><th>Example</th></tr></thead>
+            <tbody>
+            <tr><td class="ro"><span class="s" onclick="say('în')">în</span></td><td>in / into</td><td class="en"><span class="s" onclick="say('Locuiesc în București.')">Locuiesc în București.</span></td></tr>
+            <tr><td class="ro"><span class="s" onclick="say('la')">la</span></td><td>to / at</td><td class="en"><span class="s" onclick="say('Merg la serviciu.')">Merg la serviciu.</span></td></tr>
+            <tr><td class="ro"><span class="s" onclick="say('din')">din</span></td><td>from (inside)</td><td class="en"><span class="s" onclick="say('Sunt din România.')">Sunt din România.</span></td></tr>
+            <tr><td class="ro"><span class="s" onclick="say('de la')">de la</span></td><td>from (a place)</td><td class="en"><span class="s" onclick="say('Vin de la birou.')">Vin de la birou.</span></td></tr>
+            <tr><td class="ro"><span class="s" onclick="say('cu')">cu</span></td><td>with</td><td class="en"><span class="s" onclick="say('Beau cafea cu lapte.')">Beau cafea cu lapte.</span></td></tr>
+            <tr><td class="ro"><span class="s" onclick="say('fără')">fără</span></td><td>without</td><td class="en"><span class="s" onclick="say('Cafea fără zahăr.')">Cafea fără zahăr.</span></td></tr>
+            <tr><td class="ro"><span class="s" onclick="say('pe')">pe</span></td><td>on</td><td class="en"><span class="s" onclick="say('Cartea e pe masă.')">Cartea e pe masă.</span></td></tr>
+            <tr><td class="ro"><span class="s" onclick="say('pentru')">pentru</span></td><td>for</td><td class="en"><span class="s" onclick="say('Aceasta e pentru tine.')">Aceasta e pentru tine.</span></td></tr>
+            <tr><td class="ro"><span class="s" onclick="say('despre')">despre</span></td><td>about</td><td class="en"><span class="s" onclick="say('Vorbesc despre el.')">Vorbesc despre el.</span></td></tr>
+            <tr><td class="ro"><span class="s" onclick="say('după')">după</span></td><td>after</td><td class="en"><span class="s" onclick="say('După masă merg acasă.')">După masă merg acasă.</span></td></tr>
+            <tr><td class="ro"><span class="s" onclick="say('înainte de')">înainte de</span></td><td>before</td><td class="en"><span class="s" onclick="say('Înainte de prânz.')">Înainte de prânz.</span></td></tr>
+            <tr><td class="ro"><span class="s" onclick="say('între')">între</span></td><td>between</td><td class="en"><span class="s" onclick="say('Între noi.')">Între noi.</span></td></tr>
+            </tbody></table></div>
+
+        <h3>"ÎN" vs "LA"</h3>
+        <div class="contrast">
+            <div class="c-col c-yes"><h5>✅ ÎN — physically inside</h5><div class="cx"><span class="s" onclick="say('în București')">în București</span><br><span class="s" onclick="say('în România')">în România</span><br><span class="s" onclick="say('în casă')">în casă</span></div></div>
+            <div class="c-col c-no"><h5>LA — at/to a destination</h5><div class="cx"><span class="s" onclick="say('la hotel')">la hotel</span><br><span class="s" onclick="say('la birou')">la birou</span><br><span class="s" onclick="say('la doctor')">la doctor</span></div></div>
+        </div>
+
+        <h3>Conjunctions</h3>
+        <div class="vocab-grid">
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('și')">și</span></span><span class="ve">and</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('sau')">sau</span></span><span class="ve">or</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('dar')">dar</span></span><span class="ve">but</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('pentru că')">pentru că</span></span><span class="ve">because</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('dacă')">dacă</span></span><span class="ve">if</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('că')">că</span></span><span class="ve">that</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('deci')">deci</span></span><span class="ve">so/therefore</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('deși')">deși</span></span><span class="ve">although</span></div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- LESSON 11 — MODALS                         -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section id="L11">
+        <div class="lesson-label"><div class="lesson-num">11</div><span class="lesson-tag">Lesson 11 — Modals & Comparatives</span></div>
+        <h2>Can, Must, Should + Comparisons</h2>
+
+        <h3>Modal Verbs</h3>
+        <div class="table-wrap"><table class="tbl">
+            <thead><tr><th>Modal</th><th>Meaning</th><th>Pattern</th><th>Example</th></tr></thead>
+            <tbody>
+            <tr><td class="ro"><span class="s" onclick="say('a putea')">a putea</span></td><td>can</td><td class="hi">pot + să + verb</td><td class="en"><span class="s" onclick="say('Pot să vorbesc românește.')">Pot să vorbesc românește.</span></td></tr>
+            <tr><td class="ro"><span class="s" onclick="say('trebuie')">trebuie</span></td><td>must</td><td class="hi">trebuie + să + verb</td><td class="en"><span class="s" onclick="say('Trebuie să plec acum.')">Trebuie să plec acum.</span></td></tr>
+            <tr><td class="ro"><span class="s" onclick="say('a vrea')">a vrea</span></td><td>to want</td><td class="hi">vreau + să + verb</td><td class="en"><span class="s" onclick="say('Vreau să mănânc ceva.')">Vreau să mănânc ceva.</span></td></tr>
+            <tr><td class="ro"><span class="s" onclick="say('ar trebui')">ar trebui</span></td><td>should</td><td class="hi">ar trebui + să</td><td class="en"><span class="s" onclick="say('Ar trebui să înveți mai mult.')">Ar trebui să înveți.</span></td></tr>
+            <tr><td class="ro"><span class="s" onclick="say('aș vrea')">aș vrea</span></td><td>I'd like</td><td class="hi">aș vrea + să</td><td class="en"><span class="s" onclick="say('Aș vrea o cafea, vă rog.')">Aș vrea o cafea.</span></td></tr>
+            </tbody></table></div>
+
+        <h3>"Hai să" — Let's...!</h3>
+        <div class="box box-orange"><h4>The Most Common Invitation</h4>
+            <p style="font-family:var(--mono);font-size:.86rem;margin-top:.4rem;">
+                <span class="s" onclick="say('Hai să mergem!')">Hai să mergem!</span> — Let's go! · <span class="s" onclick="say('Hai să mâncăm!')">Hai să mâncăm!</span> — Let's eat!<br>
+                <span class="s" onclick="say('Hai să bem o cafea!')">Hai să bem o cafea!</span> — Let's have a coffee!
+            </p></div>
+
+        <h3>Comparatives</h3>
+        <div class="table-wrap"><table class="tbl">
+            <thead><tr><th>Type</th><th>Pattern</th><th>Example</th></tr></thead>
+            <tbody>
+            <tr><td class="ro">More…than</td><td class="hi">mai + adj + decât</td><td class="en"><span class="s" onclick="say('El e mai mare decât eu.')">El e mai mare decât eu.</span></td></tr>
+            <tr><td class="ro">Less…than</td><td class="hi">mai puțin + adj + decât</td><td class="en"><span class="s" onclick="say('E mai puțin scump.')">E mai puțin scump.</span></td></tr>
+            <tr><td class="ro">The most</td><td class="hi">cel mai + adj</td><td class="en"><span class="s" onclick="say('Cel mai frumos oraș.')">Cel mai frumos oraș.</span></td></tr>
+            <tr><td class="ro">As…as</td><td class="hi">la fel de + adj + ca</td><td class="en"><span class="s" onclick="say('E la fel de bun ca el.')">E la fel de bun ca el.</span></td></tr>
+            </tbody></table></div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- LESSON 12 — IMPERFECT (EXPANDED)           -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section id="L12">
+        <div class="lesson-label"><div class="lesson-num">12</div><span class="lesson-tag">Lesson 12 — Imperfect Tense</span></div>
+        <h2>"I was doing / I used to do"</h2>
+        <p>Ongoing or habitual past actions: "I used to…", "I was …ing". The imperfect is <b>regular</b> — even irregular verbs behave predictably here.</p>
+
+        <h3>Imperfect Conjugation</h3>
+        <div class="table-wrap"><table class="tbl">
+            <thead><tr><th>Pronoun</th><th>a fi</th><th>a avea</th><th>a merge</th><th>a vorbi</th><th>a lucra</th></tr></thead>
+            <tbody>
+            <tr><td class="ro">eu</td><td class="hi"><span class="s" onclick="say('eram')">eram</span></td><td class="hi"><span class="s" onclick="say('aveam')">aveam</span></td><td class="hi"><span class="s" onclick="say('mergeam')">mergeam</span></td><td class="hi"><span class="s" onclick="say('vorbeam')">vorbeam</span></td><td class="hi"><span class="s" onclick="say('lucram')">lucram</span></td></tr>
+            <tr><td class="ro">tu</td><td class="hi">erai</td><td class="hi">aveai</td><td class="hi">mergeai</td><td class="hi">vorbeai</td><td class="hi">lucrai</td></tr>
+            <tr><td class="ro">el/ea</td><td class="hi"><span class="s" onclick="say('era')">era</span></td><td class="hi">avea</td><td class="hi">mergea</td><td class="hi">vorbea</td><td class="hi">lucra</td></tr>
+            <tr><td class="ro">noi</td><td class="hi">eram</td><td class="hi">aveam</td><td class="hi">mergeam</td><td class="hi">vorbeam</td><td class="hi">lucram</td></tr>
+            <tr><td class="ro">voi</td><td class="hi">erați</td><td class="hi">aveați</td><td class="hi">mergeați</td><td class="hi">vorbeați</td><td class="hi">lucrați</td></tr>
+            <tr><td class="ro">ei/ele</td><td class="hi"><span class="s" onclick="say('erau')">erau</span></td><td class="hi">aveau</td><td class="hi">mergeau</td><td class="hi">vorbeau</td><td class="hi">lucrau</td></tr>
+            </tbody></table></div>
+
+        <div class="box box-blue"><h4>Imperfect Pattern</h4><p>Take the infinitive stem → add <b>-am, -ai, -a, -am, -ați, -au</b>. Works for almost every verb!</p></div>
+
+        <h3>Imperfect vs. Perfect Compus</h3>
+        <div class="contrast">
+            <div class="c-col c-yes"><h5>✅ Perfect — completed action</h5><div class="cx"><span class="s" onclick="say('Am mâncat la ora 12.')">Am mâncat la ora 12.</span><br><i>I ate at 12. (done)</i></div></div>
+            <div class="c-col c-no"><h5>⏳ Imperfect — ongoing / habitual</h5><div class="cx"><span class="s" onclick="say('Mâncam când a sunat telefonul.')">Mâncam când a sunat.</span><br><i>I was eating when the phone rang.</i></div></div>
+        </div>
+
+        <h3>Using the Imperfect</h3>
+        <div class="phrases">
+            <div class="phrase"><div class="ro"><span class="s" onclick="say('Când eram mic, locuiam la sat.')">Când eram mic, locuiam la sat.</span></div><div class="en">When I was small, I lived in the village.</div></div>
+            <div class="phrase"><div class="ro"><span class="s" onclick="say('Mergeam la școală în fiecare zi.')">Mergeam la școală în fiecare zi.</span></div><div class="en">I used to go to school every day.</div></div>
+            <div class="phrase"><div class="ro"><span class="s" onclick="say('Afară ploua și era frig.')">Afară ploua și era frig.</span></div><div class="en">Outside it was raining and it was cold.</div></div>
+            <div class="phrase"><div class="ro"><span class="s" onclick="say('Ce făceai ieri la ora cinci?')">Ce făceai ieri la ora cinci?</span></div><div class="en">What were you doing yesterday at 5?</div></div>
+        </div>
+
+        <div class="drill"><h4>Drill — "Când eram mic…"</h4>
+            <p>Complete these sentences about your childhood:</p>
+            <div class="examples">
+                Când eram mic, <b>___</b> (a locui) la/în ___.<br>
+                <b>___</b> (a merge) la școală în fiecare zi.<br>
+                Bunica mea <b>___</b> (a face) mâncare bună.<br>
+                <b>___</b> (a fi) fericit(ă) când <b>___</b> (a juca) afară.
+            </div>
+        </div>
+
+        <div class="test-box"><h4>Self-Test — Imperfect</h4>
+            <div class="test-item" onclick="this.classList.toggle('open')"><div class="tq">"I used to speak Romanian." (eu)</div><div class="ta"><span class="s" onclick="event.stopPropagation();say('Vorbeam românește.')">Vorbeam românește.</span></div><div class="th">Click to reveal</div></div>
+            <div class="test-item" onclick="this.classList.toggle('open')"><div class="tq">"She was working when I called."</div><div class="ta"><span class="s" onclick="event.stopPropagation();say('Ea lucra când am sunat.')">Ea lucra când am sunat.</span></div><div class="th">Click to reveal</div></div>
+            <div class="test-item" onclick="this.classList.toggle('open')"><div class="tq">"They used to have a house in the mountains."</div><div class="ta"><span class="s" onclick="event.stopPropagation();say('Ei aveau o casă la munte.')">Ei aveau o casă la munte.</span></div><div class="th">Click to reveal</div></div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- LESSON 13 — COMMANDS (EXPANDED)            -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section id="L13">
+        <div class="lesson-label"><div class="lesson-num">13</div><span class="lesson-tag">Lesson 13 — Commands</span></div>
+        <h2>Imperative — Orders & Requests</h2>
+        <p>Two forms: <b>tu</b> (informal, one person) and <b>voi</b> (formal/plural). The voi form is also used with <b>dumneavoastră</b>.</p>
+
+        <div class="table-wrap"><table class="tbl">
+            <thead><tr><th>English</th><th>+ (tu)</th><th>+ (voi)</th><th>− (tu)</th></tr></thead>
+            <tbody>
+            <tr><td>Come!</td><td class="ro"><span class="s" onclick="say('Vino!')">Vino!</span></td><td class="ro"><span class="s" onclick="say('Veniți!')">Veniți!</span></td><td style="color:var(--red)">Nu veni!</td></tr>
+            <tr><td>Go!</td><td class="ro"><span class="s" onclick="say('Du-te!')">Du-te!</span></td><td class="ro"><span class="s" onclick="say('Duceți-vă!')">Duceți-vă!</span></td><td style="color:var(--red)">Nu te duce!</td></tr>
+            <tr><td>Wait!</td><td class="ro"><span class="s" onclick="say('Stai!')">Stai!</span></td><td class="ro"><span class="s" onclick="say('Stați!')">Stați!</span></td><td style="color:var(--red)">Nu sta!</td></tr>
+            <tr><td>Speak!</td><td class="ro"><span class="s" onclick="say('Vorbește!')">Vorbește!</span></td><td class="ro"><span class="s" onclick="say('Vorbiți!')">Vorbiți!</span></td><td style="color:var(--red)">Nu vorbi!</td></tr>
+            <tr><td>Eat!</td><td class="ro"><span class="s" onclick="say('Mănâncă!')">Mănâncă!</span></td><td class="ro"><span class="s" onclick="say('Mâncați!')">Mâncați!</span></td><td style="color:var(--red)">Nu mânca!</td></tr>
+            <tr><td>Give!</td><td class="ro"><span class="s" onclick="say('Dă!')">Dă!</span></td><td class="ro">Dați!</td><td style="color:var(--red)">Nu da!</td></tr>
+            <tr><td>Read!</td><td class="ro"><span class="s" onclick="say('Citește!')">Citește!</span></td><td class="ro">Citiți!</td><td style="color:var(--red)">Nu citi!</td></tr>
+            <tr><td>Write!</td><td class="ro"><span class="s" onclick="say('Scrie!')">Scrie!</span></td><td class="ro">Scrieți!</td><td style="color:var(--red)">Nu scrie!</td></tr>
+            <tr><td>Listen!</td><td class="ro"><span class="s" onclick="say('Ascultă!')">Ascultă!</span></td><td class="ro">Ascultați!</td><td style="color:var(--red)">Nu asculta!</td></tr>
+            <tr><td>Look!</td><td class="ro"><span class="s" onclick="say('Uită-te!')">Uită-te!</span></td><td class="ro">Uitați-vă!</td><td style="color:var(--red)">Nu te uita!</td></tr>
+            </tbody></table></div>
+
+        <div class="box box-teal"><h4>Polite Requests</h4>
+            <p style="font-family:var(--mono);font-size:.85rem;line-height:2;">
+                <span class="s" onclick="say('Veniți, vă rog!')">Veniți, <b>vă rog</b>!</span> — Come, please!<br>
+                <span class="s" onclick="say('Spuneți-mi, vă rog.')">Spuneți-mi, <b>vă rog</b>.</span> — Tell me, please.<br>
+                <span class="s" onclick="say('Stai puțin!')">Stai <b>puțin</b>!</span> — Wait a moment!
+            </p></div>
+
+        <div class="test-box"><h4>Self-Test — Commands</h4>
+            <div class="test-item" onclick="this.classList.toggle('open')"><div class="tq">"Come here!" (informal)</div><div class="ta"><span class="s" onclick="event.stopPropagation();say('Vino aici!')">Vino aici!</span></div><div class="th">Click to reveal</div></div>
+            <div class="test-item" onclick="this.classList.toggle('open')"><div class="tq">"Don't go!" (informal)</div><div class="ta"><span class="s" onclick="event.stopPropagation();say('Nu te duce!')">Nu te duce!</span></div><div class="th">Click to reveal</div></div>
+            <div class="test-item" onclick="this.classList.toggle('open')"><div class="tq">"Please speak slowly." (formal)</div><div class="ta"><span class="s" onclick="event.stopPropagation();say('Vorbiți încet, vă rog.')">Vorbiți încet, vă rog.</span></div><div class="th">Click to reveal</div></div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- LESSON 14 — SUBJUNCTIVE (EXPANDED)         -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section id="L14">
+        <div class="lesson-label"><div class="lesson-num">14</div><span class="lesson-tag">Lesson 14 — The Subjunctive "SĂ"</span></div>
+        <h2>Modal + SĂ + Verb</h2>
+        <p>Romanian uses the subjunctive where English uses infinitives: "I want <b>to go</b>" = "Vreau <b>să merg</b>." Only 3rd person changes from present tense.</p>
+
+        <div class="box box-blue"><h4>When to Use SĂ</h4><p>After: <b>vreau</b> (I want), <b>trebuie</b> (must), <b>pot</b> (I can), <b>o să</b> (will), <b>hai</b> (let's), <b>sper</b> (I hope), <b>cred</b> (I think).</p></div>
+
+        <div class="table-wrap"><table class="tbl">
+            <thead><tr><th>Verb</th><th>Present (el)</th><th>Subjunctive (el să…)</th><th>Example</th></tr></thead>
+            <tbody>
+            <tr><td class="ro">a vorbi</td><td>vorbește</td><td class="hi"><span class="s" onclick="say('să vorbească')">să vorbească</span></td><td class="en">Vreau să vorbească.</td></tr>
+            <tr><td class="ro">a face</td><td>face</td><td class="hi"><span class="s" onclick="say('să facă')">să facă</span></td><td class="en">Trebuie să facă asta.</td></tr>
+            <tr><td class="ro">a merge</td><td>merge</td><td class="hi"><span class="s" onclick="say('să meargă')">să meargă</span></td><td class="en">O să meargă acasă.</td></tr>
+            <tr><td class="ro">a veni</td><td>vine</td><td class="hi"><span class="s" onclick="say('să vină')">să vină</span></td><td class="en">Trebuie să vină.</td></tr>
+            <tr><td class="ro">a fi</td><td>este</td><td class="hi"><span class="s" onclick="say('să fie')">să fie</span></td><td class="en">Vreau să fie bine.</td></tr>
+            <tr><td class="ro">a avea</td><td>are</td><td class="hi"><span class="s" onclick="say('să aibă')">să aibă</span></td><td class="en">Sper să aibă noroc.</td></tr>
+            <tr><td class="ro">a mânca</td><td>mănâncă</td><td class="hi"><span class="s" onclick="say('să mănânce')">să mănânce</span></td><td class="en">Vreau să mănânce.</td></tr>
+            <tr><td class="ro">a ști</td><td>știe</td><td class="hi"><span class="s" onclick="say('să știe')">să știe</span></td><td class="en">Trebuie să știe.</td></tr>
+            <tr><td class="ro">a putea</td><td>poate</td><td class="hi"><span class="s" onclick="say('să poată')">să poată</span></td><td class="en">Vreau să poată veni.</td></tr>
+            </tbody></table></div>
+
+        <div class="drill"><h4>Drill — Build "Vreau să…" Sentences</h4>
+            <div class="examples">
+                <span class="s" onclick="say('Vreau să merg acasă.')">Vreau să merg acasă.</span> — I want to go home.<br>
+                <span class="s" onclick="say('Trebuie să lucrez mâine.')">Trebuie să lucrez mâine.</span> — I must work tomorrow.<br>
+                <span class="s" onclick="say('Pot să te ajut?')">Pot să te ajut?</span> — Can I help you?<br>
+                <span class="s" onclick="say('Sper să fie frumos afară.')">Sper să fie frumos afară.</span> — I hope it's nice outside.
+            </div>
+        </div>
+
+        <div class="test-box"><h4>Self-Test — Subjunctive</h4>
+            <div class="test-item" onclick="this.classList.toggle('open')"><div class="tq">"I want to eat something."</div><div class="ta"><span class="s" onclick="event.stopPropagation();say('Vreau să mănânc ceva.')">Vreau să mănânc ceva.</span></div><div class="th">Click to reveal</div></div>
+            <div class="test-item" onclick="this.classList.toggle('open')"><div class="tq">"He must come tomorrow."</div><div class="ta"><span class="s" onclick="event.stopPropagation();say('Trebuie să vină mâine.')">Trebuie să vină mâine.</span></div><div class="th">Click to reveal</div></div>
+            <div class="test-item" onclick="this.classList.toggle('open')"><div class="tq">"Can she speak Romanian?"</div><div class="ta"><span class="s" onclick="event.stopPropagation();say('Poate să vorbească românește?')">Poate să vorbească românește?</span></div><div class="th">Click to reveal</div></div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- LESSON 15 — CONDITIONALS (EXPANDED)        -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section id="L15">
+        <div class="lesson-label"><div class="lesson-num">15</div><span class="lesson-tag">Lesson 15 — Conditionals & Complex Sentences</span></div>
+        <h2>If… Then…, Reflexives, Relative Clauses</h2>
+
+        <h3>Conditional — "I would…"</h3>
+        <div class="table-wrap"><table class="tbl">
+            <thead><tr><th>Pronoun</th><th>Marker</th><th>+ a face</th><th>+ a fi</th><th>+ a merge</th></tr></thead>
+            <tbody>
+            <tr><td class="ro">eu</td><td class="hi"><span class="s" onclick="say('aș')">aș</span></td><td><span class="s" onclick="say('aș face')">aș face</span></td><td>aș fi</td><td>aș merge</td></tr>
+            <tr><td class="ro">tu</td><td class="hi">ai</td><td>ai face</td><td>ai fi</td><td>ai merge</td></tr>
+            <tr><td class="ro">el/ea</td><td class="hi"><span class="s" onclick="say('ar')">ar</span></td><td><span class="s" onclick="say('ar face')">ar face</span></td><td>ar fi</td><td>ar merge</td></tr>
+            <tr><td class="ro">noi</td><td class="hi">am</td><td>am face</td><td>am fi</td><td>am merge</td></tr>
+            <tr><td class="ro">voi</td><td class="hi">ați</td><td>ați face</td><td>ați fi</td><td>ați merge</td></tr>
+            <tr><td class="ro">ei/ele</td><td class="hi">ar</td><td>ar face</td><td>ar fi</td><td>ar merge</td></tr>
+            </tbody></table></div>
+
+        <h3>If… Then… (Dacă)</h3>
+        <div class="box box-orange"><h4>3 Types of "If" Sentences</h4>
+            <p style="font-family:var(--mono);font-size:.85rem;line-height:2.2;margin-top:.4rem;">
+                <b>Real (likely):</b><br>
+                <span class="s" onclick="say('Dacă am timp, vin la tine.')">Dacă am timp, vin la tine.</span> — If I have time, I'll come.<br>
+                <span class="s" onclick="say('Dacă plouă, stau acasă.')">Dacă plouă, stau acasă.</span> — If it rains, I stay home.<br><br>
+                <b>Unreal (hypothetical):</b><br>
+                <span class="s" onclick="say('Dacă aș avea bani, aș călători.')">Dacă aș avea bani, aș călători.</span> — If I had money, I would travel.<br>
+                <span class="s" onclick="say('Dacă aș fi tu, aș pleca.')">Dacă aș fi tu, aș pleca.</span> — If I were you, I would leave.<br><br>
+                <b>Past unreal:</b><br>
+                <span class="s" onclick="say('Dacă aș fi știut, aș fi venit.')">Dacă aș fi știut, aș fi venit.</span> — If I had known, I would have come.
+            </p></div>
+
+        <h3>Reflexive Verbs</h3>
+        <div class="table-wrap"><table class="tbl">
+            <thead><tr><th>Verb</th><th>Meaning</th><th>Example</th></tr></thead>
+            <tbody>
+            <tr><td class="ro"><span class="s" onclick="say('a se trezi')">a se trezi</span></td><td>to wake up</td><td class="en"><span class="s" onclick="say('Mă trezesc la șapte.')">Mă trezesc la 7.</span></td></tr>
+            <tr><td class="ro"><span class="s" onclick="say('a se simți')">a se simți</span></td><td>to feel</td><td class="en"><span class="s" onclick="say('Mă simt bine.')">Mă simt bine.</span></td></tr>
+            <tr><td class="ro"><span class="s" onclick="say('a se uita')">a se uita</span></td><td>to look/watch</td><td class="en"><span class="s" onclick="say('Mă uit la televizor.')">Mă uit la televizor.</span></td></tr>
+            <tr><td class="ro"><span class="s" onclick="say('a se gândi')">a se gândi</span></td><td>to think about</td><td class="en"><span class="s" onclick="say('Mă gândesc la tine.')">Mă gândesc la tine.</span></td></tr>
+            <tr><td class="ro"><span class="s" onclick="say('a se numi')">a se numi</span></td><td>to be called</td><td class="en"><span class="s" onclick="say('Mă numesc Ana.')">Mă numesc Ana.</span></td></tr>
+            <tr><td class="ro"><span class="s" onclick="say('a se spăla')">a se spăla</span></td><td>to wash oneself</td><td class="en"><span class="s" onclick="say('Mă spăl pe mâini.')">Mă spăl pe mâini.</span></td></tr>
+            <tr><td class="ro"><span class="s" onclick="say('a se îmbrăca')">a se îmbrăca</span></td><td>to get dressed</td><td class="en"><span class="s" onclick="say('Mă îmbrac repede.')">Mă îmbrac repede.</span></td></tr>
+            </tbody></table></div>
+
+        <div class="box box-blue"><h4>Reflexive Pronouns</h4>
+            <p style="font-family:var(--mono);font-size:.85rem;line-height:2;">
+                eu <b>mă</b> · tu <b>te</b> · el/ea <b>se</b> · noi <b>ne</b> · voi <b>vă</b> · ei/ele <b>se</b>
+            </p></div>
+
+        <h3>Relative Clauses — "Care" (who/which/that)</h3>
+        <div class="phrases">
+            <div class="phrase"><div class="ro"><span class="s" onclick="say('Omul care vorbește e profesorul.')">Omul <b>care</b> vorbește e profesorul.</span></div><div class="en">The man who is speaking is the teacher.</div></div>
+            <div class="phrase"><div class="ro"><span class="s" onclick="say('Cartea pe care o citesc e bună.')">Cartea <b>pe care</b> o citesc e bună.</span></div><div class="en">The book (that) I'm reading is good.</div></div>
+            <div class="phrase"><div class="ro"><span class="s" onclick="say('Filmul despre care vorbim.')">Filmul <b>despre care</b> vorbim.</span></div><div class="en">The movie we're talking about.</div></div>
+        </div>
+
+        <h3>Double Negation — Romanian Says "No" Twice!</h3>
+        <div class="box box-orange"><h4>Mandatory Pattern</h4>
+            <p style="font-family:var(--mono);font-size:.86rem;margin-top:.4rem;">
+                <span class="s" onclick="say('Nu vine nimeni.')"><b>Nu</b> vine <b>nimeni</b>.</span> — Nobody is coming.<br>
+                <span class="s" onclick="say('Nu am nimic.')"><b>Nu</b> am <b>nimic</b>.</span> — I have nothing.<br>
+                <span class="s" onclick="say('Nimeni nu știe nimic.')"><b>Nimeni nu</b> știe <b>nimic</b>.</span> — Nobody knows anything.<br>
+                <span class="s" onclick="say('Nu merg nicăieri.')"><b>Nu</b> merg <b>nicăieri</b>.</span> — I'm not going anywhere.<br>
+                <span class="s" onclick="say('Nu vorbesc niciodată.')"><b>Nu</b> vorbesc <b>niciodată</b>.</span> — I never speak.
+            </p></div>
+
+        <div class="test-box"><h4>Self-Test — Conditionals & Reflexives</h4>
+            <div class="test-item" onclick="this.classList.toggle('open')"><div class="tq">"If I had time, I would learn Romanian."</div><div class="ta"><span class="s" onclick="event.stopPropagation();say('Dacă aș avea timp, aș învăța românește.')">Dacă aș avea timp, aș învăța românește.</span></div><div class="th">Click to reveal</div></div>
+            <div class="test-item" onclick="this.classList.toggle('open')"><div class="tq">"I wake up at 7 and I feel good."</div><div class="ta"><span class="s" onclick="event.stopPropagation();say('Mă trezesc la șapte și mă simt bine.')">Mă trezesc la 7 și mă simt bine.</span></div><div class="th">Click to reveal</div></div>
+            <div class="test-item" onclick="this.classList.toggle('open')"><div class="tq">"The woman who works here is my friend."</div><div class="ta"><span class="s" onclick="event.stopPropagation();say('Femeia care lucrează aici e prietena mea.')">Femeia care lucrează aici e prietena mea.</span></div><div class="th">Click to reveal</div></div>
+            <div class="test-item" onclick="this.classList.toggle('open')"><div class="tq">"Nobody knows anything."</div><div class="ta"><span class="s" onclick="event.stopPropagation();say('Nimeni nu știe nimic.')">Nimeni nu știe nimic.</span></div><div class="th">Click to reveal</div></div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- LESSON 16 — ADVANCED (EXPANDED)            -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section id="L16">
+        <div class="lesson-label"><div class="lesson-num">16</div><span class="lesson-tag">Lesson 16 — Advanced Patterns</span></div>
+        <h2>Complex Sentences, Fillers, Idioms & Cognates</h2>
+
+        <h3>Complex Sentences</h3>
+        <div class="phrases">
+            <div class="phrase"><div class="ro"><span class="s" onclick="say('Am plecat pentru că era târziu.')">Am plecat pentru că era târziu.</span></div><div class="en">I left because it was late.</div></div>
+            <div class="phrase"><div class="ro"><span class="s" onclick="say('Deși era obosit, a continuat.')">Deși era obosit, a continuat.</span></div><div class="en">Although tired, he continued.</div></div>
+            <div class="phrase"><div class="ro"><span class="s" onclick="say('Nu știu dacă vine sau nu.')">Nu știu dacă vine sau nu.</span></div><div class="en">I don't know if he's coming.</div></div>
+            <div class="phrase"><div class="ro"><span class="s" onclick="say('Cred că are dreptate.')">Cred că are dreptate.</span></div><div class="en">I think he's right.</div></div>
+            <div class="phrase"><div class="ro"><span class="s" onclick="say('Mi-a spus că o să vină mai târziu.')">Mi-a spus că o să vină mai târziu.</span></div><div class="en">He told me he'll come later.</div></div>
+            <div class="phrase"><div class="ro"><span class="s" onclick="say('Cu cât învăț mai mult, cu atât înțeleg mai bine.')">Cu cât învăț mai mult, cu atât înțeleg mai bine.</span></div><div class="en">The more I learn, the more I understand.</div></div>
+        </div>
+
+        <h3>"Mi-e…" — Expressing States</h3>
+        <div class="box box-teal"><h4>How to Say "I'm hungry / cold / afraid"</h4>
+            <p style="font-family:var(--mono);font-size:.85rem;line-height:2.2;margin-top:.4rem;">
+                <span class="s" onclick="say('Mi-e foame.')"><b>Mi-e foame.</b></span> — I'm hungry. (lit: "to me is hunger")<br>
+                <span class="s" onclick="say('Mi-e sete.')"><b>Mi-e sete.</b></span> — I'm thirsty.<br>
+                <span class="s" onclick="say('Mi-e frig.')"><b>Mi-e frig.</b></span> — I'm cold.<br>
+                <span class="s" onclick="say('Mi-e cald.')"><b>Mi-e cald.</b></span> — I'm hot.<br>
+                <span class="s" onclick="say('Mi-e somn.')"><b>Mi-e somn.</b></span> — I'm sleepy.<br>
+                <span class="s" onclick="say('Mi-e frică.')"><b>Mi-e frică.</b></span> — I'm afraid.<br>
+                <span class="s" onclick="say('Mi-e rușine.')"><b>Mi-e rușine.</b></span> — I'm ashamed/embarrassed.<br>
+                <span class="s" onclick="say('Mi-e dor de tine.')"><b>Mi-e dor</b> de tine.</span> — I miss you. (uniquely Romanian!)
+            </p></div>
+
+        <h3>Filler Words — How Romanians Really Talk</h3>
+        <div class="filler-grid">
+            <div class="filler-card"><div class="fw"><span class="s" onclick="say('deci')">deci</span></div><div class="fm">so, well, therefore</div><div class="fe">"Deci, ce facem?"</div></div>
+            <div class="filler-card"><div class="fw"><span class="s" onclick="say('păi')">păi</span></div><div class="fm">well, um</div><div class="fe">"Păi, nu știu."</div></div>
+            <div class="filler-card"><div class="fw"><span class="s" onclick="say('uite')">uite</span></div><div class="fm">look, see</div><div class="fe">"Uite ce frumos!"</div></div>
+            <div class="filler-card"><div class="fw"><span class="s" onclick="say('adică')">adică</span></div><div class="fm">I mean, that is</div><div class="fe">"Adică, nu e chiar așa."</div></div>
+            <div class="filler-card"><div class="fw"><span class="s" onclick="say('bine')">bine</span></div><div class="fm">OK, fine, alright</div><div class="fe">"Bine, hai."</div></div>
+            <div class="filler-card"><div class="fw"><span class="s" onclick="say('na')">na</span></div><div class="fm">here, well</div><div class="fe">"Na, ia-l!"</div></div>
+            <div class="filler-card"><div class="fw"><span class="s" onclick="say('mda')">mda</span></div><div class="fm">yeah, I guess</div><div class="fe">"Mda, ai dreptate."</div></div>
+            <div class="filler-card"><div class="fw"><span class="s" onclick="say('știi')">știi</span></div><div class="fm">you know</div><div class="fe">"E complicat, știi?"</div></div>
+        </div>
+
+        <h3>Common Expressions & Idioms</h3>
+        <div class="phrases">
+            <div class="phrase"><div class="ro"><span class="s" onclick="say('Nu-i bai!')">Nu-i bai!</span></div><div class="en">No problem!</div></div>
+            <div class="phrase"><div class="ro"><span class="s" onclick="say('Noroc!')">Noroc!</span></div><div class="en">Cheers!</div></div>
+            <div class="phrase"><div class="ro"><span class="s" onclick="say('Poftă bună!')">Poftă bună!</span></div><div class="en">Bon appetit!</div></div>
+            <div class="phrase"><div class="ro"><span class="s" onclick="say('Nu-mi vine să cred!')">Nu-mi vine să cred!</span></div><div class="en">I can't believe it!</div></div>
+            <div class="phrase"><div class="ro"><span class="s" onclick="say('Doamne ferește!')">Doamne ferește!</span></div><div class="en">God forbid!</div></div>
+            <div class="phrase"><div class="ro"><span class="s" onclick="say('Las-o baltă!')">Las-o baltă!</span></div><div class="en">Let it go! / Drop it!</div></div>
+            <div class="phrase"><div class="ro"><span class="s" onclick="say('Ce mai faci?')">Ce mai faci?</span></div><div class="en">How have you been?</div></div>
+            <div class="phrase"><div class="ro"><span class="s" onclick="say('Nu face nimic.')">Nu face nimic.</span></div><div class="en">It doesn't matter.</div></div>
+        </div>
+
+        <h3>Cognate Trick — 1000 Free Words</h3>
+        <div class="box box-gold"><h4>English → Romanian Patterns</h4>
+            <p><b>-tion → -ție</b>: information → informație, situation → situație<br>
+                <b>-ty → -tate</b>: university → universitate, quality → calitate<br>
+                <b>-ture → -tură</b>: nature → natură, culture → cultură<br>
+                <b>-ment → -ment</b>: moment → moment, apartment → apartament</p>
+        </div>
+        <div class="vocab-grid">
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('informație')">informație</span></span><span class="ve">information</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('situație')">situație</span></span><span class="ve">situation</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('educație')">educație</span></span><span class="ve">education</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('televiziune')">televiziune</span></span><span class="ve">television</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('natură')">natură</span></span><span class="ve">nature</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('cultură')">cultură</span></span><span class="ve">culture</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('muzică')">muzică</span></span><span class="ve">music</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('universitate')">universitate</span></span><span class="ve">university</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('restaurant')">restaurant</span></span><span class="ve">restaurant</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('hotel')">hotel</span></span><span class="ve">hotel</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('calitate')">calitate</span></span><span class="ve">quality</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('apartament')">apartament</span></span><span class="ve">apartment</span></div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- LESSON 17 — REVIEW (EXPANDED)              -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section id="L17">
+        <div class="lesson-label"><div class="lesson-num">17</div><span class="lesson-tag">Lesson 17 — Grand Review</span></div>
+        <h2>Grand Self-Test — All 16 Lessons</h2>
+        <div class="test-box"><h4>Can You Say All of These?</h4>
+            <div class="test-item" onclick="this.classList.toggle('open')"><div class="tq">1. I spoke Romanian yesterday.</div><div class="ta"><span class="s" onclick="event.stopPropagation();say('Am vorbit românește ieri.')">Am vorbit românește ieri.</span></div><div class="th">Click to reveal</div></div>
+            <div class="test-item" onclick="this.classList.toggle('open')"><div class="tq">2. She doesn't have time because she's working.</div><div class="ta"><span class="s" onclick="event.stopPropagation();say('Ea nu are timp pentru că lucrează.')">Ea nu are timp pentru că lucrează.</span></div><div class="th">Click to reveal</div></div>
+            <div class="test-item" onclick="this.classList.toggle('open')"><div class="tq">3. If I had money, I would travel to Romania.</div><div class="ta"><span class="s" onclick="event.stopPropagation();say('Dacă aș avea bani, aș călători în România.')">Dacă aș avea bani, aș călători în România.</span></div><div class="th">Click to reveal</div></div>
+            <div class="test-item" onclick="this.classList.toggle('open')"><div class="tq">4. Let's eat something! I'm hungry.</div><div class="ta"><span class="s" onclick="event.stopPropagation();say('Hai să mâncăm ceva! Mi-e foame.')">Hai să mâncăm ceva! Mi-e foame.</span></div><div class="th">Click to reveal</div></div>
+            <div class="test-item" onclick="this.classList.toggle('open')"><div class="tq">5. Nobody knows anything.</div><div class="ta"><span class="s" onclick="event.stopPropagation();say('Nimeni nu știe nimic.')">Nimeni nu știe nimic.</span></div><div class="th">Click to reveal</div></div>
+            <div class="test-item" onclick="this.classList.toggle('open')"><div class="tq">6. I like Romanian food, especially sarmale.</div><div class="ta"><span class="s" onclick="event.stopPropagation();say('Îmi place mâncarea românească, mai ales sarmalele.')">Îmi place mâncarea românească, mai ales sarmalele.</span></div><div class="th">Click to reveal</div></div>
+            <div class="test-item" onclick="this.classList.toggle('open')"><div class="tq">7. Can I pay by card?</div><div class="ta"><span class="s" onclick="event.stopPropagation();say('Pot să plătesc cu cardul?')">Pot să plătesc cu cardul?</span></div><div class="th">Click to reveal</div></div>
+            <div class="test-item" onclick="this.classList.toggle('open')"><div class="tq">8. I wake up at 7 and I feel good.</div><div class="ta"><span class="s" onclick="event.stopPropagation();say('Mă trezesc la șapte și mă simt bine.')">Mă trezesc la 7 și mă simt bine.</span></div><div class="th">Click to reveal</div></div>
+            <div class="test-item" onclick="this.classList.toggle('open')"><div class="tq">9. When I was young, I used to live in the village.</div><div class="ta"><span class="s" onclick="event.stopPropagation();say('Când eram mic, locuiam la sat.')">Când eram mic, locuiam la sat.</span></div><div class="th">Click to reveal</div></div>
+            <div class="test-item" onclick="this.classList.toggle('open')"><div class="tq">10. It's 3:30. I must leave now.</div><div class="ta"><span class="s" onclick="event.stopPropagation();say('E ora trei și jumătate. Trebuie să plec acum.')">E ora trei și jumătate. Trebuie să plec acum.</span></div><div class="th">Click to reveal</div></div>
+            <div class="test-item" onclick="this.classList.toggle('open')"><div class="tq">11. I miss you. (the uniquely Romanian way)</div><div class="ta"><span class="s" onclick="event.stopPropagation();say('Mi-e dor de tine.')">Mi-e dor de tine.</span></div><div class="th">Click to reveal</div></div>
+            <div class="test-item" onclick="this.classList.toggle('open')"><div class="tq">12. The book that I'm reading is good.</div><div class="ta"><span class="s" onclick="event.stopPropagation();say('Cartea pe care o citesc e bună.')">Cartea pe care o citesc e bună.</span></div><div class="th">Click to reveal</div></div>
+        </div>
+        <div class="box box-gold"><h4>What Comes After?</h4><p>You have the complete foundation. Continue with Romanian YouTube, ProTV, Digi24, native speakers. The foundation never disappears.</p></div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- VOCABULARY (EXPANDED)                       -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section id="vocab">
+        <div class="lesson-label"><div class="lesson-num">★</div><span class="lesson-tag">Reference</span></div>
+        <h2>500+ Core Vocabulary</h2>
+
+        <div class="vocab-section">👤 People & Family</div>
+        <div class="vocab-grid">
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('om')">om</span></span><span class="ve">person</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('femeie')">femeie</span></span><span class="ve">woman</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('bărbat')">bărbat</span></span><span class="ve">man</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('copil')">copil</span></span><span class="ve">child</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('prieten')">prieten</span></span><span class="ve">friend(m)</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('familie')">familie</span></span><span class="ve">family</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('mamă')">mamă</span></span><span class="ve">mother</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('tată')">tată</span></span><span class="ve">father</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('frate')">frate</span></span><span class="ve">brother</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('soră')">soră</span></span><span class="ve">sister</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('soț')">soț/soție</span></span><span class="ve">husband/wife</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('bunic')">bunic/bunică</span></span><span class="ve">grandpa/ma</span></div>
+        </div>
+
+        <div class="vocab-section">🏠 Home & Objects</div>
+        <div class="vocab-grid">
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('casă')">casă</span></span><span class="ve">house</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('cameră')">cameră</span></span><span class="ve">room</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('masă')">masă</span></span><span class="ve">table</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('pat')">pat</span></span><span class="ve">bed</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('ușă')">ușă</span></span><span class="ve">door</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('cheie')">cheie</span></span><span class="ve">key</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('telefon')">telefon</span></span><span class="ve">phone</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('apă')">apă</span></span><span class="ve">water</span></div>
+        </div>
+
+        <div class="vocab-section">🩺 Body & Health</div>
+        <div class="vocab-grid">
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('cap')">cap</span></span><span class="ve">head</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('ochi')">ochi</span></span><span class="ve">eye(s)</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('nas')">nas</span></span><span class="ve">nose</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('gură')">gură</span></span><span class="ve">mouth</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('ureche')">ureche</span></span><span class="ve">ear</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('mână')">mână</span></span><span class="ve">hand</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('picior')">picior</span></span><span class="ve">leg/foot</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('inimă')">inimă</span></span><span class="ve">heart</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('stomac')">stomac</span></span><span class="ve">stomach</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('spate')">spate</span></span><span class="ve">back</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('dinți')">dinți</span></span><span class="ve">teeth</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('deget')">deget</span></span><span class="ve">finger</span></div>
+        </div>
+        <div class="box box-teal"><h4>Saying "It Hurts"</h4>
+            <p style="font-family:var(--mono);font-size:.85rem;line-height:2;">
+                <span class="s" onclick="say('Mă doare capul.')">Mă doare <b>capul</b>.</span> — My head hurts.<br>
+                <span class="s" onclick="say('Mă doare stomacul.')">Mă doare <b>stomacul</b>.</span> — My stomach hurts.<br>
+                <span class="s" onclick="say('Mă dor dinții.')">Mă dor <b>dinții</b>.</span> — My teeth hurt. (plural = <b>dor</b>!)<br>
+                <span class="s" onclick="say('Am febră.')">Am <b>febră</b>.</span> — I have a fever.<br>
+                <span class="s" onclick="say('Am nevoie de un doctor.')">Am nevoie de un <b>doctor</b>.</span> — I need a doctor.
+            </p></div>
+
+        <div class="vocab-section">🍽️ Food & Drink</div>
+        <div class="vocab-grid">
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('pâine')">pâine</span></span><span class="ve">bread</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('carne')">carne</span></span><span class="ve">meat</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('lapte')">lapte</span></span><span class="ve">milk</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('cafea')">cafea</span></span><span class="ve">coffee</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('bere')">bere</span></span><span class="ve">beer</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('vin')">vin</span></span><span class="ve">wine</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('ciorbă')">ciorbă</span></span><span class="ve">sour soup</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('mici')">mici</span></span><span class="ve">grilled sausages</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('sarmale')">sarmale</span></span><span class="ve">cabbage rolls</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('brânză')">brânză</span></span><span class="ve">cheese</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('ouă')">ouă</span></span><span class="ve">eggs</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('legume')">legume</span></span><span class="ve">vegetables</span></div>
+        </div>
+
+        <div class="vocab-section">🏙️ City & Travel</div>
+        <div class="vocab-grid">
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('oraș')">oraș</span></span><span class="ve">city</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('stradă')">stradă</span></span><span class="ve">street</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('magazin')">magazin</span></span><span class="ve">store</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('gară')">gară</span></span><span class="ve">station</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('aeroport')">aeroport</span></span><span class="ve">airport</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('metrou')">metrou</span></span><span class="ve">metro</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('bilet')">bilet</span></span><span class="ve">ticket</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('spital')">spital</span></span><span class="ve">hospital</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('farmacie')">farmacie</span></span><span class="ve">pharmacy</span></div>
+            <div class="vocab-item"><span class="vw"><span class="s" onclick="say('piață')">piață</span></span><span class="ve">market</span></div>
+        </div>
+
+        <div class="vocab-section">🗣️ Survival Phrases</div>
+        <div class="phrases">
+            <div class="phrase"><div class="ro"><span class="s" onclick="say('Bună ziua!')">Bună ziua!</span></div><div class="en">Good day!</div></div>
+            <div class="phrase"><div class="ro"><span class="s" onclick="say('Mulțumesc!')">Mulțumesc!</span></div><div class="en">Thank you!</div></div>
+            <div class="phrase"><div class="ro"><span class="s" onclick="say('Vă rog.')">Vă rog.</span></div><div class="en">Please.</div></div>
+            <div class="phrase"><div class="ro"><span class="s" onclick="say('Scuzați-mă.')">Scuzați-mă.</span></div><div class="en">Excuse me.</div></div>
+            <div class="phrase"><div class="ro"><span class="s" onclick="say('Îmi pare rău.')">Îmi pare rău.</span></div><div class="en">I'm sorry.</div></div>
+            <div class="phrase"><div class="ro"><span class="s" onclick="say('Cât costă?')">Cât costă?</span></div><div class="en">How much?</div></div>
+            <div class="phrase"><div class="ro"><span class="s" onclick="say('Pot să plătesc cu cardul?')">Pot să plătesc cu cardul?</span></div><div class="en">Can I pay by card?</div></div>
+            <div class="phrase"><div class="ro"><span class="s" onclick="say('Nota, vă rog.')">Nota, vă rog.</span></div><div class="en">The check, please.</div></div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- DIALOGUES (EXPANDED)                        -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section id="dialogues">
+        <div class="lesson-label"><div class="lesson-num">★</div><span class="lesson-tag">Practice</span></div>
+        <h2>14 Mini-Conversations</h2>
+
+        <div class="dialogue"><div class="d-title">☕ At a Café</div>
+            <div class="d-line"><span class="d-sp">A:</span><div><span class="d-ro"><span class="s" onclick="say('Bună ziua! Aș vrea o cafea, vă rog.')">Bună ziua! Aș vrea o cafea, vă rog.</span></span><span class="d-en">I'd like a coffee, please.</span></div></div>
+            <div class="d-line"><span class="d-sp b">B:</span><div><span class="d-ro"><span class="s" onclick="say('Cu lapte sau fără?')">Cu lapte sau fără?</span></span><span class="d-en">With milk or without?</span></div></div>
+            <div class="d-line"><span class="d-sp">A:</span><div><span class="d-ro"><span class="s" onclick="say('Cu puțin lapte. Cât costă?')">Cu puțin lapte. Cât costă?</span></span><span class="d-en">With a little milk. How much?</span></div></div>
+            <div class="d-line"><span class="d-sp b">B:</span><div><span class="d-ro"><span class="s" onclick="say('Opt lei.')">Opt lei.</span></span><span class="d-en">Eight lei.</span></div></div>
+        </div>
+
+        <div class="dialogue"><div class="d-title">👋 Meeting Someone</div>
+            <div class="d-line"><span class="d-sp">A:</span><div><span class="d-ro"><span class="s" onclick="say('Salut! Mă cheamă Ana. Tu cum te cheamă?')">Salut! Mă cheamă Ana. Tu cum te cheamă?</span></span><span class="d-en">Hi! I'm Ana. What's your name?</span></div></div>
+            <div class="d-line"><span class="d-sp b">B:</span><div><span class="d-ro"><span class="s" onclick="say('Mă cheamă Mihai. Încântat!')">Mă cheamă Mihai. Încântat!</span></span><span class="d-en">I'm Mihai. Nice to meet you!</span></div></div>
+            <div class="d-line"><span class="d-sp">A:</span><div><span class="d-ro"><span class="s" onclick="say('De unde ești?')">De unde ești?</span></span><span class="d-en">Where are you from?</span></div></div>
+            <div class="d-line"><span class="d-sp b">B:</span><div><span class="d-ro"><span class="s" onclick="say('Sunt din Cluj. Dar tu?')">Sunt din Cluj. Dar tu?</span></span><span class="d-en">I'm from Cluj. You?</span></div></div>
+        </div>
+
+        <div class="dialogue"><div class="d-title">🗺️ Asking Directions</div>
+            <div class="d-line"><span class="d-sp">A:</span><div><span class="d-ro"><span class="s" onclick="say('Scuzați-mă, unde este stația de metrou?')">Scuzați-mă, unde este stația de metrou?</span></span><span class="d-en">Excuse me, where is the metro?</span></div></div>
+            <div class="d-line"><span class="d-sp b">B:</span><div><span class="d-ro"><span class="s" onclick="say('Mergeți drept înainte, apoi la stânga la semafor.')">Mergeți drept, apoi la stânga la semafor.</span></span><span class="d-en">Go straight, then left at the light.</span></div></div>
+            <div class="d-line"><span class="d-sp">A:</span><div><span class="d-ro"><span class="s" onclick="say('Este departe?')">Este departe?</span></span><span class="d-en">Is it far?</span></div></div>
+            <div class="d-line"><span class="d-sp b">B:</span><div><span class="d-ro"><span class="s" onclick="say('Nu, cinci minute pe jos.')">Nu, cinci minute pe jos.</span></span><span class="d-en">No, five minutes on foot.</span></div></div>
+        </div>
+
+        <div class="dialogue"><div class="d-title">🚕 Taking a Taxi</div>
+            <div class="d-line"><span class="d-sp">A:</span><div><span class="d-ro"><span class="s" onclick="say('Bună! La aeroport, vă rog.')">Bună! La aeroport, vă rog.</span></span><span class="d-en">To the airport, please.</span></div></div>
+            <div class="d-line"><span class="d-sp b">B:</span><div><span class="d-ro"><span class="s" onclick="say('Cam treizeci de minute.')">Cam 30 de minute.</span></span><span class="d-en">About 30 minutes.</span></div></div>
+            <div class="d-line"><span class="d-sp">A:</span><div><span class="d-ro"><span class="s" onclick="say('Cât costă?')">Cât costă?</span></span><span class="d-en">How much?</span></div></div>
+            <div class="d-line"><span class="d-sp b">B:</span><div><span class="d-ro"><span class="s" onclick="say('În jur de cincizeci de lei.')">În jur de 50 de lei.</span></span><span class="d-en">Around 50 lei.</span></div></div>
+        </div>
+
+        <div class="dialogue"><div class="d-title">🚑 Not Feeling Well</div>
+            <div class="d-line"><span class="d-sp">A:</span><div><span class="d-ro"><span class="s" onclick="say('Nu mă simt bine. Mă doare capul.')">Nu mă simt bine. Mă doare capul.</span></span><span class="d-en">I don't feel well. My head hurts.</span></div></div>
+            <div class="d-line"><span class="d-sp b">B:</span><div><span class="d-ro"><span class="s" onclick="say('Trebuie să mergi la doctor. Ai febră?')">Trebuie să mergi la doctor. Ai febră?</span></span><span class="d-en">You need to see a doctor. Do you have a fever?</span></div></div>
+            <div class="d-line"><span class="d-sp">A:</span><div><span class="d-ro"><span class="s" onclick="say('Nu știu. Unde este cea mai apropiată farmacie?')">Nu știu. Unde este cea mai apropiată farmacie?</span></span><span class="d-en">I don't know. Where's the nearest pharmacy?</span></div></div>
+        </div>
+
+        <div class="dialogue"><div class="d-title">📞 Phone Call</div>
+            <div class="d-line"><span class="d-sp">A:</span><div><span class="d-ro"><span class="s" onclick="say('Alo? Bună, sunt Ana.')">Alo? Bună, sunt Ana.</span></span><span class="d-en">Hello? Hi, it's Ana.</span></div></div>
+            <div class="d-line"><span class="d-sp b">B:</span><div><span class="d-ro"><span class="s" onclick="say('Salut! Ce faci? N-am mai vorbit de mult.')">Salut! Ce faci? N-am mai vorbit de mult.</span></span><span class="d-en">Hi! We haven't talked in a while.</span></div></div>
+        </div>
+
+        <div class="dialogue"><div class="d-title">🍺 At a Party</div>
+            <div class="d-line"><span class="d-sp">A:</span><div><span class="d-ro"><span class="s" onclick="say('Hai să bem ceva! Ce bei?')">Hai să bem ceva! Ce bei?</span></span><span class="d-en">Let's have a drink! What do you drink?</span></div></div>
+            <div class="d-line"><span class="d-sp b">B:</span><div><span class="d-ro"><span class="s" onclick="say('O bere, te rog. Noroc!')">O bere, te rog. Noroc!</span></span><span class="d-en">A beer, please. Cheers!</span></div></div>
+        </div>
+
+        <div class="dialogue"><div class="d-title">🛒 At the Market</div>
+            <div class="d-line"><span class="d-sp">A:</span><div><span class="d-ro"><span class="s" onclick="say('Bună ziua! Aș vrea un kilogram de roșii.')">Bună ziua! Aș vrea un kilogram de roșii.</span></span><span class="d-en">I'd like a kilo of tomatoes.</span></div></div>
+            <div class="d-line"><span class="d-sp b">B:</span><div><span class="d-ro"><span class="s" onclick="say('Poftiți. Mai doriți ceva?')">Poftiți. Mai doriți ceva?</span></span><span class="d-en">Here you go. Anything else?</span></div></div>
+            <div class="d-line"><span class="d-sp">A:</span><div><span class="d-ro"><span class="s" onclick="say('Da, și niște brânză. Cât e tot?')">Da, și niște brânză. Cât e tot?</span></span><span class="d-en">Yes, and some cheese. How much is everything?</span></div></div>
+            <div class="d-line"><span class="d-sp b">B:</span><div><span class="d-ro"><span class="s" onclick="say('Douăzeci și cinci de lei.')">Douăzeci și cinci de lei.</span></span><span class="d-en">Twenty-five lei.</span></div></div>
+        </div>
+
+        <div class="dialogue"><div class="d-title">🍽️ At a Restaurant</div>
+            <div class="d-line"><span class="d-sp">A:</span><div><span class="d-ro"><span class="s" onclick="say('Bună seara! O masă pentru doi, vă rog.')">Bună seara! O masă pentru doi, vă rog.</span></span><span class="d-en">Good evening! A table for two, please.</span></div></div>
+            <div class="d-line"><span class="d-sp b">B:</span><div><span class="d-ro"><span class="s" onclick="say('Poftiți meniul. Ce doriți să comandați?')">Poftiți meniul. Ce doriți să comandați?</span></span><span class="d-en">Here's the menu. What would you like to order?</span></div></div>
+            <div class="d-line"><span class="d-sp">A:</span><div><span class="d-ro"><span class="s" onclick="say('Aș vrea o ciorbă de burtă și mici cu muștar.')">Aș vrea o ciorbă de burtă și mici cu muștar.</span></span><span class="d-en">I'd like tripe soup and mici with mustard.</span></div></div>
+            <div class="d-line"><span class="d-sp b">B:</span><div><span class="d-ro"><span class="s" onclick="say('Doriți și ceva de băut?')">Doriți și ceva de băut?</span></span><span class="d-en">Would you like something to drink?</span></div></div>
+            <div class="d-line"><span class="d-sp">A:</span><div><span class="d-ro"><span class="s" onclick="say('Apă plată, vă rog. Și la final, nota.')">Apă plată, vă rog.</span></span><span class="d-en">Still water, please.</span></div></div>
+        </div>
+
+        <div class="dialogue"><div class="d-title">🏨 At a Hotel</div>
+            <div class="d-line"><span class="d-sp">A:</span><div><span class="d-ro"><span class="s" onclick="say('Bună ziua! Am o rezervare pe numele Popescu.')">Bună ziua! Am o rezervare pe numele Popescu.</span></span><span class="d-en">Hello! I have a reservation under Popescu.</span></div></div>
+            <div class="d-line"><span class="d-sp b">B:</span><div><span class="d-ro"><span class="s" onclick="say('Da, camera 305. Micul dejun este inclus.')">Da, camera 305. Micul dejun este inclus.</span></span><span class="d-en">Yes, room 305. Breakfast is included.</span></div></div>
+            <div class="d-line"><span class="d-sp">A:</span><div><span class="d-ro"><span class="s" onclick="say('La ce oră este micul dejun?')">La ce oră este micul dejun?</span></span><span class="d-en">What time is breakfast?</span></div></div>
+            <div class="d-line"><span class="d-sp b">B:</span><div><span class="d-ro"><span class="s" onclick="say('De la șapte la zece.')">De la șapte la zece.</span></span><span class="d-en">From 7 to 10.</span></div></div>
+        </div>
+
+        <div class="dialogue"><div class="d-title">🕐 Making Plans</div>
+            <div class="d-line"><span class="d-sp">A:</span><div><span class="d-ro"><span class="s" onclick="say('Ce faci sâmbătă? Hai să mergem undeva.')">Ce faci sâmbătă? Hai să mergem undeva.</span></span><span class="d-en">What are you doing Saturday? Let's go somewhere.</span></div></div>
+            <div class="d-line"><span class="d-sp b">B:</span><div><span class="d-ro"><span class="s" onclick="say('Bună idee! Unde vrei să mergem?')">Bună idee! Unde vrei să mergem?</span></span><span class="d-en">Good idea! Where do you want to go?</span></div></div>
+            <div class="d-line"><span class="d-sp">A:</span><div><span class="d-ro"><span class="s" onclick="say('La munte. Dacă e vreme bună.')">La munte. Dacă e vreme bună.</span></span><span class="d-en">To the mountains. If the weather's good.</span></div></div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- SCHEDULE                                    -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section id="schedule">
+        <div class="lesson-label"><div class="lesson-num">★</div><span class="lesson-tag">Study Plan</span></div>
+        <h2>32-Day Pacing Schedule</h2>
+        <div class="schedule">
+            <div class="sday"><div class="sd-num">Days 1–2</div><div class="sd-task"><b>L0+L1:</b> Warm-up. 5 special characters. Sounds aloud.</div></div>
+            <div class="sday"><div class="sd-num">Days 3–4</div><div class="sd-task"><b>L2:</b> Pronouns + 10 question words. Demonstratives. "Pe."</div></div>
+            <div class="sday"><div class="sd-num">Days 5–6</div><div class="sd-task"><b>L3:</b> THE MATRIX. Drill 5× daily, 5 min each.</div></div>
+            <div class="sday"><div class="sd-num">Days 7–8</div><div class="sd-task"><b>L4:</b> A fi — all forms until automatic.</div></div>
+            <div class="sday"><div class="sd-num">Days 9–10</div><div class="sd-task"><b>L5:</b> A avea + "îmi place" + participles.</div></div>
+            <div class="sday"><div class="sd-num">Days 11–13</div><div class="sd-task"><b>L6:</b> 32 verbs. Drill 10/day through matrix.</div></div>
+            <div class="sday"><div class="sd-num">Days 14–15</div><div class="sd-task"><b>L7:</b> Articles + gender + vocative + genitive.</div></div>
+            <div class="sday"><div class="sd-num">Days 16–17</div><div class="sd-task"><b>L8:</b> Adjectives + possessives. Describe 10 things.</div></div>
+            <div class="sday"><div class="sd-num">Days 18–19</div><div class="sd-task"><b>L9:</b> All numbers 0–100. Teens! Days, months, time.</div></div>
+            <div class="sday"><div class="sd-num">Days 20–21</div><div class="sd-task"><b>L10–11:</b> Prepositions + modals + "Hai să…"</div></div>
+            <div class="sday"><div class="sd-num">Days 22–23</div><div class="sd-task"><b>L12:</b> Imperfect. "Când eram mic…"</div></div>
+            <div class="sday"><div class="sd-num">Days 24–25</div><div class="sd-task"><b>L13–14:</b> Commands + subjunctive.</div></div>
+            <div class="sday"><div class="sd-num">Days 26–28</div><div class="sd-task"><b>L15–16:</b> Conditionals, reflexives, fillers, idioms.</div></div>
+            <div class="sday"><div class="sd-num">Days 29–30</div><div class="sd-task"><b>Dialogues:</b> Read all 14 aloud. Both roles.</div></div>
+            <div class="sday"><div class="sd-num">Days 31–32</div><div class="sd-task"><b>Review:</b> Grand Self-Test. Write "About Me." <b>Done!</b></div></div>
+        </div>
+
+        <h3>Daily Micro-Practice (Forever)</h3>
+        <div class="principles">
+            <div class="principle"><div class="p-num">☀️</div><div class="p-title">Morning (5 min)</div><div class="p-desc">5 verbs through the 9-cell matrix aloud.</div></div>
+            <div class="principle"><div class="p-num">🌤️</div><div class="p-title">Midday (5 min)</div><div class="p-desc">Review 20 vocab words in sentences.</div></div>
+            <div class="principle"><div class="p-num">🌅</div><div class="p-title">Afternoon (5 min)</div><div class="p-desc">Read one dialogue aloud. Both roles.</div></div>
+            <div class="principle"><div class="p-num">🌙</div><div class="p-title">Evening (5 min)</div><div class="p-desc">Write 5 sentences about your day.</div></div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- ABOUT ME (WITH EXAMPLE)                     -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section id="aboutme">
+        <div class="lesson-label"><div class="lesson-num">★</div><span class="lesson-tag">Your First Paragraph</span></div>
+        <h2>"About Me" Template</h2>
+        <div class="template">
+            <p style="font-family:var(--mono);font-size:.9rem;line-height:2.4;color:var(--ink);">
+                <span class="s" onclick="say('Bună! Mă cheamă')">Bună! Mă cheamă</span> <span class="blank">[name]</span>. <span class="s" onclick="say('Am')">Am</span> <span class="blank">[nr]</span> <span class="s" onclick="say('de ani.')">de ani.</span><br>
+                <span class="s" onclick="say('Sunt din')">Sunt din</span> <span class="blank">[country]</span>. <span class="s" onclick="say('Locuiesc în')">Locuiesc în</span> <span class="blank">[city]</span>.<br>
+                <span class="s" onclick="say('Lucrez ca')">Lucrez ca</span> <span class="blank">[job]</span>. <span class="s" onclick="say('și acum învăț româna.')">Și acum învăț româna.</span><br>
+                <span class="s" onclick="say('Îmi place')">Îmi place</span> <span class="blank">[hobby]</span>. <span class="s" onclick="say('România este foarte frumoasă.')">România este foarte frumoasă.</span><br>
+                <span class="s" onclick="say('Încântat de cunoștință!')">Încântat(ă) de cunoștință!</span>
+            </p>
+        </div>
+
+        <h3>Completed Example</h3>
+        <div class="example-filled">
+            <p style="font-family:var(--mono);font-size:.9rem;line-height:2.4;color:var(--ink);">
+                <span class="s" onclick="say('Bună! Mă cheamă Sarah. Am treizeci și doi de ani.')">Bună! Mă cheamă Sarah. Am treizeci și doi de ani.</span><br>
+                <span class="s" onclick="say('Sunt din Anglia. Locuiesc în Londra.')">Sunt din Anglia. Locuiesc în Londra.</span><br>
+                <span class="s" onclick="say('Lucrez ca profesoară. Și acum învăț româna.')">Lucrez ca profesoară. Și acum învăț româna.</span><br>
+                <span class="s" onclick="say('Îmi place muzica și îmi plac cărțile.')">Îmi place muzica și îmi plac cărțile.</span><br>
+                <span class="s" onclick="say('Am fost în România vara trecută și mi-a plăcut foarte mult.')">Am fost în România vara trecută și mi-a plăcut foarte mult.</span><br>
+                <span class="s" onclick="say('România este foarte frumoasă. Încântată de cunoștință!')">România este foarte frumoasă. Încântată de cunoștință!</span>
+            </p>
+        </div>
+        <div class="box box-gold"><h4>Now Write Yours!</h4><p>Replace the blanks with your own information. Read it aloud 3 times. This is your first real paragraph in Romanian.</p></div>
+    </section>
+
+</main>
+
+<footer>
+    <div class="flag">🇷🇴</div>
+    <p><b>Polyglot Romanian</b> — 16+ Lessons · 32 Verbs · 500+ Vocabulary · 14 Dialogues</p>
+    <p style="margin-top:.75rem;color:var(--ink4);">Mult succes!</p>
+</footer>
+
+<script>
+    function say(text) {
+        if (!window.speechSynthesis) return;
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(text);
+        u.lang = 'ro-RO'; u.rate = 0.82; u.pitch = 1;
+        const voices = window.speechSynthesis.getVoices();
+        const roVoice = voices.find(v => v.lang.startsWith('ro'));
+        if (roVoice) u.voice = roVoice;
+        if (event && event.target) {
+            const el = event.target.closest('.s') || event.target;
+            el.classList.add('playing');
+            u.onend = () => el.classList.remove('playing');
+            u.onerror = () => el.classList.remove('playing');
+        }
+        window.speechSynthesis.speak(u);
+    }
+    if (window.speechSynthesis) {
+        window.speechSynthesis.getVoices();
+        window.speechSynthesis.onvoiceschanged = () => window.speechSynthesis.getVoices();
+    }
+</script>
+</body>
+</html>
