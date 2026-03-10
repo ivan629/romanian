@@ -119,3 +119,13 @@ export interface LessonMeta {
   tag: string;
   title: string;
 }
+
+export interface DrillVerb {
+  infinitive: string;
+  meaning: string;
+  conjugations: {
+    future: { eu: string; tu: string; el: string; noi: string; voi: string; ei: string };
+    present: { eu: string; tu: string; el: string; noi: string; voi: string; ei: string };
+    past: { eu: string; tu: string; el: string; noi: string; voi: string; ei: string };
+  };
+}
