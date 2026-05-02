@@ -1,94 +1,186 @@
-@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700&family=JetBrains+Mono:wght@400;500;600&display=swap');
-
-/* ─── Tailwind Base ─────────────────────────────────────────── */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* ─── Design Tokens ─────────────────────────────────────────── */
+/* ─── Apple-Inspired Design Tokens ──────────────────────────── */
 :root {
-  --bg: #fafaf8;
+  /* Surfaces — Apple uses very light, almost-white tones */
+  --bg: #fbfbfd;
   --surface: #ffffff;
-  --surface2: #f5f4f1;
-  --border: #e8e6e1;
-  --border2: #d4d1cb;
-  --ink: #1a1a1a;
-  --ink2: #4a4744;
-  --ink3: #8a8580;
-  --ink4: #b5b0a9;
-  --accent: #1e3a5f;
-  --accent2: #2d5f8a;
-  --accentL: #edf2f7;
-  --gold: #a67c37;
-  --goldL: #faf5eb;
-  --green: #2d6a4f;
-  --greenL: #edf7f0;
-  --red: #9b2c2c;
-  --redL: #fdf2f2;
-  --purple: #553c9a;
-  --purpleL: #f5f3ff;
-  --question: #2d5f8a;
-  --questionL: #edf2f7;
-  --questionB: #c5d8e8;
-  --affirm: #2d6a4f;
-  --affirmL: #edf7f0;
-  --affirmB: #bddbc9;
-  --neg: #9b2c2c;
-  --negL: #fdf2f2;
-  --negB: #e8c5c5;
-  --shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
-  --shadow2: 0 4px 20px rgba(0, 0, 0, 0.04);
+  --surface-2: #f5f5f7;
+  --surface-3: #ebebed;
+
+  /* Borders — hairline, refined */
+  --border: #e5e5ea;
+  --border-2: #d2d2d7;
+  --hairline: rgba(0, 0, 0, 0.08);
+
+  /* Ink — Apple's text hierarchy */
+  --ink: #1d1d1f;
+  --ink-2: #424245;
+  --ink-3: #6e6e73;
+  --ink-4: #86868b;
+  --ink-5: #aeaeb2;
+
+  /* Accents — restrained, Apple-style */
+  --accent: #0066cc;
+  --accent-soft: #eaf2fb;
+  --gold: #a06c2c;
+  --gold-soft: #faf3e6;
+
+  /* Tense / form colors — muted, scholarly */
+  --question: #0a5fa3;
+  --question-bg: #eef4fa;
+  --question-border: #c8d9e8;
+
+  --affirm: #1f6b3f;
+  --affirm-bg: #eef6f0;
+  --affirm-border: #c4dccd;
+
+  --neg: #93231f;
+  --neg-bg: #fbf0ee;
+  --neg-border: #e5c8c4;
+
+  /* Shadow — feathered, Apple-soft */
+  --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-2: 0 4px 16px rgba(0, 0, 0, 0.06);
+  --shadow-3: 0 10px 40px rgba(0, 0, 0, 0.08);
+
+  /* Radii — Apple uses generous corners */
+  --radius-sm: 6px;
+  --radius: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
 }
 
-/* ─── Base Styles ───────────────────────────────────────────── */
+/* ─── Reset ─────────────────────────────────────────────────── */
 *,
 *::before,
 *::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 html {
   scroll-behavior: smooth;
-  font-size: 15px;
+  font-size: 17px;
+  text-rendering: optimizeLegibility;
 }
 
 body {
-  font-family: 'DM Sans', -apple-system, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", system-ui, sans-serif;
   background: var(--bg);
   color: var(--ink);
-  line-height: 1.7;
-  -webkit-font-smoothing: antialiased;
+  line-height: 1.55;
+  font-feature-settings: "kern", "liga", "calt";
+  letter-spacing: -0.003em;
 }
 
-/* ─── Font Family Utilities ─────────────────────────────────── */
-.font-serif {
-  font-family: 'Crimson Pro', Georgia, serif;
+/* ─── Typography Helpers ────────────────────────────────────── */
+.font-display {
+  font-family: ui-serif, "New York", "Iowan Old Style", Charter, Georgia, serif;
+  letter-spacing: -0.01em;
 }
 
 .font-mono {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: ui-monospace, "SF Mono", Menlo, Monaco, Consolas, monospace;
+  letter-spacing: -0.01em;
 }
 
-/* ─── Speakable Element ─────────────────────────────────────── */
-.speakable::after {
-  content: "🔊";
-  font-size: 0.55em;
-  opacity: 0.25;
-  transition: opacity 0.12s;
+/* Selection */
+::selection {
+  background: var(--accent-soft);
+  color: var(--ink);
 }
 
-.speakable:hover::after {
-  opacity: 0.8;
+/* ─── RO Component Styling ──────────────────────────────────── */
+/* The universal Romanian-text wrapper. Hover for tooltip, click for TTS. */
+.ro {
+  position: relative;
+  display: inline;
+  cursor: pointer;
+  color: inherit;
+  background-image: linear-gradient(transparent calc(100% - 1px), var(--ink-5) 1px);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  transition: background 0.18s ease, color 0.18s ease;
+  padding: 0 1px;
+  border-radius: 2px;
+}
+.ro:hover {
+  background-image: linear-gradient(transparent calc(100% - 1px), var(--gold) 1px);
+  color: var(--gold);
+}
+.ro.playing {
+  background: var(--gold-soft);
+  color: var(--gold);
+  background-image: none;
 }
 
-.speakable.playing {
-  background: var(--goldL);
+/* Tooltip */
+.ro-tip {
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  background: var(--ink);
+  color: #fff;
+  padding: 9px 13px;
+  border-radius: var(--radius);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
+  font-size: 12.5px;
+  line-height: 1.45;
+  white-space: normal;
+  max-width: 280px;
+  width: max-content;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  z-index: 50;
+  box-shadow: var(--shadow-2);
+  letter-spacing: -0.005em;
+  font-weight: 400;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
 }
-
-.speakable.playing::after {
+.ro-tip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: var(--ink);
+}
+.ro:hover .ro-tip,
+.ro.show-tip .ro-tip {
   opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+.ro-tip-en {
+  display: block;
+  font-weight: 500;
+  color: #fff;
+}
+.ro-tip-pron {
+  display: block;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 11.5px;
+  letter-spacing: 0;
+}
+.ro-tip-divider {
+  display: block;
+  width: 28px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.22);
+  margin: 0;
 }
 
 /* ─── Scrollbar Hide ────────────────────────────────────────── */
@@ -96,19 +188,74 @@ body {
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
-
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
 
-/* ─── Animation ─────────────────────────────────────────────── */
-@keyframes fadeUp {
+/* ─── Subtle Page Animation ─────────────────────────────────── */
+@keyframes fade-in {
   from {
     opacity: 0;
-    transform: translateY(12px);
+    transform: translateY(8px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
   }
+}
+.fade-in {
+  animation: fade-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* ─── Print — for those who like to write notes ─────────────── */
+@media print {
+  :root {
+    --bg: #fff;
+    --surface: #fff;
+    --shadow-1: none;
+    --shadow-2: none;
+    --shadow-3: none;
+  }
+  nav,
+  aside,
+  .no-print {
+    display: none !important;
+  }
+  /* Reset the sidebar offset so printed content flows from the left margin */
+  body > div,
+  body > div > div {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    max-width: 100% !important;
+  }
+  body {
+    font-size: 11pt;
+    line-height: 1.5;
+  }
+  .ro {
+    background: none !important;
+    color: var(--ink) !important;
+  }
+  .ro-tip {
+    display: none !important;
+  }
+  section {
+    page-break-inside: avoid;
+  }
+  h1,
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+  table {
+    page-break-inside: avoid;
+  }
+}
+
+/* Focus styles for keyboard navigation */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 4px;
 }

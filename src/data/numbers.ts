@@ -1,7 +1,7 @@
-import type { NumberItem } from "../types";
+import type { NumberItem, PhraseItem } from "../types";
 
 export const NUMBERS_0_10: NumberItem[] = [
-  { num: 0, word: "zero" }, { num: 1, word: "unu/una" }, { num: 2, word: "doi/două" },
+  { num: 0, word: "zero" }, { num: 1, word: "unu / una" }, { num: 2, word: "doi / două" },
   { num: 3, word: "trei" }, { num: 4, word: "patru" }, { num: 5, word: "cinci" },
   { num: 6, word: "șase" }, { num: 7, word: "șapte" }, { num: 8, word: "opt" },
   { num: 9, word: "nouă" }, { num: 10, word: "zece" },
@@ -24,17 +24,17 @@ export const NUMBERS_TENS: NumberItem[] = [
 ];
 
 export const SEASONS = [
-  { icon: "🌸", ro: "primăvară", en: "spring" },
-  { icon: "☀️", ro: "vară", en: "summer" },
-  { icon: "🍂", ro: "toamnă", en: "autumn" },
-  { icon: "❄️", ro: "iarnă", en: "winter" },
+  { icon: "❀", ro: "primăvară", en: "spring" },
+  { icon: "☀︎", ro: "vară", en: "summer" },
+  { icon: "❦", ro: "toamnă", en: "autumn" },
+  { icon: "❄︎", ro: "iarnă", en: "winter" },
 ];
 
-export const WEATHER_PHRASES = [
-  { ro: "E cald.", en: "It's hot." },
-  { ro: "E frig.", en: "It's cold." },
-  { ro: "Plouă.", en: "It's raining." },
-  { ro: "Ninge.", en: "It's snowing." },
-  { ro: "E soare.", en: "It's sunny." },
-  { ro: "E vânt.", en: "It's windy." },
+export const WEATHER_PHRASES: PhraseItem[] = [
+  { ro: "E cald.", en: "It’s hot." },
+  { ro: "E frig.", en: "It’s cold." },
+  { ro: "Plouă.", en: "It’s raining." },
+  { ro: "Ninge.", en: "It’s snowing." },
+  { ro: "E soare.", en: "It’s sunny." },
+  { ro: "E vânt.", en: "It’s windy." },
 ];

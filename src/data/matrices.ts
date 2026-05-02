@@ -1,33 +1,33 @@
 import type { MatrixData, FillerItem, PhraseItem, TestItem } from "../types";
 
-// ─── Lesson 3 Matrices ────────────────────────────────────────
+// ─── Lesson 3 Matrices ──────────────────────────────────────────
 
 export const MATRIX_VORBI_EU: MatrixData = {
-  title: "Matrix 1: A VORBI (to speak) — \"eu\" form",
+  title: "A vorbi — to speak (the “eu” row)",
   rows: [
     {
-      tenseName: "Future", tenseSub: "Colloquial",
+      tenseName: "Future", tenseSub: "colloquial",
       question: { ro: ["O să vorbesc?"], en: ["Will I speak?"] },
       affirmative: { ro: ["Eu o să vorbesc."], en: ["I will speak."] },
-      negative: { ro: ["N-o să vorbesc."], en: ["I won't speak."] },
+      negative: { ro: ["N-o să vorbesc."], en: ["I won’t speak."] },
     },
     {
-      tenseName: "Present", tenseSub: "Indicative",
+      tenseName: "Present", tenseSub: "indicative",
       question: { ro: ["Vorbesc eu?"], en: ["Do I speak?"] },
       affirmative: { ro: ["Eu vorbesc."], en: ["I speak."] },
-      negative: { ro: ["Eu nu vorbesc."], en: ["I don't speak."] },
+      negative: { ro: ["Eu nu vorbesc."], en: ["I don’t speak."] },
     },
     {
-      tenseName: "Past", tenseSub: "Perfect Compus",
+      tenseName: "Past", tenseSub: "perfect compus",
       question: { ro: ["Am vorbit eu?"], en: ["Did I speak?"] },
       affirmative: { ro: ["Eu am vorbit."], en: ["I spoke."] },
-      negative: { ro: ["Eu nu am vorbit."], en: ["I didn't speak."] },
+      negative: { ro: ["Eu nu am vorbit."], en: ["I didn’t speak."] },
     },
   ],
 };
 
 export const MATRIX_LUCRA_FULL: MatrixData = {
-  title: "Matrix 2: A LUCRA (to work) — ALL 6 Persons",
+  title: "A lucra — to work (all six persons)",
   rows: [
     {
       tenseName: "Future",
@@ -51,7 +51,7 @@ export const MATRIX_LUCRA_FULL: MatrixData = {
 };
 
 export const MATRIX_FACE_FULL: MatrixData = {
-  title: "Matrix 3: A FACE (to do/make) — ALL 6 Persons",
+  title: "A face — to do / make (all six persons)",
   rows: [
     {
       tenseName: "Future",
@@ -75,7 +75,7 @@ export const MATRIX_FACE_FULL: MatrixData = {
 };
 
 export const MATRIX_FI: MatrixData = {
-  title: "Full Matrix: A FI",
+  title: "A fi — to be",
   rows: [
     {
       tenseName: "Future", tenseSub: "o să fiu",
@@ -84,22 +84,22 @@ export const MATRIX_FI: MatrixData = {
       negative: { ro: ["N-o să fiu.", "N-o să fii.", "N-o să fie.", "N-o să fim.", "N-o să fiți.", "N-o să fie."] },
     },
     {
-      tenseName: "Present", tenseSub: "sunt/ești/e",
+      tenseName: "Present", tenseSub: "sunt / ești / e",
       question: { ro: ["Sunt eu?", "Ești tu?", "Este el?", "Suntem noi?", "Sunteți voi?", "Sunt ei?"] },
-      affirmative: { ro: ["Eu sunt.", "Tu ești.", "El/Ea este (e).", "Noi suntem.", "Voi sunteți.", "Ei/Ele sunt."] },
+      affirmative: { ro: ["Eu sunt.", "Tu ești.", "El / ea este (e).", "Noi suntem.", "Voi sunteți.", "Ei / ele sunt."] },
       negative: { ro: ["Nu sunt.", "Nu ești.", "Nu este.", "Nu suntem.", "Nu sunteți.", "Nu sunt."] },
     },
     {
       tenseName: "Past", tenseSub: "am fost",
       question: { ro: ["Am fost eu?", "Ai fost tu?", "A fost el?", "Am fost noi?", "Ați fost voi?", "Au fost ei?"] },
-      affirmative: { ro: ["Eu am fost.", "Tu ai fost.", "El/Ea a fost.", "Noi am fost.", "Voi ați fost.", "Ei/Ele au fost."] },
+      affirmative: { ro: ["Eu am fost.", "Tu ai fost.", "El / ea a fost.", "Noi am fost.", "Voi ați fost.", "Ei / ele au fost."] },
       negative: { ro: ["Nu am fost.", "Nu ai fost.", "Nu a fost.", "Nu am fost.", "Nu ați fost.", "Nu au fost."] },
     },
   ],
 };
 
 export const MATRIX_AVEA: MatrixData = {
-  title: "Full Matrix: A AVEA",
+  title: "A avea — to have",
   rows: [
     {
       tenseName: "Future", tenseSub: "o să am",
@@ -108,66 +108,64 @@ export const MATRIX_AVEA: MatrixData = {
       negative: { ro: ["N-o să am.", "N-o să ai.", "N-o să aibă.", "N-o să avem.", "N-o să aveți.", "N-o să aibă."] },
     },
     {
-      tenseName: "Present", tenseSub: "am/ai/are",
+      tenseName: "Present", tenseSub: "am / ai / are",
       question: { ro: ["Am eu?", "Ai tu?", "Are el?", "Avem noi?", "Aveți voi?", "Au ei?"] },
-      affirmative: { ro: ["Eu am.", "Tu ai.", "El/Ea are.", "Noi avem.", "Voi aveți.", "Ei/Ele au."] },
+      affirmative: { ro: ["Eu am.", "Tu ai.", "El / ea are.", "Noi avem.", "Voi aveți.", "Ei / ele au."] },
       negative: { ro: ["Nu am.", "Nu ai.", "Nu are.", "Nu avem.", "Nu aveți.", "Nu au."] },
     },
     {
       tenseName: "Past", tenseSub: "am avut",
       question: { ro: ["Am avut eu?", "Ai avut tu?", "A avut el?", "Am avut noi?", "Ați avut voi?", "Au avut ei?"] },
-      affirmative: { ro: ["Eu am avut.", "Tu ai avut.", "El/Ea a avut.", "Noi am avut.", "Voi ați avut.", "Ei/Ele au avut."] },
+      affirmative: { ro: ["Eu am avut.", "Tu ai avut.", "El / ea a avut.", "Noi am avut.", "Voi ați avut.", "Ei / ele au avut."] },
       negative: { ro: ["Nu am avut.", "Nu ai avut.", "Nu a avut.", "Nu am avut.", "Nu ați avut.", "Nu au avut."] },
     },
   ],
 };
 
-// ─── Lesson 16 Data ────────────────────────────────────────────
+// ─── Lesson 16 Data ─────────────────────────────────────────────
 
 export const FILLER_WORDS: FillerItem[] = [
-  { word: "deci", meaning: "so, well, therefore", example: "\"Deci, ce facem?\"" },
-  { word: "păi", meaning: "well, um", example: "\"Păi, nu știu.\"" },
-  { word: "uite", meaning: "look, see", example: "\"Uite ce frumos!\"" },
-  { word: "adică", meaning: "I mean, that is", example: "\"Adică, nu e chiar așa.\"" },
-  { word: "bine", meaning: "OK, fine, alright", example: "\"Bine, hai.\"" },
-  { word: "na", meaning: "here, well", example: "\"Na, ia-l!\"" },
-  { word: "mda", meaning: "yeah, I guess", example: "\"Mda, ai dreptate.\"" },
-  { word: "știi", meaning: "you know", example: "\"E complicat, știi?\"" },
+  { word: "deci", meaning: "so, well, therefore", example: "Deci, ce facem?" },
+  { word: "păi", meaning: "well, um", example: "Păi, nu știu." },
+  { word: "uite", meaning: "look, see", example: "Uite ce frumos!" },
+  { word: "adică", meaning: "I mean, that is", example: "Adică, nu e chiar așa." },
+  { word: "bine", meaning: "OK, fine, alright", example: "Bine, hai." },
+  { word: "na", meaning: "here, well", example: "Na, ia-l!" },
+  { word: "mda", meaning: "yeah, I guess", example: "Mda, ai dreptate." },
+  { word: "știi", meaning: "you know", example: "E complicat, știi?" },
 ];
 
 export const EXPRESSIONS: PhraseItem[] = [
   { ro: "Nu-i bai!", en: "No problem!" },
-  { ro: "Noroc!", en: "Cheers!" },
-  { ro: "Poftă bună!", en: "Bon appetit!" },
-  { ro: "Nu-mi vine să cred!", en: "I can't believe it!" },
+  { ro: "Noroc!", en: "Cheers! / Good luck!" },
+  { ro: "Poftă bună!", en: "Bon appétit!" },
+  { ro: "Nu-mi vine să cred!", en: "I can’t believe it!" },
   { ro: "Doamne ferește!", en: "God forbid!" },
   { ro: "Las-o baltă!", en: "Let it go! / Drop it!" },
   { ro: "Ce mai faci?", en: "How have you been?" },
-  { ro: "Nu face nimic.", en: "It doesn't matter." },
+  { ro: "Nu face nimic.", en: "It doesn’t matter." },
 ];
 
 export const COMPLEX_SENTENCES: PhraseItem[] = [
   { ro: "Am plecat pentru că era târziu.", en: "I left because it was late." },
   { ro: "Deși era obosit, a continuat.", en: "Although tired, he continued." },
-  { ro: "Nu știu dacă vine sau nu.", en: "I don't know if he's coming." },
-  { ro: "Cred că are dreptate.", en: "I think he's right." },
-  { ro: "Mi-a spus că o să vină mai târziu.", en: "He told me he'll come later." },
+  { ro: "Nu știu dacă vine sau nu.", en: "I don’t know if he’s coming." },
+  { ro: "Cred că are dreptate.", en: "I think he’s right." },
+  { ro: "Mi-a spus că o să vină mai târziu.", en: "He told me he’ll come later." },
   { ro: "Cu cât învăț mai mult, cu atât înțeleg mai bine.", en: "The more I learn, the more I understand." },
 ];
 
-// ─── Self-Test Data ────────────────────────────────────────────
-
 export const GRAND_REVIEW_TESTS: TestItem[] = [
   { question: "1. I spoke Romanian yesterday.", answer: "Am vorbit românește ieri." },
-  { question: "2. She doesn't have time because she's working.", answer: "Ea nu are timp pentru că lucrează." },
+  { question: "2. She doesn’t have time because she’s working.", answer: "Ea nu are timp pentru că lucrează." },
   { question: "3. If I had money, I would travel to Romania.", answer: "Dacă aș avea bani, aș călători în România." },
-  { question: "4. Let's eat something! I'm hungry.", answer: "Hai să mâncăm ceva! Mi-e foame." },
+  { question: "4. Let’s eat something! I’m hungry.", answer: "Hai să mâncăm ceva! Mi-e foame." },
   { question: "5. Nobody knows anything.", answer: "Nimeni nu știe nimic." },
   { question: "6. I like Romanian food, especially sarmale.", answer: "Îmi place mâncarea românească, mai ales sarmalele." },
   { question: "7. Can I pay by card?", answer: "Pot să plătesc cu cardul?" },
   { question: "8. I wake up at 7 and I feel good.", answer: "Mă trezesc la 7 și mă simt bine." },
   { question: "9. When I was young, I used to live in the village.", answer: "Când eram mic, locuiam la sat." },
-  { question: "10. It's 3:30. I must leave now.", answer: "E ora trei și jumătate. Trebuie să plec acum." },
+  { question: "10. It’s 3:30. I must leave now.", answer: "E ora trei și jumătate. Trebuie să plec acum." },
   { question: "11. I miss you. (the uniquely Romanian way)", answer: "Mi-e dor de tine." },
-  { question: "12. The book that I'm reading is good.", answer: "Cartea pe care o citesc e bună." },
+  { question: "12. The book that I’m reading is good.", answer: "Cartea pe care o citesc e bună." },
 ];
