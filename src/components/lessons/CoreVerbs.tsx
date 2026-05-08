@@ -9,17 +9,17 @@ import { CORE_VERBS } from "../../data/verbs";
 
 // ─── Lesson 4 — A FI ────────────────────────────────────────────
 
-export function Lesson4() {
+export function Lesson5() {
   return (
     <LessonSection
-      id="L4" num="4" tag="lesson_4_tag"
-      title="lesson_4_title"
-      subtitle="lesson_4_subtitle"
+      id="L5" num="5" tag="lesson_5_tag"
+      title="lesson_5_title"
+      subtitle="lesson_5_subtitle"
     >
-      <SectionHeading>lesson_4_h_matrix</SectionHeading>
+      <SectionHeading>lesson_5_h_matrix</SectionHeading>
       <Matrix data={MATRIX_FI} />
 
-      <SectionHeading>lesson_4_h_using</SectionHeading>
+      <SectionHeading>lesson_5_h_using</SectionHeading>
       <PhraseGrid items={[
         { ro: "Eu sunt student.", en: "I am a student." },
         { ro: "Ea este frumoasă.", en: "She is beautiful." },
@@ -29,14 +29,14 @@ export function Lesson4() {
         { ro: "Cine este el?", en: "Who is he?" },
       ]} />
 
-      <InfoBox variant="gold" title="lesson_4_shortcut_title">
+      <InfoBox variant="gold" title="lesson_5_shortcut_title">
         <p>
           In speech, <b>este</b> shrinks to <b>e</b>. So <RO text="El e student." en="He is a student." />{" "}
           means the same as <RO text="El este student." en="He is a student." />
         </p>
       </InfoBox>
 
-      <TestBox title="lesson_4_test_title" items={[
+      <TestBox title="lesson_5_test_title" items={[
         { question: "I am from England.", answer: "Eu sunt din Anglia." },
         { question: "She was not happy.", answer: "Ea nu a fost fericită." },
         { question: "It will be fine.", answer: "O să fie bine." },
@@ -47,17 +47,17 @@ export function Lesson4() {
 
 // ─── Lesson 5 — A AVEA ──────────────────────────────────────────
 
-export function Lesson5() {
+export function Lesson6() {
   return (
     <LessonSection
-      id="L5" num="5" tag="lesson_5_tag"
-      title="lesson_5_title"
-      subtitle="lesson_5_subtitle"
+      id="L6" num="6" tag="lesson_6_tag"
+      title="lesson_6_title"
+      subtitle="lesson_6_subtitle"
     >
-      <SectionHeading>lesson_5_h_matrix</SectionHeading>
+      <SectionHeading>lesson_6_h_matrix</SectionHeading>
       <Matrix data={MATRIX_AVEA} />
 
-      <SectionHeading>lesson_5_h_using</SectionHeading>
+      <SectionHeading>lesson_6_h_using</SectionHeading>
       <PhraseGrid items={[
         { ro: "Am o mașină nouă.", en: "I have a new car." },
         { ro: "Câți ani ai?", en: "How old are you? (lit. how many years do you have?)" },
@@ -67,8 +67,8 @@ export function Lesson5() {
         { ro: "Am avut noroc.", en: "I was lucky." },
       ]} />
 
-      <SectionHeading>lesson_5_h_imi_place</SectionHeading>
-      <InfoBox variant="neutral" title="lesson_5_imi_place_title">
+      <SectionHeading>lesson_6_h_imi_place</SectionHeading>
+      <InfoBox variant="neutral" title="lesson_6_imi_place_title">
         <MonoBlock>
           <RO text="Îmi place cafeaua." en="I like coffee. (lit. coffee is pleasing to me)" /><br />
           <RO text="Îți place România?" en="Do you like Romania?" /><br />
@@ -81,7 +81,7 @@ export function Lesson5() {
         </p>
       </InfoBox>
 
-      <SectionHeading>lesson_5_h_participles</SectionHeading>
+      <SectionHeading>lesson_6_h_participles</SectionHeading>
       <DataTable
         headers={["Group", "Infinitive ends in", "Participle ends in", "Example"]}
         rows={[
@@ -93,7 +93,7 @@ export function Lesson5() {
         highlightCols={[2]}
       />
 
-      <InfoBox variant="blue" title="lesson_5_perfect_title">
+      <InfoBox variant="blue" title="lesson_6_perfect_title">
         <p>
           Conjugated form of <b>a avea</b> + past participle. <br />
           <MonoBlock>
@@ -112,12 +112,12 @@ export function Lesson5() {
 
 // ─── Lesson 6 — 32 verbs ────────────────────────────────────────
 
-export function Lesson6() {
+export function Lesson7() {
   return (
     <LessonSection
-      id="L6" num="6" tag="lesson_6_tag"
-      title="lesson_6_title"
-      subtitle="lesson_6_subtitle"
+      id="L7" num="7" tag="lesson_7_tag"
+      title="lesson_7_title"
+      subtitle="lesson_7_subtitle"
     >
       <Paragraph>
         Memorise these and you have access to almost any everyday situation. Hover any form to see

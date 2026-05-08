@@ -14,18 +14,25 @@ interface LessonSectionProps {
   tag: string;
   title: string;
   subtitle?: string;
+  /** Marks this section as the textbook's centre — header gets gold accent +
+   *  ◆ symbol. Used only by The Matrix. */
+  featured?: boolean;
   children: ReactNode;
 }
 
-export function LessonSection({ id, num, tag, title, subtitle, children }: LessonSectionProps) {
+export function LessonSection({ id, num, tag, title, subtitle, featured, children }: LessonSectionProps) {
   const { t } = useTranslation();
   return (
     <section id={id} className="mb-24 scroll-mt-20 fade-in">
-      <div className="flex items-center gap-3 mb-3 text-[var(--ink-3)]">
+      <div className={`flex items-center gap-3 mb-3 ${featured ? "text-[var(--gold)]" : "text-[var(--ink-3)]"}`}>
         <span className="font-mono text-[11px] uppercase tracking-[0.12em] font-medium">
-          {num === "★" ? "✦" : `${t("lesson_label")} ${num}`}
+          {featured
+            ? `◆ ${t("lesson_label")} ${num}`
+            : num === "★"
+              ? "✦"
+              : `${t("lesson_label")} ${num}`}
         </span>
-        <span className="w-6 h-px bg-[var(--border-2)]" />
+        <span className={`w-6 h-px ${featured ? "bg-[var(--gold)]" : "bg-[var(--border-2)]"}`} />
         <span className="font-mono text-[11px] uppercase tracking-[0.12em]">{t(tag)}</span>
       </div>
       <h2 className="font-display text-[2rem] md:text-[2.4rem] font-normal text-[var(--ink)] leading-[1.1] tracking-tight mb-3">
@@ -96,6 +103,30 @@ interface DataTableProps {
   speakableRows?: boolean;
 }
 
+/**
+ * True if this string likely contains Romanian text. Conservative — only
+ * returns true when we're confident, so we don't wrap English headers, numbers,
+ * or annotations in <RO>. Detection rules:
+ *   • Contains a Romanian-only diacritic (ăâîșțĂÂÎȘȚ), OR
+ *   • Contains a recognisable Romanian function word/cluster (cu, în, să,
+ *     pe, mai, "o să", "n-o să", "nu", "este", "sunt"), OR
+ *   • Starts with a Romanian infinitive marker ("a " followed by a verb), OR
+ *   • Has typical Romanian inflection endings (-ești, -ește, -ăm, -esc, -ează), OR
+ *   • Has a Romanian compound/imperative shape ("Du-te!", "Vino!", "S-a ...")
+ */
+function looksRomanian(s: string): boolean {
+  const trimmed = s.trim();
+  if (trimmed.length === 0) return false;
+  if (/[ăâîșțĂÂÎȘȚ]/.test(trimmed)) return true;
+  if (/\b(cu|în|să|pe|este|sunt|voi|vei|va|vom|veți|vor|aș|ai|ar|am|ați|au|nu|mai|prea)\b/.test(trimmed)) return true;
+  if (/^a\s+[a-zîâășț]+$/i.test(trimmed)) return true;
+  if (/\b\w+(ești|ește|ăm|ați|esc|ează)\b/i.test(trimmed)) return true;
+  // Imperative shapes: "Vino!", "Du-te!", "Stai!", "Sa-l văd"
+  if (/^[A-ZȘȚĂÂÎ][a-zîâășț]*[!?.](\s|$)/.test(trimmed) && trimmed.length <= 16 &&
+      /[a-zA-Z]+-[a-zA-Z]+|^Vin[oa]|^Du-te|^Stai|^Hai/.test(trimmed)) return true;
+  return false;
+}
+
 export function DataTable({ headers, rows, highlightCols = [], speakableCols = [] }: DataTableProps) {
   return (
     <div className="overflow-x-auto my-6 rounded-[var(--radius-lg)] border border-[var(--border)] bg-[var(--surface)] shadow-[var(--shadow-1)]">
@@ -120,11 +151,22 @@ export function DataTable({ headers, rows, highlightCols = [], speakableCols = [
                 const isSpeak = speakableCols.includes(j);
                 const cls = `py-3 px-4 align-top ${isHi ? "text-[var(--gold)] font-medium font-mono text-[0.9rem]" : ""}`;
                 if (typeof cell !== "string") return <td key={j} className={cls}>{cell}</td>;
+                // Explicit speakable column: existing behaviour, takes priority.
                 if (isSpeak && cell) {
                   const main = cell.split("→")[0]?.split("/")[0]?.trim() ?? cell;
                   return (
                     <td key={j} className={cls}>
                       <RO text={main} className="font-mono">{cell}</RO>
+                    </td>
+                  );
+                }
+                // Auto-detect Romanian cells in any column and wrap them.
+                if (cell && looksRomanian(cell)) {
+                  return (
+                    <td key={j} className={cls}>
+                      <RO text={cell.split("→")[0]?.split("/")[0]?.trim() ?? cell}>
+                        <span className={isHi ? "" : j === 0 ? "font-mono text-[var(--ink)]" : "text-[var(--ink-2)]"}>{cell}</span>
+                      </RO>
                     </td>
                   );
                 }

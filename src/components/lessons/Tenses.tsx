@@ -10,14 +10,14 @@ import { COGNATES } from "../../data/vocabulary";
 
 // ─── Lesson 12 — Imperfect ──────────────────────────────────────
 
-export function Lesson12() {
+export function Lesson13() {
   return (
     <LessonSection
-      id="L12" num="12" tag="lesson_12_tag"
-      title="lesson_12_title"
-      subtitle="lesson_12_subtitle"
+      id="L13" num="13" tag="lesson_13_tag"
+      title="lesson_13_title"
+      subtitle="lesson_13_subtitle"
     >
-      <SectionHeading>lesson_12_h_conjugation</SectionHeading>
+      <SectionHeading>lesson_13_h_conjugation</SectionHeading>
       <DataTable
         headers={["Pronoun", "a fi", "a avea", "a merge", "a vorbi", "a lucra"]}
         rows={[
@@ -32,32 +32,32 @@ export function Lesson12() {
         speakableCols={[1]}
       />
 
-      <InfoBox variant="blue" title="lesson_12_pattern_title">
+      <InfoBox variant="blue" title="lesson_13_pattern_title">
         <p>
           Take the verb stem and add the endings <b>-am, -ai, -a, -am, -ați, -au</b>. Works for
           almost every verb in the language.
         </p>
       </InfoBox>
 
-      <SectionHeading>lesson_12_h_compare</SectionHeading>
+      <SectionHeading>lesson_13_h_compare</SectionHeading>
       <ContrastBox columns={[
         {
           type: "yes",
-          title: "lesson_12_perfect_done",
+          title: "lesson_13_perfect_done",
           items: [
             { ro: "Am mâncat la ora 12.", en: "I ate at twelve. (done)" },
           ],
         },
         {
           type: "no",
-          title: "lesson_12_imperfect_ongoing",
+          title: "lesson_13_imperfect_ongoing",
           items: [
             { ro: "Mâncam când a sunat telefonul.", en: "I was eating when the phone rang." },
           ],
         },
       ]} />
 
-      <SectionHeading>lesson_12_h_using</SectionHeading>
+      <SectionHeading>lesson_13_h_using</SectionHeading>
       <PhraseGrid items={[
         { ro: "Când eram mic, locuiam la sat.", en: "When I was small, I lived in the village." },
         { ro: "Mergeam la școală în fiecare zi.", en: "I used to go to school every day." },
@@ -66,7 +66,7 @@ export function Lesson12() {
       ]} />
 
       <DrillBox
-        title="lesson_12_drill_title"
+        title="lesson_13_drill_title"
         examples={
           <>
             Când eram mic, <b>___</b> (a locui) la / în <b>___</b>.<br />
@@ -79,7 +79,7 @@ export function Lesson12() {
         <p>Complete these sentences about your own childhood. Read aloud, three times each.</p>
       </DrillBox>
 
-      <TestBox title="lesson_12_test_title" items={[
+      <TestBox title="lesson_13_test_title" items={[
         { question: "“I used to speak Romanian.” (eu)", answer: "Vorbeam românește." },
         { question: "“She was working when I called.”", answer: "Ea lucra când am sunat." },
         { question: "“They used to have a house in the mountains.”", answer: "Ei aveau o casă la munte." },
@@ -90,12 +90,12 @@ export function Lesson12() {
 
 // ─── Lesson 13 — Commands ───────────────────────────────────────
 
-export function Lesson13() {
+export function Lesson14() {
   return (
     <LessonSection
-      id="L13" num="13" tag="lesson_13_tag"
-      title="lesson_13_title"
-      subtitle="lesson_13_subtitle"
+      id="L14" num="14" tag="lesson_14_tag"
+      title="lesson_14_title"
+      subtitle="lesson_14_subtitle"
     >
       <DataTable
         headers={["English", "+ (tu)", "+ (voi / formal)", "− (tu)"]}
@@ -114,7 +114,7 @@ export function Lesson13() {
         speakableCols={[1, 2]}
       />
 
-      <InfoBox variant="green" title="lesson_13_polite_title">
+      <InfoBox variant="green" title="lesson_14_polite_title">
         <MonoBlock>
           <RO text="Veniți, vă rog!" en="Come in, please!" /><br />
           <RO text="Spuneți-mi, vă rog." en="Tell me, please." /><br />
@@ -122,7 +122,7 @@ export function Lesson13() {
         </MonoBlock>
       </InfoBox>
 
-      <TestBox title="lesson_13_test_title" items={[
+      <TestBox title="lesson_14_test_title" items={[
         { question: "“Come here!” (informal)", answer: "Vino aici!" },
         { question: "“Don’t go!” (informal)", answer: "Nu te duce!" },
         { question: "“Please speak slowly.” (formal)", answer: "Vorbiți încet, vă rog." },
@@ -133,14 +133,14 @@ export function Lesson13() {
 
 // ─── Lesson 14 — Subjunctive ────────────────────────────────────
 
-export function Lesson14() {
+export function Lesson15() {
   return (
     <LessonSection
-      id="L14" num="14" tag="lesson_14_tag"
-      title="lesson_14_title"
-      subtitle="lesson_14_subtitle"
+      id="L15" num="15" tag="lesson_15_tag"
+      title="lesson_15_title"
+      subtitle="lesson_15_subtitle"
     >
-      <InfoBox variant="blue" title="lesson_14_when_title">
+      <InfoBox variant="blue" title="lesson_15_when_title">
         <p>
           After: <b>vreau</b> (I want), <b>trebuie</b> (must), <b>pot</b> (I can),{" "}
           <b>o să</b> (will), <b>hai</b> (let’s), <b>sper</b> (I hope), <b>cred</b> (I think).
@@ -167,7 +167,7 @@ export function Lesson14() {
       />
 
       <DrillBox
-        title="lesson_14_drill_title"
+        title="lesson_15_drill_title"
         examples={
           <>
             <RO text="Vreau să merg acasă." en="I want to go home." /><br />
@@ -178,7 +178,7 @@ export function Lesson14() {
         }
       />
 
-      <TestBox title="lesson_14_test_title" items={[
+      <TestBox title="lesson_15_test_title" items={[
         { question: "“I want to eat something.”", answer: "Vreau să mănânc ceva." },
         { question: "“He must come tomorrow.”", answer: "Trebuie să vină mâine." },
         { question: "“Can she speak Romanian?”", answer: "Poate să vorbească românește?" },
@@ -189,14 +189,14 @@ export function Lesson14() {
 
 // ─── Lesson 15 — Conditionals ───────────────────────────────────
 
-export function Lesson15() {
+export function Lesson16() {
   return (
     <LessonSection
-      id="L15" num="15" tag="lesson_15_tag"
-      title="lesson_15_title"
-      subtitle="lesson_15_subtitle"
+      id="L16" num="16" tag="lesson_16_tag"
+      title="lesson_16_title"
+      subtitle="lesson_16_subtitle"
     >
-      <SectionHeading>lesson_15_h_conditional</SectionHeading>
+      <SectionHeading>lesson_16_h_conditional</SectionHeading>
       <DataTable
         headers={["Pronoun", "Marker", "+ a face", "+ a fi", "+ a merge"]}
         rows={[
@@ -211,8 +211,8 @@ export function Lesson15() {
         speakableCols={[2]}
       />
 
-      <SectionHeading>lesson_15_h_if</SectionHeading>
-      <InfoBox variant="neutral" title="lesson_15_if_title">
+      <SectionHeading>lesson_16_h_if</SectionHeading>
+      <InfoBox variant="neutral" title="lesson_16_if_title">
         <p style={{ marginBottom: 6 }}>
           <b>Real / likely</b> — equivalent to the English <b>1st conditional</b>{" "}
           (<i>If + present, will + verb</i>):
@@ -238,7 +238,7 @@ export function Lesson15() {
         </MonoBlock>
       </InfoBox>
 
-      <SectionHeading>lesson_15_h_reflexive</SectionHeading>
+      <SectionHeading>lesson_16_h_reflexive</SectionHeading>
       <DataTable
         headers={["Verb", "Meaning", "Example"]}
         rows={[
@@ -253,22 +253,22 @@ export function Lesson15() {
         speakableCols={[0, 2]}
       />
 
-      <InfoBox variant="blue" title="lesson_15_reflexive_pron_title">
+      <InfoBox variant="blue" title="lesson_16_reflexive_pron_title">
         <MonoBlock>
           eu <b>mă</b> &nbsp;·&nbsp; tu <b>te</b> &nbsp;·&nbsp; el / ea <b>se</b> &nbsp;·&nbsp;
           noi <b>ne</b> &nbsp;·&nbsp; voi <b>vă</b> &nbsp;·&nbsp; ei / ele <b>se</b>
         </MonoBlock>
       </InfoBox>
 
-      <SectionHeading>lesson_15_h_relative</SectionHeading>
+      <SectionHeading>lesson_16_h_relative</SectionHeading>
       <PhraseGrid items={[
         { ro: "Omul care vorbește e profesorul.", en: "The man who is speaking is the teacher." },
         { ro: "Cartea pe care o citesc e bună.", en: "The book (that) I’m reading is good." },
         { ro: "Filmul despre care vorbim.", en: "The movie we’re talking about." },
       ]} />
 
-      <SectionHeading>lesson_15_h_double_neg</SectionHeading>
-      <InfoBox variant="neutral" title="lesson_15_double_neg_title">
+      <SectionHeading>lesson_16_h_double_neg</SectionHeading>
+      <InfoBox variant="neutral" title="lesson_16_double_neg_title">
         <MonoBlock>
           <RO text="Nu vine nimeni." en="Nobody is coming." /><br />
           <RO text="Nu am nimic." en="I have nothing." /><br />
@@ -278,7 +278,7 @@ export function Lesson15() {
         </MonoBlock>
       </InfoBox>
 
-      <TestBox title="lesson_15_test_title" items={[
+      <TestBox title="lesson_16_test_title" items={[
         { question: "“If I had time, I would learn Romanian.”", answer: "Dacă aș avea timp, aș învăța românește." },
         { question: "“I wake up at 7 and I feel good.”", answer: "Mă trezesc la 7 și mă simt bine." },
         { question: "“The woman who works here is my friend.”", answer: "Femeia care lucrează aici e prietena mea." },
@@ -290,18 +290,18 @@ export function Lesson15() {
 
 // ─── Lesson 16 — Advanced ───────────────────────────────────────
 
-export function Lesson16() {
+export function Lesson17() {
   return (
     <LessonSection
-      id="L16" num="16" tag="lesson_16_tag"
-      title="lesson_16_title"
-      subtitle="lesson_16_subtitle"
+      id="L17" num="17" tag="lesson_17_tag"
+      title="lesson_17_title"
+      subtitle="lesson_17_subtitle"
     >
-      <SectionHeading>lesson_16_h_complex</SectionHeading>
+      <SectionHeading>lesson_17_h_complex</SectionHeading>
       <PhraseGrid items={COMPLEX_SENTENCES} />
 
-      <SectionHeading>lesson_16_h_mie</SectionHeading>
-      <InfoBox variant="green" title="lesson_16_mie_title">
+      <SectionHeading>lesson_17_h_mie</SectionHeading>
+      <InfoBox variant="green" title="lesson_17_mie_title">
         <MonoBlock>
           <RO text="Mi-e foame." en="I’m hungry. (lit. to me is hunger)" /><br />
           <RO text="Mi-e sete." en="I’m thirsty." /><br />
@@ -314,14 +314,14 @@ export function Lesson16() {
         </MonoBlock>
       </InfoBox>
 
-      <SectionHeading>lesson_16_h_fillers</SectionHeading>
+      <SectionHeading>lesson_17_h_fillers</SectionHeading>
       <FillerGrid items={FILLER_WORDS} />
 
-      <SectionHeading>lesson_16_h_expressions</SectionHeading>
+      <SectionHeading>lesson_17_h_expressions</SectionHeading>
       <PhraseGrid items={EXPRESSIONS} />
 
-      <SectionHeading>lesson_16_h_cognates</SectionHeading>
-      <InfoBox variant="gold" title="lesson_16_cognates_title">
+      <SectionHeading>lesson_17_h_cognates</SectionHeading>
+      <InfoBox variant="gold" title="lesson_17_cognates_title">
         <p>
           <b>-tion → -ție</b>: information → informație, situation → situație<br />
           <b>-ty → -tate</b>: university → universitate, quality → calitate<br />
@@ -336,15 +336,15 @@ export function Lesson16() {
 
 // ─── Lesson 17 — Grand review ───────────────────────────────────
 
-export function Lesson17() {
+export function Lesson18() {
   return (
     <LessonSection
-      id="L17" num="17" tag="lesson_17_tag"
-      title="lesson_17_title"
-      subtitle="lesson_17_subtitle"
+      id="L18" num="18" tag="lesson_18_tag"
+      title="lesson_18_title"
+      subtitle="lesson_18_subtitle"
     >
-      <TestBox title="lesson_17_test_title" items={GRAND_REVIEW_TESTS} />
-      <InfoBox variant="gold" title="lesson_17_next_title">
+      <TestBox title="lesson_18_test_title" items={GRAND_REVIEW_TESTS} />
+      <InfoBox variant="gold" title="lesson_18_next_title">
         <p>
           You now have the complete foundation. The most useful next step is exposure: Romanian
           YouTube, ProTV, Digi24, Romanian podcasts, native speakers. The skeleton you’ve drilled

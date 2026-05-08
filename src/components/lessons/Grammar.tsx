@@ -14,14 +14,14 @@ import {
 
 // ─── Lesson 7 — Articles ────────────────────────────────────────
 
-export function Lesson7() {
+export function Lesson8() {
   return (
     <LessonSection
-      id="L7" num="7" tag="lesson_7_tag"
-      title="lesson_7_title"
-      subtitle="lesson_7_subtitle"
+      id="L8" num="8" tag="lesson_8_tag"
+      title="lesson_8_title"
+      subtitle="lesson_8_subtitle"
     >
-      <SectionHeading>lesson_7_h_indef</SectionHeading>
+      <SectionHeading>lesson_8_h_indef</SectionHeading>
       <DataTable
         headers={["Gender", "Singular", "Plural", "Example"]}
         rows={[
@@ -33,7 +33,7 @@ export function Lesson7() {
         speakableCols={[3]}
       />
 
-      <SectionHeading>lesson_7_h_def</SectionHeading>
+      <SectionHeading>lesson_8_h_def</SectionHeading>
       <DataTable
         headers={["Gender", "Ending", "Without ‘the’", "With ‘the’"]}
         rows={[
@@ -47,14 +47,14 @@ export function Lesson7() {
         speakableCols={[3]}
       />
 
-      <InfoBox variant="blue" title="lesson_7_gender_title">
+      <InfoBox variant="blue" title="lesson_8_gender_title">
         <p>
           Consonant ending → usually masculine. <b>-ă</b> or <b>-e</b> → usually feminine.
           Neuter behaves like masculine in the singular and feminine in the plural.
         </p>
       </InfoBox>
 
-      <SectionHeading>lesson_7_h_gendat</SectionHeading>
+      <SectionHeading>lesson_8_h_gendat</SectionHeading>
       <DataTable
         headers={["Gender", "Nominative", "Gen. / dat. sg.", "Gen. / dat. pl."]}
         rows={[
@@ -70,8 +70,8 @@ export function Lesson7() {
         { ro: "Cartea profesorului.", en: "The teacher’s book." },
       ]} />
 
-      <SectionHeading>lesson_7_h_voc</SectionHeading>
-      <InfoBox variant="green" title="lesson_7_voc_title">
+      <SectionHeading>lesson_8_h_voc</SectionHeading>
+      <InfoBox variant="green" title="lesson_8_voc_title">
         <MonoBlock>
           mamă → <RO text="Mamo!" en="Mom!" /> &nbsp;·&nbsp;
           Maria → <RO text="Mario!" en="Maria!" /> &nbsp;·&nbsp;
@@ -80,7 +80,7 @@ export function Lesson7() {
         </MonoBlock>
       </InfoBox>
 
-      <SectionHeading>lesson_7_h_nouns</SectionHeading>
+      <SectionHeading>lesson_8_h_nouns</SectionHeading>
       <VocabGrid items={NOUNS_WITH_ARTICLES} />
     </LessonSection>
   );
@@ -88,14 +88,14 @@ export function Lesson7() {
 
 // ─── Lesson 8 — Adjectives ──────────────────────────────────────
 
-export function Lesson8() {
+export function Lesson9() {
   return (
     <LessonSection
-      id="L8" num="8" tag="lesson_8_tag"
-      title="lesson_8_title"
-      subtitle="lesson_8_subtitle"
+      id="L9" num="9" tag="lesson_9_tag"
+      title="lesson_9_title"
+      subtitle="lesson_9_subtitle"
     >
-      <SectionHeading>lesson_8_h_agreement</SectionHeading>
+      <SectionHeading>lesson_9_h_agreement</SectionHeading>
       <DataTable
         headers={["English", "M. sg.", "F. sg.", "M. pl.", "F. pl."]}
         rows={[
@@ -114,13 +114,13 @@ export function Lesson8() {
         speakableCols={[1]}
       />
 
-      <SectionHeading>lesson_8_h_adverbs</SectionHeading>
+      <SectionHeading>lesson_9_h_adverbs</SectionHeading>
       <VocabGrid items={ADVERBS} />
 
-      <SectionHeading>lesson_8_h_colors</SectionHeading>
+      <SectionHeading>lesson_9_h_colors</SectionHeading>
       <VocabGrid items={COLORS} />
 
-      <SectionHeading>lesson_8_h_possessives</SectionHeading>
+      <SectionHeading>lesson_9_h_possessives</SectionHeading>
       <DataTable
         headers={["English", "Before m. noun", "Before f. noun"]}
         rows={[
@@ -135,7 +135,7 @@ export function Lesson8() {
         highlightCols={[1, 2]}
         speakableCols={[1, 2]}
       />
-      <InfoBox variant="blue" title="lesson_8_word_order_title">
+      <InfoBox variant="blue" title="lesson_9_word_order_title">
         <p>
           Noun (with article) <b>+</b> possessive: <RO text="casa mea" en="my house" />,{" "}
           <RO text="fratele meu" en="my brother" />, <RO text="prietenii noștri" en="our friends" />.
@@ -147,18 +147,18 @@ export function Lesson8() {
 
 // ─── Lesson 9 — Numbers ─────────────────────────────────────────
 
-export function Lesson9() {
+export function Lesson10() {
   return (
     <LessonSection
-      id="L9" num="9" tag="lesson_9_tag"
-      title="lesson_9_title"
-      subtitle="lesson_9_subtitle"
+      id="L10" num="10" tag="lesson_10_tag"
+      title="lesson_10_title"
+      subtitle="lesson_10_subtitle"
     >
-      <SectionHeading>lesson_9_h_0_10</SectionHeading>
+      <SectionHeading>lesson_10_h_0_10</SectionHeading>
       <NumberGrid items={NUMBERS_0_10} />
 
-      <SectionHeading>lesson_9_h_11_19</SectionHeading>
-      <InfoBox variant="neutral" title="lesson_9_built_title">
+      <SectionHeading>lesson_10_h_11_19</SectionHeading>
+      <InfoBox variant="neutral" title="lesson_10_built_title">
         <p>
           11–19 literally mean “X toward ten” → number + <b>spre</b> + <b>zece</b>. Some forms
           contract: <i>paisprezece</i> (not <i>patrusprezece</i>), <i>șaisprezece</i> (not{" "}
@@ -167,7 +167,7 @@ export function Lesson9() {
       </InfoBox>
       <NumberGrid items={NUMBERS_11_19} />
 
-      <InfoBox variant="gold" title="lesson_9_twelve_title">
+      <InfoBox variant="gold" title="lesson_10_twelve_title">
         <p>
           <b><RO text="doisprezece" en="twelve (m)" /></b> is masculine; <b><RO text="douăsprezece" en="twelve (f)" /></b> is
           feminine. Use the feminine when counting feminine nouns and when telling time —{" "}
@@ -176,10 +176,10 @@ export function Lesson9() {
         </p>
       </InfoBox>
 
-      <SectionHeading>lesson_9_h_tens</SectionHeading>
+      <SectionHeading>lesson_10_h_tens</SectionHeading>
       <NumberGrid items={NUMBERS_TENS} />
 
-      <InfoBox variant="blue" title="lesson_9_combining_title">
+      <InfoBox variant="blue" title="lesson_10_combining_title">
         <MonoBlock>
           21 = <RO text="douăzeci și unu" en="twenty-one" /> &nbsp;·&nbsp;
           35 = <RO text="treizeci și cinci" en="thirty-five" /><br />
@@ -191,7 +191,7 @@ export function Lesson9() {
         </MonoBlock>
       </InfoBox>
 
-      <InfoBox variant="neutral" title="lesson_9_de_title">
+      <InfoBox variant="neutral" title="lesson_10_de_title">
         <p>After numbers <b>20 and above</b>, insert <b>de</b> before the noun:</p>
         <MonoBlock>
           <RO text="doi lei" en="two lei" /> ✓ &nbsp;(no “de”)<br />
@@ -201,7 +201,7 @@ export function Lesson9() {
         <p style={{ marginTop: 8 }}>1–19 → no “de.” &nbsp; 20+ → always “de.”</p>
       </InfoBox>
 
-      <SectionHeading>lesson_9_h_ordinals</SectionHeading>
+      <SectionHeading>lesson_10_h_ordinals</SectionHeading>
       <DataTable
         headers={["Number", "Masculine", "Feminine", "Example"]}
         rows={[
@@ -218,8 +218,8 @@ export function Lesson9() {
         speakableCols={[1, 2]}
       />
 
-      <SectionHeading>lesson_9_h_time</SectionHeading>
-      <InfoBox variant="green" title="lesson_9_time_title">
+      <SectionHeading>lesson_10_h_time</SectionHeading>
+      <InfoBox variant="green" title="lesson_10_time_title">
         <MonoBlock>
           <RO text="Cât e ceasul?" en="What time is it?" /><br />
           <RO text="E ora trei." en="It is three o’clock." /><br />
@@ -230,13 +230,13 @@ export function Lesson9() {
         </MonoBlock>
       </InfoBox>
 
-      <SectionHeading>lesson_9_h_days</SectionHeading>
+      <SectionHeading>lesson_10_h_days</SectionHeading>
       <VocabGrid items={DAYS} />
 
-      <SectionHeading>lesson_9_h_months</SectionHeading>
+      <SectionHeading>lesson_10_h_months</SectionHeading>
       <VocabGrid items={MONTHS} />
 
-      <SectionHeading>lesson_9_h_seasons</SectionHeading>
+      <SectionHeading>lesson_10_h_seasons</SectionHeading>
       <SoundGrid items={SEASONS.map((s) => ({
         symbol: s.icon,
         pronunciation: s.ro,
@@ -244,7 +244,7 @@ export function Lesson9() {
         example: "",
         exampleWord: s.ro,
       }))} />
-      <InfoBox variant="gold" title="lesson_9_seasons_title">
+      <InfoBox variant="gold" title="lesson_10_seasons_title">
         <MonoBlock>
           <RO text="în primăvară" en="in spring" /> &nbsp;·&nbsp;
           <RO text="vara trecută" en="last summer" /><br />
@@ -253,13 +253,13 @@ export function Lesson9() {
         </MonoBlock>
       </InfoBox>
 
-      <SectionHeading>lesson_9_h_time_expr</SectionHeading>
+      <SectionHeading>lesson_10_h_time_expr</SectionHeading>
       <VocabGrid items={TIME_EXPRESSIONS} />
 
-      <SectionHeading>lesson_9_h_weather</SectionHeading>
+      <SectionHeading>lesson_10_h_weather</SectionHeading>
       <PhraseGrid items={WEATHER_PHRASES} />
 
-      <TestBox title="lesson_9_test_title" items={[
+      <TestBox title="lesson_10_test_title" items={[
         { question: "Say “17” in Romanian.", answer: "șaptesprezece" },
         { question: "“It’s 3:30.”", answer: "E ora trei și jumătate." },
         { question: "“25 lei” — remember the ‘de’ rule.", answer: "douăzeci și cinci de lei" },
@@ -271,14 +271,14 @@ export function Lesson9() {
 
 // ─── Lesson 10 — Prepositions ───────────────────────────────────
 
-export function Lesson10() {
+export function Lesson11() {
   return (
     <LessonSection
-      id="L10" num="10" tag="lesson_10_tag"
-      title="lesson_10_title"
-      subtitle="lesson_10_subtitle"
+      id="L11" num="11" tag="lesson_11_tag"
+      title="lesson_11_title"
+      subtitle="lesson_11_subtitle"
     >
-      <SectionHeading>lesson_10_h_prepositions</SectionHeading>
+      <SectionHeading>lesson_11_h_prepositions</SectionHeading>
       <DataTable
         headers={["Romanian", "English", "Example"]}
         rows={[
@@ -298,11 +298,11 @@ export function Lesson10() {
         speakableCols={[0, 2]}
       />
 
-      <SectionHeading>lesson_10_h_in_vs_la</SectionHeading>
+      <SectionHeading>lesson_11_h_in_vs_la</SectionHeading>
       <ContrastBox columns={[
         {
           type: "yes",
-          title: "lesson_10_in_inside",
+          title: "lesson_11_in_inside",
           items: [
             { ro: "în București", en: "in Bucharest" },
             { ro: "în România", en: "in Romania" },
@@ -311,7 +311,7 @@ export function Lesson10() {
         },
         {
           type: "no",
-          title: "lesson_10_la_destination",
+          title: "lesson_11_la_destination",
           items: [
             { ro: "la hotel", en: "at the hotel" },
             { ro: "la birou", en: "at the office" },
@@ -320,7 +320,7 @@ export function Lesson10() {
         },
       ]} />
 
-      <SectionHeading>lesson_10_h_conjunctions</SectionHeading>
+      <SectionHeading>lesson_11_h_conjunctions</SectionHeading>
       <VocabGrid items={CONJUNCTIONS} />
     </LessonSection>
   );
@@ -328,14 +328,14 @@ export function Lesson10() {
 
 // ─── Lesson 11 — Modals ─────────────────────────────────────────
 
-export function Lesson11() {
+export function Lesson12() {
   return (
     <LessonSection
-      id="L11" num="11" tag="lesson_11_tag"
-      title="lesson_11_title"
-      subtitle="lesson_11_subtitle"
+      id="L12" num="12" tag="lesson_12_tag"
+      title="lesson_12_title"
+      subtitle="lesson_12_subtitle"
     >
-      <SectionHeading>lesson_11_h_modals</SectionHeading>
+      <SectionHeading>lesson_12_h_modals</SectionHeading>
       <DataTable
         headers={["Modal", "Meaning", "Pattern", "Example"]}
         rows={[
@@ -349,8 +349,8 @@ export function Lesson11() {
         speakableCols={[0, 3]}
       />
 
-      <SectionHeading>lesson_11_h_hai</SectionHeading>
-      <InfoBox variant="neutral" title="lesson_11_hai_title">
+      <SectionHeading>lesson_12_h_hai</SectionHeading>
+      <InfoBox variant="neutral" title="lesson_12_hai_title">
         <MonoBlock>
           <RO text="Hai să mergem!" en="Let’s go!" /> &nbsp;·&nbsp;
           <RO text="Hai să mâncăm!" en="Let’s eat!" /><br />
@@ -358,7 +358,7 @@ export function Lesson11() {
         </MonoBlock>
       </InfoBox>
 
-      <SectionHeading>lesson_11_h_comparatives</SectionHeading>
+      <SectionHeading>lesson_12_h_comparatives</SectionHeading>
       <DataTable
         headers={["Type", "Pattern", "Example"]}
         rows={[

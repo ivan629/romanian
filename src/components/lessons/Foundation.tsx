@@ -21,32 +21,32 @@ export function LessonRules() {
 
 // ─── Lesson 0 ───────────────────────────────────────────────────
 
-export function Lesson0() {
+export function Lesson2() {
   return (
     <LessonSection
-      id="L0" num="0" tag="lesson_0_tag"
-      title="lesson_0_title"
-      subtitle="lesson_0_subtitle"
+      id="L2" num="2" tag="lesson_2_tag"
+      title="lesson_2_title"
+      subtitle="lesson_2_subtitle"
     >
       <PsychBox
-        title="lesson_0_psych_title"
+        title="lesson_2_psych_title"
         questions={[
-          "lesson_0_psych_q1",
-          "lesson_0_psych_q2",
-          "lesson_0_psych_q3",
-          "lesson_0_psych_q4",
+          "lesson_2_psych_q1",
+          "lesson_2_psych_q2",
+          "lesson_2_psych_q3",
+          "lesson_2_psych_q4",
         ]}
-        footer="lesson_0_psych_footer"
+        footer="lesson_2_psych_footer"
       />
 
-      <SectionHeading>lesson_0_truths_heading</SectionHeading>
+      <SectionHeading>lesson_2_truths_heading</SectionHeading>
       <PrincipleGrid items={LIBERATING_TRUTHS} />
 
-      <InfoBox variant="gold" title="lesson_0_contract_title">
+      <InfoBox variant="gold" title="lesson_2_contract_title">
         <p>“I will speak Romanian badly, bravely, and often — starting today.” Write it down. Sign it.</p>
       </InfoBox>
 
-      <InfoBox variant="blue" title="lesson_0_why_title">
+      <InfoBox variant="blue" title="lesson_2_why_title">
         <p>The goal is a <b>fireproof foundation</b> — a structural skeleton so strong that even if you stop for months, it never fully disappears.</p>
       </InfoBox>
     </LessonSection>
@@ -74,24 +74,24 @@ const CONSONANT_COMBOS = [
   { symbol: "ghi", pronunciation: "“gi” — as in “give”", description: "", example: "ghid (guide)", exampleWord: "ghid" },
 ];
 
-export function Lesson1() {
+export function Lesson3() {
   return (
     <LessonSection
-      id="L1" num="1" tag="lesson_1_tag"
-      title="lesson_1_title"
-      subtitle="lesson_1_subtitle"
+      id="L3" num="3" tag="lesson_3_tag"
+      title="lesson_3_title"
+      subtitle="lesson_3_subtitle"
     >
-      <SectionHeading>lesson_1_h_special</SectionHeading>
+      <SectionHeading>lesson_3_h_special</SectionHeading>
       <SoundGrid items={SPECIAL_CHARS} />
 
-      <InfoBox variant="blue" title="lesson_1_avi_title">
+      <InfoBox variant="blue" title="lesson_3_avi_title">
         <p><b>â</b> appears <i>inside</i> a word (<RO text="România" en="Romania" />). <b>î</b> appears at the <i>start or end</i> of a word (<RO text="în" en="in" />). They sound <b>exactly the same</b>.</p>
       </InfoBox>
 
-      <SectionHeading>lesson_1_h_combos</SectionHeading>
+      <SectionHeading>lesson_3_h_combos</SectionHeading>
       <SoundGrid items={CONSONANT_COMBOS} />
 
-      <SectionHeading>lesson_1_h_vowels</SectionHeading>
+      <SectionHeading>lesson_3_h_vowels</SectionHeading>
       <DataTable
         headers={["Letter", "Sound", "Like English", "Example"]}
         rows={[
@@ -104,18 +104,18 @@ export function Lesson1() {
         speakableCols={[3]}
       />
 
-      <InfoBox variant="gold" title="lesson_1_stress_title">
+      <InfoBox variant="gold" title="lesson_3_stress_title">
         <p>Generally on the <b>second-to-last syllable</b> (about 80% of words). Unlike French, <b>every letter is pronounced</b>.</p>
       </InfoBox>
 
-      <InfoBox variant="neutral" title="lesson_1_exceptions_title">
+      <InfoBox variant="neutral" title="lesson_3_exceptions_title">
         <MonoBlock>
           <RO text="copil" en="child" /> · <RO text="băiat" en="boy" /> · <RO text="cafea" en="coffee" /><br />
           <RO text="casă" en="house" /> · <RO text="fată" en="girl" /> · <RO text="masă" en="table" />
         </MonoBlock>
       </InfoBox>
 
-      <DrillBox title="lesson_1_drill_title" examples={
+      <DrillBox title="lesson_3_drill_title" examples={
         <>
           <RO text="mulțumesc" en="thank you" /> · <RO text="bună ziua" en="good day" /> · <RO text="vă rog" en="please" /><br />
           <RO text="da" en="yes" /> / <RO text="nu" en="no" /> · <RO text="România" en="Romania" /> · <RO text="București" en="Bucharest" />
@@ -140,14 +140,14 @@ const QUESTION_WORDS = [
   { symbol: "al cui?", pronunciation: "whose?", description: "", example: "Al cui este?", exampleWord: "Al cui este?" },
 ];
 
-export function Lesson2() {
+export function Lesson4() {
   return (
     <LessonSection
-      id="L2" num="2" tag="lesson_2_tag"
-      title="lesson_2_title"
-      subtitle="lesson_2_subtitle"
+      id="L4" num="4" tag="lesson_4_tag"
+      title="lesson_4_title"
+      subtitle="lesson_4_subtitle"
     >
-      <SectionHeading>lesson_2_h_subject</SectionHeading>
+      <SectionHeading>lesson_4_h_subject</SectionHeading>
       <DataTable
         headers={["Romanian", "English", "Tip"]}
         rows={[
@@ -161,12 +161,12 @@ export function Lesson2() {
         speakableCols={[0]}
       />
 
-      <InfoBox variant="blue" title="lesson_2_formal_title">
+      <InfoBox variant="blue" title="lesson_4_formal_title">
         <p>Use <b><RO text="dumneavoastră" en="you (formal)" /></b> with strangers, older people, officials. It takes <b>voi</b> verb forms. Romanian formality is strict.</p>
         <MonoBlock><RO text="Dumneavoastră vorbiți românește?" en="Do you (formal) speak Romanian?" /></MonoBlock>
       </InfoBox>
 
-      <SectionHeading>lesson_2_h_object</SectionHeading>
+      <SectionHeading>lesson_4_h_object</SectionHeading>
       <DataTable
         headers={["Subject", "Direct object", "Indirect object", "After preposition"]}
         rows={[
@@ -180,8 +180,8 @@ export function Lesson2() {
         ]}
       />
 
-      <SectionHeading>lesson_2_h_pe</SectionHeading>
-      <InfoBox variant="neutral" title="lesson_2_pe_title">
+      <SectionHeading>lesson_4_h_pe</SectionHeading>
+      <InfoBox variant="neutral" title="lesson_4_pe_title">
         <MonoBlock>
           <RO text="Îl văd pe Mihai." en="I see Mihai." /> ✓<br />
           <RO text="Văd mașina." en="I see the car." /> &nbsp;(no “pe” — it’s a thing)<br />
@@ -190,7 +190,7 @@ export function Lesson2() {
         <p style={{ marginTop: 8 }}>Person → use “pe.” Thing → no “pe.”</p>
       </InfoBox>
 
-      <SectionHeading>lesson_2_h_demo</SectionHeading>
+      <SectionHeading>lesson_4_h_demo</SectionHeading>
       <DataTable
         headers={["English", "Formal", "Spoken", "Example"]}
         rows={[
@@ -205,15 +205,15 @@ export function Lesson2() {
         ]}
         speakableCols={[2, 3]}
       />
-      <InfoBox variant="gold" title="lesson_2_demo_title">
+      <InfoBox variant="gold" title="lesson_4_demo_title">
         <p>Nobody says “această” in conversation. Use <b>ăsta / asta / ăla / aia</b>.</p>
       </InfoBox>
 
-      <SectionHeading>lesson_2_h_qwords</SectionHeading>
+      <SectionHeading>lesson_4_h_qwords</SectionHeading>
       <SoundGrid items={QUESTION_WORDS} />
 
-      <SectionHeading>lesson_2_h_survival</SectionHeading>
-      <InfoBox variant="green" title="lesson_2_dontunderstand_title">
+      <SectionHeading>lesson_4_h_survival</SectionHeading>
+      <InfoBox variant="green" title="lesson_4_dontunderstand_title">
         <MonoBlock>
           <RO text="Nu înțeleg." en="I don’t understand." /><br />
           <RO text="Puteți repeta, vă rog?" en="Can you repeat, please?" /><br />
@@ -223,8 +223,8 @@ export function Lesson2() {
         </MonoBlock>
       </InfoBox>
 
-      <SectionHeading>lesson_2_h_greetings</SectionHeading>
-      <InfoBox variant="gold" title="lesson_2_greetings_title">
+      <SectionHeading>lesson_4_h_greetings</SectionHeading>
+      <InfoBox variant="gold" title="lesson_4_greetings_title">
         <p>
           Among friends, family, colleagues, or people of similar age, Romanian uses two informal
           greetings — and which one you pick depends on the genders of the people involved:
@@ -239,7 +239,7 @@ export function Lesson2() {
         </p>
       </InfoBox>
 
-      <TestBox title="lesson_2_test_title" items={[
+      <TestBox title="lesson_4_test_title" items={[
         { question: "“What is your name?” (informal)", answer: "Cum te cheamă?" },
         { question: "“I see Maria.” (don’t forget pe!)", answer: "O văd pe Maria." },
         { question: "“Can you repeat, please?”", answer: "Puteți repeta, vă rog?" },

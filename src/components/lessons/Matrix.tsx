@@ -3,28 +3,28 @@ import {
   PrincipleGrid, DataTable, MonoBlock,
 } from "../ui";
 import { RO } from "../RO";
-import { Matrix } from "../Matrix";
+import { UniversalMatrix } from "../UniversalMatrix";
 import { KEY_PATTERNS } from "../../data/schedule";
-import { MATRIX_VORBI_EU, MATRIX_LUCRA_FULL, MATRIX_FACE_FULL } from "../../data/matrices";
 
-export function Lesson3() {
+export function Lesson1() {
   return (
     <LessonSection
-      id="L3" num="3" tag="lesson_3_tag"
-      title="lesson_3_title"
-      subtitle="lesson_3_subtitle"
+      id="L1" num="1" tag="lesson_1_tag"
+      title="lesson_1_title"
+      subtitle="lesson_1_subtitle"
+      featured
     >
-      <InfoBox variant="green" title="lesson_3_dont_panic_title">
+      <InfoBox variant="green" title="lesson_1_dont_panic_title">
         <p>
           Start with just the <b>“eu” (I)</b> row. Once that feels natural, add <b>tu</b> and <b>el / ea</b>.
           Aim for <b>speed</b>, not perfection.
         </p>
       </InfoBox>
 
-      <SectionHeading>lesson_3_h_patterns</SectionHeading>
+      <SectionHeading>lesson_1_h_patterns</SectionHeading>
       <PrincipleGrid items={KEY_PATTERNS} />
 
-      <InfoBox variant="blue" title="lesson_3_three_tenses_title">
+      <InfoBox variant="blue" title="lesson_1_three_tenses_title">
         <p>
           <b>Future (colloquial)</b> = <RO text="o să" en="will" /> + subjunctive verb. &nbsp;
           <b>Present</b> = the conjugated verb. &nbsp;
@@ -37,11 +37,9 @@ export function Lesson3() {
         </p>
       </InfoBox>
 
-      <Matrix data={MATRIX_VORBI_EU} />
-      <Matrix data={MATRIX_LUCRA_FULL} />
-      <Matrix data={MATRIX_FACE_FULL} />
+      <UniversalMatrix defaultVerb="a vorbi" />
 
-      <SectionHeading>lesson_3_h_formal_future</SectionHeading>
+      <SectionHeading>lesson_1_h_formal_future</SectionHeading>
       <DataTable
         headers={["Pronoun", "Marker", "a face", "a merge", "a vorbi"]}
         rows={[
@@ -55,8 +53,8 @@ export function Lesson3() {
         highlightCols={[1]}
       />
 
-      <SectionHeading>lesson_3_h_word_order</SectionHeading>
-      <InfoBox variant="neutral" title="lesson_3_word_order_title">
+      <SectionHeading>lesson_1_h_word_order</SectionHeading>
+      <InfoBox variant="neutral" title="lesson_1_word_order_title">
         <MonoBlock>
           <RO text="Eu merg la școală." en="I go to school. (neutral)" /><br />
           <RO text="La școală merg eu." en="It’s ME who goes to school. (emphasis)" /><br />
@@ -67,8 +65,8 @@ export function Lesson3() {
         </p>
       </InfoBox>
 
-      <SectionHeading>lesson_3_h_contracted</SectionHeading>
-      <InfoBox variant="neutral" title="lesson_3_contracted_title">
+      <SectionHeading>lesson_1_h_contracted</SectionHeading>
+      <InfoBox variant="neutral" title="lesson_1_contracted_title">
         <p style={{ marginBottom: 6 }}><b>Negation + auxiliary</b> — the most frequent contractions:</p>
         <MonoBlock>
           nu am → <RO text="n-am" en="I don’t have" /> &nbsp;·&nbsp;
@@ -118,7 +116,7 @@ export function Lesson3() {
       </InfoBox>
 
       <DrillBox
-        title="lesson_3_drill_title"
+        title="lesson_1_drill_title"
         examples={
           <>
             <b>a vorbi:</b> &nbsp;
