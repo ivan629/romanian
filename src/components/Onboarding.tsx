@@ -1,41 +1,49 @@
 import { useCallback, useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { useTTS } from "../lib/tts";
-import { pronounce } from "../lib/pronounce";
-import { ONBOARDING_COGNATES } from "../data/cognates";
+import { useTargetLanguage } from "../context/TargetLanguage";
+import { tryGetActiveLanguage } from "../lib/active-language";
 import { RO } from "./RO";
 
 /**
- * Five-minute first-contact flow.
+ * Five-minute first-contact flow, run once per (browser × language).
  *
- * Goal: get the user to speak a Romanian sentence aloud within 5 minutes of
- * arrival. Research finding (Duolingo's own A/B testing): time-to-first-success
- * in onboarding is the strongest predictor of week-2 retention.
+ * Goal: get the user to speak a sentence in the target language aloud
+ * within five minutes of arrival. Time-to-first-success is one of the
+ * strongest predictors of week-2 retention in language apps.
  *
- * The five steps are calibrated to take roughly one minute each:
- *
- *   1. Hook         — promise + cognate spotlight: "you already understand"
- *   2. Cognates     — listen-and-recognise reel (instant comprehension win)
- *   3. First verb   — `eu vorbesc` introduced with audio
+ * The five steps each take roughly one minute:
+ *   1. Hook         — "you already understand more than you think"
+ *   2. Cognates     — listen-and-recognise reel (24 free words)
+ *   3. First verb   — the canonical first verb in 3 tenses
  *   4. First cell   — user speaks a sentence aloud, hears it back
- *   5. Reveal       — show the textbook system; offer the start
+ *   5. Reveal       — show the matrix system; offer the start
  *
- * Triggered once per browser via a single localStorage flag. The full
- * textbook material loads in the background; this is purely an entry rite.
+ * UI chrome is fully translated via i18next. Per-language content
+ * (cognates, first verb, first sentence) comes from the active
+ * language module's `onboarding` field.
+ *
+ * The seen-flag is per-language so a user who switches target languages
+ * later goes through onboarding for the new language too.
  */
 
-const SEEN_KEY = "ro-study-onboarding-seen";
+const SEEN_KEY_PREFIX = "study-onboarded:";
 
-function hasSeenOnboarding(): boolean {
+function seenKeyFor(code: string): string {
+  return `${SEEN_KEY_PREFIX}${code}`;
+}
+
+function hasSeenOnboarding(code: string): boolean {
   try {
-    return localStorage.getItem(SEEN_KEY) === "1";
+    return localStorage.getItem(seenKeyFor(code)) === "1";
   } catch {
     return false;
   }
 }
 
-function markOnboardingSeen(): void {
+function markOnboardingSeen(code: string): void {
   try {
-    localStorage.setItem(SEEN_KEY, "1");
+    localStorage.setItem(seenKeyFor(code), "1");
   } catch {
     /* private browsing / quota — degrade silently */
   }
@@ -49,6 +57,9 @@ interface OnboardingProps {
 type Step = 1 | 2 | 3 | 4 | 5;
 
 export function Onboarding({ onComplete }: OnboardingProps) {
+  const { t } = useTranslation();
+  const { module } = useTargetLanguage();
+  const { onboarding } = module;
   const [step, setStep] = useState<Step>(1);
   const [step4Revealed, setStep4Revealed] = useState(false);
   const speak = useTTS();
@@ -58,17 +69,17 @@ export function Onboarding({ onComplete }: OnboardingProps) {
   }, []);
 
   const finish = useCallback(() => {
-    markOnboardingSeen();
+    markOnboardingSeen(module.code);
     onComplete();
-  }, [onComplete]);
+  }, [onComplete, module.code]);
 
   const revealStep4 = useCallback(() => {
     setStep4Revealed(true);
-    window.setTimeout(() => speak("Eu vorbesc."), 200);
-  }, [speak]);
+    window.setTimeout(() => speak(onboarding.firstSentence.text), 200);
+  }, [speak, onboarding.firstSentence.text]);
 
   // Keyboard: Space/Enter advance, Esc skip. Step 4 has a two-stage
-  // interaction — first reveal the answer, then advance.
+  // interaction — first reveal, then advance.
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
       if (e.code === "Space" || e.code === "Enter") {
@@ -99,13 +110,14 @@ export function Onboarding({ onComplete }: OnboardingProps) {
       <div className="min-h-full flex flex-col">
         <header className="flex items-center justify-between px-6 md:px-12 py-5 border-b border-[var(--border)]">
           <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-[var(--ink-3)]">
-            5 minutes to your first sentence
+            {t("onboarding_minutes_label")}
           </span>
           <button
+            type="button"
             onClick={finish}
             className="font-mono text-[11px] uppercase tracking-[0.12em] text-[var(--ink-4)] hover:text-[var(--ink-2)] transition-colors"
           >
-            Skip
+            {t("onboarding_skip")}
           </button>
         </header>
 
@@ -133,9 +145,28 @@ export function Onboarding({ onComplete }: OnboardingProps) {
   );
 }
 
-/** Hook for App.tsx — returns whether onboarding should be shown right now. */
+/**
+ * Hook for App.tsx — returns whether onboarding should be shown right now,
+ * scoped to the active learning language. The dismiss callback marks the
+ * seen flag for that language and hides the overlay.
+ */
 export function useShouldShowOnboarding(): [boolean, () => void] {
-  const [show, setShow] = useState<boolean>(() => !hasSeenOnboarding());
+  const lang = tryGetActiveLanguage();
+  const code = lang?.code ?? "";
+  const [show, setShow] = useState<boolean>(() =>
+    code ? !hasSeenOnboarding(code) : false
+  );
+
+  // If the active language changes (user switches target) and the new
+  // language hasn't been onboarded yet, re-show onboarding.
+  useEffect(() => {
+    if (!code) {
+      setShow(false);
+      return;
+    }
+    setShow(!hasSeenOnboarding(code));
+  }, [code]);
+
   const dismiss = useCallback(() => setShow(false), []);
   return [show, dismiss];
 }
@@ -143,66 +174,68 @@ export function useShouldShowOnboarding(): [boolean, () => void] {
 // ─── Steps ──────────────────────────────────────────────────────
 
 function StepHook({ onNext }: { onNext: () => void }) {
+  const { t } = useTranslation();
   return (
     <div className="text-center fade-in">
       <div className="font-mono text-[11px] uppercase tracking-[0.14em] text-[var(--gold)] mb-4">
-        Step 1 of 5
+        {t("onboarding_step1_kicker")}
       </div>
       <h1 className="font-display text-[2.4rem] md:text-[3.2rem] text-[var(--ink)] tracking-tight leading-[1.05] mb-6">
-        You already understand more Romanian than you think.
+        {t("onboarding_step1_title")}
       </h1>
       <p className="text-[var(--ink-2)] text-[1.05rem] leading-[1.65] max-w-[520px] mx-auto mb-8">
-        Five minutes from now, you will have spoken a real Romanian sentence aloud —
-        in the past, present, or future, your choice.
+        {t("onboarding_step1_body")}
       </p>
       <p className="text-[var(--ink-3)] text-[0.95rem] italic mb-10 max-w-[480px] mx-auto">
-        No grammar lecture. No vocabulary list. Just the structural skeleton — three tenses,
-        three forms, any verb. Master that and you can already say almost anything.
+        {t("onboarding_step1_aside")}
       </p>
       <button
+        type="button"
         onClick={onNext}
         className="font-mono text-[12px] uppercase tracking-[0.14em] py-3 px-7 bg-[var(--ink)] text-[var(--surface)] rounded-[var(--radius)] hover:opacity-90 transition-opacity"
       >
-        Show me · Space
+        {t("onboarding_step1_cta")}
       </button>
     </div>
   );
 }
 
 function StepCognates({ onNext }: { onNext: () => void }) {
+  const { t } = useTranslation();
+  const { module } = useTargetLanguage();
   return (
     <div className="fade-in">
       <div className="font-mono text-[11px] uppercase tracking-[0.14em] text-[var(--gold)] mb-3 text-center">
-        Step 2 of 5 · Free vocabulary
+        {t("onboarding_step2_kicker")}
       </div>
       <h2 className="font-display text-[2rem] md:text-[2.4rem] text-[var(--ink)] tracking-tight leading-[1.1] mb-3 text-center">
-        Tap each one. Listen. Notice.
+        {t("onboarding_step2_title")}
       </h2>
       <p className="text-[var(--ink-3)] text-[0.95rem] mb-8 text-center max-w-[480px] mx-auto">
-        Romanian is a Romance language. Thousands of words are nearly identical to English.
-        You just stole twenty-four of them, free.
+        {t("onboarding_step2_subtitle")}
       </p>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-2 mb-10">
-        {ONBOARDING_COGNATES.map((c) => (
+        {module.onboarding.cognates.map((c) => (
           <div
-            key={c.ro}
+            key={c.text}
             className="border border-[var(--border)] rounded-[var(--radius)] py-3 px-3 hover:bg-[var(--surface-2)] transition-colors text-center"
           >
             <div className="font-display text-[1.05rem] text-[var(--ink)]">
-              <RO text={c.ro} en={c.en} />
+              <RO text={c.text} en={c.en} />
             </div>
             <div className="font-mono text-[10px] text-[var(--ink-4)] uppercase tracking-[0.1em] mt-1">
-              {c.en}
+              {t(c.en)}
             </div>
           </div>
         ))}
       </div>
       <div className="text-center">
         <button
+          type="button"
           onClick={onNext}
           className="font-mono text-[12px] uppercase tracking-[0.14em] py-3 px-7 bg-[var(--ink)] text-[var(--surface)] rounded-[var(--radius)] hover:opacity-90 transition-opacity"
         >
-          Continue · Space
+          {t("onboarding_step2_cta")}
         </button>
       </div>
     </div>
@@ -210,39 +243,41 @@ function StepCognates({ onNext }: { onNext: () => void }) {
 }
 
 function StepFirstVerb({ onNext }: { onNext: () => void }) {
+  const { t } = useTranslation();
+  const { module } = useTargetLanguage();
+  const { firstVerb } = module.onboarding;
+
   return (
     <div className="fade-in text-center">
       <div className="font-mono text-[11px] uppercase tracking-[0.14em] text-[var(--gold)] mb-3">
-        Step 3 of 5 · Your first verb
+        {t("onboarding_step3_kicker")}
       </div>
       <h2 className="font-display text-[2rem] md:text-[2.4rem] text-[var(--ink)] tracking-tight leading-[1.1] mb-8">
-        One verb. Three tenses. Already a system.
+        {t("onboarding_step3_title")}
       </h2>
 
       <div className="bg-[var(--surface)] border border-[var(--border)] rounded-[var(--radius-lg)] py-8 px-6 my-6 shadow-[var(--shadow-1)]">
-        <div className="font-display text-[1.6rem] text-[var(--ink)] mb-1">a vorbi</div>
+        <div className="font-display text-[1.6rem] text-[var(--ink)] mb-1">
+          <RO text={firstVerb.infinitive} en={firstVerb.meaning} />
+        </div>
         <div className="font-mono text-[11px] uppercase tracking-[0.12em] text-[var(--ink-3)] mb-8">
-          to speak
+          {t(firstVerb.meaning)}
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3 max-w-[520px] mx-auto">
-          {[
-            { ro: "Eu o să vorbesc.", en: "I will speak.", label: "Future"  },
-            { ro: "Eu vorbesc.",       en: "I speak.",      label: "Present" },
-            { ro: "Eu am vorbit.",     en: "I spoke.",      label: "Past"    },
-          ].map((row) => (
+          {firstVerb.forms.map((row) => (
             <div
-              key={row.ro}
+              key={row.text}
               className="border border-[var(--border)] rounded-[var(--radius)] py-4 px-3 hover:bg-[var(--surface-2)] transition-colors"
             >
               <div className="font-mono text-[10px] uppercase tracking-[0.12em] text-[var(--ink-4)] mb-2">
-                {row.label}
+                {t(`onboarding_tense_${row.tenseLabel}`)}
               </div>
               <div className="font-display text-[1.05rem] text-[var(--ink)]">
-                <RO text={row.ro} en={row.en} />
+                <RO text={row.text} en={row.en} />
               </div>
               <div className="font-mono text-[0.8rem] text-[var(--ink-3)] mt-2">
-                {pronounce(row.ro)}
+                {module.pronounce(row.text)}
               </div>
             </div>
           ))}
@@ -250,15 +285,15 @@ function StepFirstVerb({ onNext }: { onNext: () => void }) {
       </div>
 
       <p className="text-[var(--ink-3)] text-[0.92rem] italic mb-6 max-w-[480px] mx-auto">
-        Notice the pattern. <b>O să</b> for future, the verb alone for present,
-        <b> am</b> + participle for past. That's the entire system.
+        {t("onboarding_step3_aside")}
       </p>
 
       <button
+        type="button"
         onClick={onNext}
         className="font-mono text-[12px] uppercase tracking-[0.14em] py-3 px-7 bg-[var(--ink)] text-[var(--surface)] rounded-[var(--radius)] hover:opacity-90 transition-opacity"
       >
-        Now you · Space
+        {t("onboarding_step3_cta")}
       </button>
     </div>
   );
@@ -271,34 +306,38 @@ function StepFirstCell({
   revealed: boolean;
   onReveal: () => void;
 }) {
-  const target = "Eu vorbesc.";
+  const { t } = useTranslation();
+  const { module } = useTargetLanguage();
+  const { firstSentence } = module.onboarding;
+
   return (
     <div className="fade-in text-center">
       <div className="font-mono text-[11px] uppercase tracking-[0.14em] text-[var(--gold)] mb-3">
-        Step 4 of 5 · Your first sentence
+        {t("onboarding_step4_kicker")}
       </div>
       <h2 className="font-display text-[2rem] md:text-[2.4rem] text-[var(--ink)] tracking-tight leading-[1.1] mb-3">
-        Say it aloud.
+        {t("onboarding_step4_title")}
       </h2>
       <p className="text-[var(--ink-3)] text-[0.95rem] mb-8 max-w-[440px] mx-auto">
-        How would you say <i>"I speak."</i> in Romanian — present tense, eu form?
+        {t("onboarding_step4_prompt", { en: t(firstSentence.en) })}
       </p>
 
       <div className="my-10">
         {!revealed ? (
           <button
+            type="button"
             onClick={onReveal}
             className="font-mono text-[12px] uppercase tracking-[0.14em] py-4 px-9 bg-[var(--ink)] text-[var(--surface)] rounded-[var(--radius)] hover:opacity-90 transition-opacity"
           >
-            I said it · reveal
+            {t("onboarding_step4_reveal")}
           </button>
         ) : (
           <div className="fade-in">
             <div className="font-display text-[2.4rem] text-[var(--affirm)] tracking-tight mb-2">
-              <RO text={target} en="I speak." />
+              <RO text={firstSentence.text} en={firstSentence.en} />
             </div>
             <div className="font-mono text-[0.92rem] text-[var(--ink-3)] mb-3">
-              {pronounce(target)}
+              {module.pronounce(firstSentence.text)}
             </div>
           </div>
         )}
@@ -306,10 +345,11 @@ function StepFirstCell({
 
       {revealed && (
         <button
+          type="button"
           onClick={onNext}
           className="font-mono text-[12px] uppercase tracking-[0.14em] py-3 px-7 bg-[var(--ink)] text-[var(--surface)] rounded-[var(--radius)] hover:opacity-90 transition-opacity fade-in"
         >
-          Yes — what's next? · Space
+          {t("onboarding_step4_cta")}
         </button>
       )}
     </div>
@@ -317,41 +357,46 @@ function StepFirstCell({
 }
 
 function StepReveal({ onComplete }: { onComplete: () => void }) {
+  const { t } = useTranslation();
   return (
     <div className="fade-in text-center">
       <div className="font-mono text-[11px] uppercase tracking-[0.14em] text-[var(--gold)] mb-3">
-        Step 5 of 5 · The system
+        {t("onboarding_step5_kicker")}
       </div>
       <h2 className="font-display text-[2.2rem] md:text-[2.8rem] text-[var(--ink)] tracking-tight leading-[1.05] mb-6">
-        You just generated a Romanian sentence.
+        {t("onboarding_step5_title")}
       </h2>
       <p className="text-[var(--ink-2)] text-[1.05rem] leading-[1.65] max-w-[520px] mx-auto mb-3">
-        Three tenses. Three forms. Six subjects. Any verb.
+        {t("onboarding_step5_body")}
       </p>
       <p className="text-[var(--ink-3)] text-[0.95rem] mb-10 max-w-[480px] mx-auto">
-        The textbook ahead of you teaches the system. Lesson 1 — The Matrix — is the
-        place to look first. Five minutes a day for thirty days. By Day 30 you can
-        ask, state, or deny anything in past, present, or future.
+        {t("onboarding_step5_aside")}
       </p>
 
       <div className="grid grid-cols-3 gap-2 max-w-[440px] mx-auto mb-10 text-[0.85rem] font-mono">
         {(["Future", "Present", "Past"] as const).map((tense) => (
-          <div key={tense} className="border border-[var(--border)] rounded-[var(--radius)] py-3 px-2 bg-[var(--surface-2)]">
-            <div className="text-[var(--ink-4)] text-[10px] uppercase tracking-[0.12em] mb-2">{tense}</div>
+          <div
+            key={tense}
+            className="border border-[var(--border)] rounded-[var(--radius)] py-3 px-2 bg-[var(--surface-2)]"
+          >
+            <div className="text-[var(--ink-4)] text-[10px] uppercase tracking-[0.12em] mb-2">
+              {t(`onboarding_tense_${tense}`)}
+            </div>
             <div className="space-y-1 text-[var(--ink-2)] text-[0.78rem]">
-              <div className="text-[var(--question)]">? question</div>
-              <div className="text-[var(--affirm)]">+ statement</div>
-              <div className="text-[var(--neg)]">− negation</div>
+              <div className="text-[var(--question)]">{t("onboarding_step5_grid_question")}</div>
+              <div className="text-[var(--affirm)]">{t("onboarding_step5_grid_statement")}</div>
+              <div className="text-[var(--neg)]">{t("onboarding_step5_grid_negation")}</div>
             </div>
           </div>
         ))}
       </div>
 
       <button
+        type="button"
         onClick={onComplete}
         className="font-mono text-[12px] uppercase tracking-[0.14em] py-4 px-9 bg-[var(--ink)] text-[var(--surface)] rounded-[var(--radius)] hover:opacity-90 transition-opacity"
       >
-        Open the textbook · Space
+        {t("onboarding_step5_cta")}
       </button>
     </div>
   );
@@ -366,7 +411,11 @@ function StepDots({ current }: { current: Step }) {
         <div
           key={n}
           className={`h-[2px] transition-all duration-300 ${
-            n === current ? "w-8 bg-[var(--ink)]" : n < current ? "w-3 bg-[var(--ink-3)]" : "w-3 bg-[var(--border)]"
+            n === current
+              ? "w-8 bg-[var(--ink)]"
+              : n < current
+                ? "w-3 bg-[var(--ink-3)]"
+                : "w-3 bg-[var(--border)]"
           }`}
         />
       ))}
